@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator">
+		<header/>
+		<body>
+			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
+				<target>Anrechenbares Einkommen</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.minimal_income">
+				<target>Minimales Einkommen</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.maximal_income">
+				<target>Maximales Einkommen</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.discount_in_percent">
+				<target>Ermäßigung in Prozent</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_step">
+				<target>Anzahl zu betreuende Kinder</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_step.name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_step.discount_in_percent">
+				<target>Ermäßigung in Prozent</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search">
+				<target>Suche</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+				<target>Alter des Kindes</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
+				<target>Anzahl der gewünschten Betreuungsstunden pro Woche</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+				<target>Anrechenbares Einkommen</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.step">
+				<target>Anzahl zu betreuende Kinder</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator">
+		<header/>
+		<body>
+			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
+				<source>Chargeable Income</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.minimal_income">
+				<source>Minimal Income</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.maximal_income">
+				<source>Maximal Income</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.discount_in_percent">
+				<source>Discount In Percent</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_step">
+				<source>Step</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_step.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_step.discount_in_percent">
+				<source>Discount In Percent</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+				<source>Child Age</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
+				<source>Hours Of Childcare</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+				<source>Chargeable Income</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.step">
+				<source>Step</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator">
+		<header/>
+		<body>
+			<trans-unit id="minimal_income.description">
+				<source>e.g. 2000</source>
+			</trans-unit>
+			<trans-unit id="maximal_income.description">
+				<source>e.g. 4000</source>
+			</trans-unit>
+			<trans-unit id="discount_in_percent.description">
+				<source>The discount for this chargeable income</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

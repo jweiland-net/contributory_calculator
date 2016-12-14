@@ -1,0 +1,44 @@
+plugin.tx_contributorycalculator_contributorycalculator {
+	view {
+		templateRootPath = {$plugin.tx_contributorycalculator_contributorycalculator.view.templateRootPath}
+		partialRootPath = {$plugin.tx_contributorycalculator_contributorycalculator.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_contributorycalculator_contributorycalculator.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_contributorycalculator_contributorycalculator.persistence.storagePid}
+	}
+}
+
+plugin.tx_contributorycalculator._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-contributory-calculator table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-contributory-calculator table th {
+		font-weight:bold;
+	}
+
+	.tx-contributory-calculator table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)

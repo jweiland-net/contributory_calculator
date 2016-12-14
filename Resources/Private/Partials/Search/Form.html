@@ -1,0 +1,38 @@
+<f:form id="contributoryCalculator" action="result" object="{search}" objectName="search">
+	<div>
+		<label for="childAgeForm">
+			<f:translate key="tx_contributorycalculator_domain_model_search.child_age"/>
+		</label>
+		<div id="childAgeForm">
+			<f:form.radio property="childAge" name="childAge" id="childAge_1" value="1"/>
+			<label for="childAge_1">
+				<f:translate key="childAge.1"/>
+			</label>
+			<f:form.radio property="childAge" name="childAge" id="childAge_2" value="2"/>
+			<label for="childAge_2">
+				<f:translate key="childAge.2"/>
+			</label>
+		</div>
+	</div>
+	<div>
+		<label for="hoursOfChildcare">
+			<f:translate key="tx_contributorycalculator_domain_model_search.hours_of_childcare"/>
+		</label>
+		<f:form.textfield id="hoursOfChildCare" type="number" property="hoursOfChildcare"
+											additionalAttributes="{max: maximalHoursOfChildCare}"/>
+	</div>
+	<div>
+		<label for="step">
+			<f:translate key="tx_contributorycalculator_domain_model_step"/>
+		</label>
+		<f:form.select id="step" property="step" options="{steps}" optionLabelField="name"/>
+	</div>
+	<div>
+		<label for="chargeableIncome">
+			<f:translate key="tx_contributorycalculator_domain_model_search.chargeable_income"/>
+		</label>
+		<f:form.select id="chargeableIncome" property="chargeableIncome" options="{chargeableIncomeTypes}"
+									 optionLabelField="label"/>
+	</div>
+	<f:form.submit value="{f:translate(key: 'calculate', extensionName: 'contributory_calculator')}"/>
+</f:form>
