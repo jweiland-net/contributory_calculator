@@ -7,7 +7,7 @@
 				<target>z.B. 2000</target>
 			</trans-unit>
 			<trans-unit id="maximal_income.description">
-				<target>z.B. 4000</target>
+				<target>z.B. 4000 oder 0 für unbegrenzt</target>
 			</trans-unit>
 			<trans-unit id="discount_in_percent.description">
 				<target>Ermäßigung für dieses Einkommen</target>

@@ -51,6 +51,9 @@
 			<trans-unit id="result">
 				<source>Result</source>
 			</trans-unit>
+			<trans-unit id="month">
+				<source>Month</source>
+			</trans-unit>
 			<trans-unit id="chargeableIncome.about">
 				<source>about</source>
 			</trans-unit>

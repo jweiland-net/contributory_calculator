@@ -117,10 +117,10 @@ class ChargeableIncome extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getLabel()
     {
-        if ($this->getMaximalIncome() === -1) {
+        if ($this->getMaximalIncome() === 0 && $this->getMinimalIncome() !== 0) {
             return $this->translate('chargeableIncome.about') . ' ' .
             $this->getMinimalIncome() . $this->translate('currency');
-        } elseif ($this->getMinimalIncome() === 0) {
+        } elseif ($this->getMinimalIncome() === 0 && $this->getMaximalIncome() !== 0) {
             return $this->translate('chargeableIncome.until') . ' ' .
             $this->getMaximalIncome() . $this->translate('currency');
         } else {

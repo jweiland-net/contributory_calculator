@@ -201,8 +201,8 @@ class ChargeableIncomeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
         $subject
             ->expects($this->at(0))
             ->method('translate')
-            ->with($this->equalTo('chargeableIncome.until'))
-            ->willReturn('until');
+            ->with($this->equalTo('currency'))
+            ->willReturn('€');
         $subject
             ->expects($this->at(1))
             ->method('translate')
@@ -210,7 +210,7 @@ class ChargeableIncomeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             ->willReturn('€');
         
         $this->assertSame(
-            'until 0€',
+            '0€ - 0€',
             $subject->getLabel()
         );
     }
@@ -222,7 +222,6 @@ class ChargeableIncomeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $income = array();
         $income['negative value'] = array(-11, '1€ - -11€');
-        $income['zero edgecase'] = array(0, '1€ - 0€');
         $income['positive edgecase'] = array(1, '1€ - 1€');
         $income['positive value'] = array(40, '1€ - 40€');
         
@@ -255,11 +254,12 @@ class ChargeableIncomeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     /**
      * @test
      */
-    public function getLabelWithOneUnderZero()
+    public function getLabelWithZero()
     {
         /** @var ChargeableIncome|\PHPUnit_Framework_MockObject_MockObject $subject */
         $subject = $this->getMock(ChargeableIncome::class, array('translate'));
-        $subject->setMaximalIncome(-1);
+        $subject->setMinimalIncome(100);
+        $subject->setMaximalIncome(0);
         $subject
             ->expects($this->at(0))
             ->method('translate')
@@ -272,7 +272,7 @@ class ChargeableIncomeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             ->willReturn('€');
         
         $this->assertSame(
-            'about 0€',
+            'about 100€',
             $subject->getLabel()
         );
     }
@@ -284,6 +284,7 @@ class ChargeableIncomeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         /** @var ChargeableIncome|\PHPUnit_Framework_MockObject_MockObject $subject */
         $subject = $this->getMock(ChargeableIncome::class, array('translate'));
+        $subject->setMaximalIncome(100);
         $subject
             ->expects($this->at(0))
             ->method('translate')
@@ -296,7 +297,7 @@ class ChargeableIncomeTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             ->willReturn('€');
         
         $this->assertSame(
-            'until 0€',
+            'until 100€',
             $subject->getLabel()
         );
     }

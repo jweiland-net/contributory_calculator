@@ -31,7 +31,7 @@
 				<target>Alter des Kindes</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
-				<target>Anzahl der gewünschten Betreuungsstunden pro Woche</target>
+				<target>Betreuungsstunden / Woche</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
 				<target>Anrechenbares Einkommen</target>
@@ -49,7 +49,10 @@
 				<target>Berechnen</target>
 			</trans-unit>
 			<trans-unit id="result">
-				<target>Berechneter Betreuungskosten</target>
+				<target>Berechnete Betreuungskosten</target>
+			</trans-unit>
+			<trans-unit id="month">
+				<target>Monat</target>
 			</trans-unit>
 			<trans-unit id="chargeableIncome.about">
 				<target>über</target>

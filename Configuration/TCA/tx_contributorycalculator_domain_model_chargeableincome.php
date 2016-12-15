@@ -129,7 +129,7 @@ return array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
-				'eval' => 'num,required'
+				'eval' => 'num,required',
 			)
 		),
 		'discount_in_percent' => array(
