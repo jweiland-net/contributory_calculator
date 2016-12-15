@@ -49,7 +49,7 @@
 				<target>Berechnen</target>
 			</trans-unit>
 			<trans-unit id="result">
-				<target>Ergebnis</target>
+				<target>Berechneter Betreuungskosten</target>
 			</trans-unit>
 			<trans-unit id="chargeableIncome.about">
 				<target>über</target>
