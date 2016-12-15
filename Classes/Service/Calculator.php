@@ -117,8 +117,12 @@ class Calculator
         }
         $this->openingTimeInWeeksPerYear = $settings['openingTimeInWeeksPerYear'];
         $this->subscriptionsPerYear = $settings['subscriptionsPerYear'];
-        if ($this->search->getHoursOfChildcare() > 50) {
-            $this->search->setHoursOfChildcare(50);
+        $maxHoursOfChildcare = $settings['maximalHoursOfChildcare'];
+        if (!$maxHoursOfChildcare) {
+            $maxHoursOfChildcare = 50;
+        }
+        if ($this->search->getHoursOfChildcare() > $maxHoursOfChildcare) {
+            $this->search->setHoursOfChildcare($maxHoursOfChildcare);
         }
     }
     
