@@ -1,45 +1,47 @@
-<f:form class="extform" id="contributoryCalculator" action="result" object="{search}" objectName="search">
-	<div class="extdiv">
-		<label for="childAgeForm">
-			<f:translate key="tx_contributorycalculator_domain_model_search.child_age"/>
-		</label>
-		<div class="powermail_radio_outer" id="childAgeForm">
-			<div class="powermail_radio_inner">
-				<f:form.radio property="childAge" class="powermail_radio" name="childAge" id="childAge_1" value="1"/>
-				<label for="childAge_1">
-					<f:translate key="childAge.1"/>
-				</label>
-			</div>
-			<div class="powermail_radio_inner">
-				<f:form.radio property="childAge" class="powermail_radio" name="childAge" id="childAge_2" value="2"/>
-				<label for="childAge_2">
-					<f:translate key="childAge.2"/>
-				</label>
+<div class="extcss clearfix">
+	<f:form class="extform" id="contributoryCalculator" action="result" object="{search}" objectName="search">
+		<div class="extdiv">
+			<label for="childAgeForm">
+				<f:translate key="tx_contributorycalculator_domain_model_search.child_age"/>
+			</label>
+			<div class="powermail_radio_outer" id="childAgeForm">
+				<div class="powermail_radio_inner">
+					<f:form.radio property="childAge" class="powermail_radio" name="childAge" id="childAge_1" value="1"/>
+					<label for="childAge_1">
+						<f:translate key="childAge.1"/>
+					</label>
+				</div>
+				<div class="powermail_radio_inner">
+					<f:form.radio property="childAge" class="powermail_radio" name="childAge" id="childAge_2" value="2"/>
+					<label for="childAge_2">
+						<f:translate key="childAge.2"/>
+					</label>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="extdiv">
-		<label for="hoursOfChildcare">
-			<f:translate key="tx_contributorycalculator_domain_model_search.hours_of_childcare"/>
-		</label>
-		<f:form.textfield id="hoursOfChildCare" type="number" property="hoursOfChildcare"
-											additionalAttributes="{max: maximalHoursOfChildCare}"/>
-	</div>
-	<div class="extdiv">
-		<label for="step">
-			<f:translate key="tx_contributorycalculator_domain_model_step"/>
-		</label>
-		<f:form.select id="step" property="step" options="{steps}" optionLabelField="name"/>
-	</div>
-	<div class="extdiv">
-		<label for="chargeableIncome">
-			<f:translate key="tx_contributorycalculator_domain_model_search.chargeable_income"/>
-		</label>
-		<f:form.select id="chargeableIncome" property="chargeableIncome" options="{chargeableIncomeTypes}"
-									 optionLabelField="label"/>
-	</div>
-	<div class="powermail_fieldwrap_submit marginbottom">
-		<f:form.submit class="powermail_submit"
-									 value="{f:translate(key: 'calculate', extensionName: 'contributory_calculator')}"/>
-	</div>
-</f:form>
+		<div class="extdiv">
+			<label for="hoursOfChildcare">
+				<f:translate key="tx_contributorycalculator_domain_model_search.hours_of_childcare"/>
+			</label>
+			<f:form.textfield id="hoursOfChildCare" type="number" property="hoursOfChildcare"
+												additionalAttributes="{max: maximalHoursOfChildCare}"/>
+		</div>
+		<div class="extdiv">
+			<label for="step">
+				<f:translate key="tx_contributorycalculator_domain_model_step"/>
+			</label>
+			<f:form.select id="step" property="step" options="{steps}" optionLabelField="name"/>
+		</div>
+		<div class="extdiv">
+			<label for="chargeableIncome">
+				<f:translate key="tx_contributorycalculator_domain_model_search.chargeable_income"/>
+			</label>
+			<f:form.select id="chargeableIncome" property="chargeableIncome" options="{chargeableIncomeTypes}"
+										 optionLabelField="label"/>
+		</div>
+		<div class="powermail_fieldwrap_submit marginbottom">
+			<f:form.submit class="powermail_submit"
+										 value="{f:translate(key: 'calculate', extensionName: 'contributory_calculator')}"/>
+		</div>
+	</f:form>
+</div>
