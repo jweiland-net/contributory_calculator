@@ -16,7 +16,7 @@
 				<target>Ermäßigung in Prozent</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_step">
-				<target>Anzahl zu betreuende Kinder</target>
+				<target>Anzahl Kinder im Haushalt (bis 18 Jahre)</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_step.name">
 				<target>Name</target>
@@ -37,7 +37,7 @@
 				<target>Anrechenbares Einkommen</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.step">
-				<target>Anzahl zu betreuende Kinder</target>
+				<target>Anzahl Kinder im Haushalt (bis 18 Jahre)</target>
 			</trans-unit>
 			<trans-unit id="childAge.1">
 				<target>Unter 3 Jahren</target>
