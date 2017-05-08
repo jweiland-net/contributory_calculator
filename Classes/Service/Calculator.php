@@ -13,6 +13,7 @@ namespace JWeiland\ContributoryCalculator\Service;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
 use JWeiland\ContributoryCalculator\Domain\Model\ChargeableIncome;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Domain\Model\Step;
@@ -32,52 +33,52 @@ class Calculator
      * @var Search
      */
     protected $search;
-    
+
     /**
      * Hourly rate
      *
      * @var float
      */
     protected $hourlyRate = 0.0;
-    
+
     /**
      * Opening time in weeks
      *
      * @var int
      */
     protected $openingTimeInWeeksPerYear = 0;
-    
+
     /**
      * Subscriptions per year
      *
      * @var int
      */
     protected $subscriptionsPerYear = 0;
-    
+
     /**
      * @var Step
      */
     protected $step;
-    
+
     /**
      * @var ChargeableIncome
      */
     protected $chargeableIncome;
-    
+
     /**
      * Step repository
      *
      * @var StepRepository
      */
     protected $stepRepository;
-    
+
     /**
      * Chargeable income repository
      *
      * @var ChargeableIncomeRepository
      */
     protected $chargeableIncomeRepository;
-    
+
     /**
      * Injects the stepRepository
      *
@@ -88,7 +89,7 @@ class Calculator
     {
         $this->stepRepository = $stepRepository;
     }
-    
+
     /**
      * Injects the chargeable income repository
      *
@@ -99,7 +100,7 @@ class Calculator
     {
         $this->chargeableIncomeRepository = $chargeableIncomeRepository;
     }
-    
+
     /**
      * Calculator constructor.
      *
@@ -125,7 +126,7 @@ class Calculator
             $this->search->setHoursOfChildcare($maxHoursOfChildcare);
         }
     }
-    
+
     /**
      * Initializes the objects step and chargeable income
      *
@@ -136,7 +137,7 @@ class Calculator
         $this->step = $this->stepRepository->findByUid($this->search->getStep());
         $this->chargeableIncome = $this->chargeableIncomeRepository->findByUid($this->search->getChargeableIncome());
     }
-    
+
     /**
      * Returns the total amount
      *
@@ -147,7 +148,7 @@ class Calculator
         // calculate total amount
         return $this->getChargeableIncomeDiscount()  * $this->getPercentFromHundred($this->step->getDiscountInPercent());
     }
-    
+
     /**
      * Returns the regular fee multiplied with chargeable income discount
      *
@@ -157,7 +158,7 @@ class Calculator
     {
         return $this->getRegularFee() * $this->getPercentFromHundred($this->chargeableIncome->getDiscountInPercent());
     }
-        
+
     /**
      * Returns the regular fee
      *
@@ -169,7 +170,7 @@ class Calculator
         $result /= $this->subscriptionsPerYear;
         return $result;
     }
-    
+
     /**
      * Returns percent from hundred like 0.8 if
      * discount in percent equals 20(%)

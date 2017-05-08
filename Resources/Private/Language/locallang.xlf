@@ -3,6 +3,9 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:05:32Z" product-name="contributory_calculator">
 		<header/>
 		<body>
+			<trans-unit id="tx_contributorycalculator">
+				<source>Contributory Calculator</source>
+			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
 				<source>Chargeable Income</source>
 			</trans-unit>

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:05:32Z" product-name="contributory_calculator">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-12-08T11:05:32Z"
+				product-name="contributory_calculator">
 		<header/>
 		<body>
+			<trans-unit id="tx_contributorycalculator">
+				<target>Beitragsrechner</target>
+			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
 				<target>Anrechenbares Einkommen</target>
 			</trans-unit>
