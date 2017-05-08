@@ -1,7 +1,7 @@
 <?php
 
 namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
-    
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -28,17 +28,17 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      * @var \JWeiland\ContributoryCalculator\Domain\Model\Search
      */
     protected $subject = null;
-    
+
     public function setUp()
     {
         $this->subject = new \JWeiland\ContributoryCalculator\Domain\Model\Search();
     }
-    
+
     public function tearDown()
     {
         unset($this->subject);
     }
-    
+
     /**
      * @test
      */
@@ -49,46 +49,46 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             $this->subject->getChildAge()
         );
     }
-    
+
     /**
      * @test
      */
     public function setChildAgeSetsChildAge()
     {
         $this->subject->setChildAge(123456);
-    
+
         $this->assertSame(
             123456,
             $this->subject->getChildAge()
         );
     }
-    
+
     /**
      * @test
      */
     public function setChildAgeWithStringResultsInInteger()
     {
         $this->subject->setChildAge('123Test');
-    
+
         $this->assertSame(
             123,
             $this->subject->getChildAge()
         );
     }
-    
+
     /**
      * @test
      */
     public function setChildAgeWithBooleanResultsInInteger()
     {
         $this->subject->setChildAge(true);
-    
+
         $this->assertSame(
             1,
             $this->subject->getChildAge()
         );
     }
-    
+
     /**
      * @test
      */
@@ -99,46 +99,46 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             $this->subject->getChargeableIncome()
         );
     }
-    
+
     /**
      * @test
      */
     public function setChargeableIncomeSetsChargeableIncome()
     {
         $this->subject->setChargeableIncome(123456);
-    
+
         $this->assertSame(
             123456,
             $this->subject->getChargeableIncome()
         );
     }
-    
+
     /**
      * @test
      */
     public function setChargeableIncomeWithStringResultsInInteger()
     {
         $this->subject->setChargeableIncome('123Test');
-    
+
         $this->assertSame(
             123,
             $this->subject->getChargeableIncome()
         );
     }
-    
+
     /**
      * @test
      */
     public function setChargeableIncomeWithBooleanResultsInInteger()
     {
         $this->subject->setChargeableIncome(true);
-    
+
         $this->assertSame(
             1,
             $this->subject->getChargeableIncome()
         );
     }
-    
+
     /**
      * @test
      */
@@ -149,92 +149,66 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
             $this->subject->getStep()
         );
     }
-    
+
     /**
      * @test
      */
     public function setStepSetsStep()
     {
         $this->subject->setStep(123456);
-    
+
         $this->assertSame(
             123456,
             $this->subject->getStep()
         );
     }
-    
+
     /**
      * @test
      */
     public function setStepWithStringResultsInInteger()
     {
         $this->subject->setStep('123Test');
-    
+
         $this->assertSame(
             123,
             $this->subject->getStep()
         );
     }
-    
+
     /**
      * @test
      */
     public function setStepWithBooleanResultsInInteger()
     {
         $this->subject->setStep(true);
-    
+
         $this->assertSame(
             1,
             $this->subject->getStep()
         );
     }
-    
+
     /**
      * @test
      */
     public function getHoursOfChildcareInitiallyReturnsZero()
     {
         $this->assertSame(
-            0,
+            0.0,
             $this->subject->getHoursOfChildcare()
         );
     }
-    
+
     /**
      * @test
      */
     public function setHoursOfChildcareSetsHoursOfChildcare()
     {
-        $this->subject->setHoursOfChildcare(123456);
-    
+        $this->subject->setHoursOfChildcare(1234.56);
+
         $this->assertSame(
-            123456,
-            $this->subject->getHoursOfChildcare()
-        );
-    }
-    
-    /**
-     * @test
-     */
-    public function setHoursOfChildcareWithStringResultsInInteger()
-    {
-        $this->subject->setHoursOfChildcare('123Test');
-    
-        $this->assertSame(
-            123,
-            $this->subject->getHoursOfChildcare()
-        );
-    }
-    
-    /**
-     * @test
-     */
-    public function setHoursOfChildcareWithBooleanResultsInInteger()
-    {
-        $this->subject->setHoursOfChildcare(true);
-    
-        $this->assertSame(
-            1,
+            1234.56,
             $this->subject->getHoursOfChildcare()
         );
     }
