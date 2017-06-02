@@ -13,6 +13,7 @@ namespace JWeiland\ContributoryCalculator\Domain\Repository;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
@@ -21,5 +22,16 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  */
 class ChargeableIncomeRepository extends Repository
 {
-
+    /**
+     * Find all records and sort them
+     * ascending by maximal income
+     *
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findAllSortedByMaximalIncome()
+    {
+        return $this->createQuery()->setOrderings(
+            array('minimalIncome' => QueryInterface::ORDER_DESCENDING)
+        )->execute();
+    }
 }

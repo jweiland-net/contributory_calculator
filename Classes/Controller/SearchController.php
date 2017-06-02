@@ -31,14 +31,14 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      * @var ChargeableIncomeRepository
      */
     protected $chargeableIncomeRepository;
-    
+
     /**
      * StepRepository
      *
      * @var StepRepository
      */
     protected $stepRepository;
-    
+
     /**
      * inject chargeableIncomeRepository
      *
@@ -49,7 +49,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     {
         $this->chargeableIncomeRepository = $chargeableIncomeRepository;
     }
-    
+
     /**
      * inject stepRepository
      *
@@ -60,7 +60,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     {
         $this->stepRepository = $stepRepository;
     }
-    
+
     /**
      * action search
      *
@@ -72,7 +72,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $search = GeneralUtility::makeInstance('JWeiland\\ContributoryCalculator\\Domain\\Model\\Search');
         $this->addBaseKeysToView($search);
     }
-    
+
     /**
      * action result
      *
@@ -90,7 +90,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         );
         $this->view->assign('result', $calculator->getTotalAmount());
     }
-    
+
     /**
      * Adds the base keys to current view
      *
@@ -100,7 +100,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     {
         $this->view->assign('search', $search);
         $this->view->assign('maximalHoursOfChildCare', $this->settings['maximalHoursOfChildcare']);
-        $this->view->assign('chargeableIncomeTypes', $this->chargeableIncomeRepository->findAll());
+        $this->view->assign('chargeableIncomeTypes', $this->chargeableIncomeRepository->findAllSortedByMaximalIncome());
         $this->view->assign('steps', $this->stepRepository->findAll());
     }
 }
