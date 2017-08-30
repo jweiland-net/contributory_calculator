@@ -69,7 +69,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     public function searchAction()
     {
         /** @var Search $search */
-        $search = GeneralUtility::makeInstance('JWeiland\\ContributoryCalculator\\Domain\\Model\\Search');
+        $search = GeneralUtility::makeInstance(Search::class);
         $this->addBaseKeysToView($search);
     }
 
@@ -84,7 +84,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $this->addBaseKeysToView($search);
         /** @var Calculator $calculator */
         $calculator = $this->objectManager->get(
-            'JWeiland\\ContributoryCalculator\\Service\\Calculator',
+            Calculator::class,
             $search,
             $this->settings
         );

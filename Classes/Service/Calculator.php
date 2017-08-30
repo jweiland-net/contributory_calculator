@@ -110,7 +110,6 @@ class Calculator
     public function __construct($search, $settings)
     {
         $this->search = $search;
-        $this->settings = $settings;
         if ($search->getChildAge() === Search::CHILD_UNDER_3_YEARS) {
             $this->hourlyRate = $settings['hourlyRateUnder3Years'];
         } else {
