@@ -1,6 +1,6 @@
 <?php
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-    $_EXTKEY,
+    'contributory_calculator',
     'Configuration/TypoScript',
     'ContributoryCalculator'
 );
