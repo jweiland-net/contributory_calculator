@@ -1,20 +1,16 @@
 <?php
-namespace JWeiland\ContributoryCalculator\Domain\Model;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/contributory_calculator.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
 
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+namespace JWeiland\ContributoryCalculator\Domain\Model;
+
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
@@ -22,122 +18,117 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 class ChargeableIncome extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-    
     /**
      * e.g. 2000€ - 4000€
      *
      * @var int
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $minimalIncome = 0;
-    
+
     /**
      * maximalIncome
      *
      * @var int
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $maximalIncome = 0;
-    
+
     /**
      * The percentage from parents base module base amount
      *
      * @var int
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $discountInPercent = 0;
-    
+
     /**
      * Returns the minimalIncome
      *
      * @return int minimalIncome
      */
-    public function getMinimalIncome()
+    public function getMinimalIncome(): int
     {
         return $this->minimalIncome;
     }
-    
+
     /**
      * Sets the minimalIncome
      *
-     * @param string $minimalIncome
-     * @return void
+     * @param int $minimalIncome
      */
-    public function setMinimalIncome($minimalIncome)
+    public function setMinimalIncome(int $minimalIncome): void
     {
-        $this->minimalIncome = (int)$minimalIncome;
+        $this->minimalIncome = $minimalIncome;
     }
-    
+
     /**
      * Returns the discountInPercent
      *
      * @return int discountInPercent
      */
-    public function getDiscountInPercent()
+    public function getDiscountInPercent(): int
     {
         return $this->discountInPercent;
     }
-    
+
     /**
      * Sets the discountInPercent
      *
      * @param int $discountInPercent
-     * @return void
      */
-    public function setDiscountInPercent($discountInPercent)
+    public function setDiscountInPercent(int $discountInPercent): void
     {
-        $this->discountInPercent = (int)$discountInPercent;
+        $this->discountInPercent = $discountInPercent;
     }
-    
+
     /**
      * Returns the maximalIncome
      *
      * @return int $maximalIncome
      */
-    public function getMaximalIncome()
+    public function getMaximalIncome(): int
     {
         return $this->maximalIncome;
     }
-    
+
     /**
      * Sets the maximalIncome
      *
      * @param int $maximalIncome
-     * @return void
      */
-    public function setMaximalIncome($maximalIncome)
+    public function setMaximalIncome(int $maximalIncome): void
     {
-        $this->maximalIncome = (int)$maximalIncome;
+        $this->maximalIncome = $maximalIncome;
     }
-    
+
     /**
      * Returns the label
      *
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         if ($this->getMaximalIncome() === 0 && $this->getMinimalIncome() !== 0) {
             return $this->translate('chargeableIncome.about') . ' ' .
             $this->getMinimalIncome() . $this->translate('currency');
-        } elseif ($this->getMinimalIncome() === 0 && $this->getMaximalIncome() !== 0) {
+        }
+        if ($this->getMinimalIncome() === 0 && $this->getMaximalIncome() !== 0) {
             return $this->translate('chargeableIncome.until') . ' ' .
             $this->getMaximalIncome() . $this->translate('currency');
-        } else {
-            return $this->minimalIncome . $this->translate('currency') .
-            ' - ' . $this->maximalIncome . $this->translate('currency');
         }
+        return $this->minimalIncome . $this->translate('currency') .
+            ' - ' . $this->maximalIncome . $this->translate('currency');
     }
-    
+
     /**
      * Returns the translation for $key
      *
      * @param string $key
-     * @return string
+     * @return string|null
      */
-    protected function translate($key)
+    protected function translate(string $key): ?string
     {
         return LocalizationUtility::translate($key, 'contributory_calculator');
     }
-    
 }

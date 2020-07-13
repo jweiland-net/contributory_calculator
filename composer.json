@@ -3,7 +3,7 @@
     "type": "typo3-cms-extension",
     "description": "Extension to calculate contributories in the frontend.",
     "license": "GPL-2.0-or-later",
-    "keywords": ["typo3", "TYPO3 CMS", "checkfaluploads"],
+    "keywords": ["typo3", "TYPO3 CMS", "contributory calculator"],
     "homepage": "http://www.jweiland.net",
     "authors": [
       {
@@ -18,11 +18,30 @@
       "source": "https://github.com/jweiland-net/contributory_calculator"
     },
     "require": {
-      "typo3/cms-core": ">=7.6.0,<9.0"
+      "typo3/cms-core": "^9.5.18 || ^10.4.3"
+    },
+    "require-dev": {
+      "friendsofphp/php-cs-fixer": "^2.14",
+			"nimut/testing-framework": "^5.1"
     },
     "autoload": {
         "psr-4": {
             "JWeiland\\ContributoryCalculator\\": "Classes"
         }
-    }
+    },
+	"config": {
+		"vendor-dir": ".build/vendor"
+	},
+	"extra": {
+		"typo3/cms": {
+			"app-dir": ".build",
+			"web-dir": ".build/public"
+		}
+	},
+	"scripts": {
+		"php:fix": ".build/vendor/bin/php-cs-fixer --config=Build/.php_cs.php fix Classes Tests",
+		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
+		"ci:php:fixer": ".build/vendor/bin/php-cs-fixer --config=Build/.php_cs.php fix --dry-run -v --show-progress=dots --diff-format=udiff Classes Tests",
+		"ci:tests:unit": ".build/vendor/bin/phpunit -c .build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit"
+	}
 }

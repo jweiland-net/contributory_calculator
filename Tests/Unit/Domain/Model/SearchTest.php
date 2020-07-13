@@ -1,19 +1,15 @@
 <?php
 
-namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
-
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/contributory_calculator.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
+
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
  * Test case for class \JWeiland\ContributoryCalculator\Domain\Model\Search.
@@ -22,12 +18,12 @@ namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @author Pascal Rinker <projects@jweiland.net>
  */
-class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+class SearchTest extends UnitTestCase
 {
     /**
      * @var \JWeiland\ContributoryCalculator\Domain\Model\Search
      */
-    protected $subject = null;
+    protected $subject;
 
     public function setUp()
     {
@@ -44,7 +40,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getChildAgeInitiallyReturnsOne()
     {
-        $this->assertSame(
+        self::assertSame(
             1,
             $this->subject->getChildAge()
         );
@@ -57,7 +53,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setChildAge(123456);
 
-        $this->assertSame(
+        self::assertSame(
             123456,
             $this->subject->getChildAge()
         );
@@ -70,7 +66,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setChildAge('123Test');
 
-        $this->assertSame(
+        self::assertSame(
             123,
             $this->subject->getChildAge()
         );
@@ -83,7 +79,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setChildAge(true);
 
-        $this->assertSame(
+        self::assertSame(
             1,
             $this->subject->getChildAge()
         );
@@ -94,7 +90,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getChargeableIncomeInitiallyReturnsZero()
     {
-        $this->assertSame(
+        self::assertSame(
             0,
             $this->subject->getChargeableIncome()
         );
@@ -107,7 +103,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setChargeableIncome(123456);
 
-        $this->assertSame(
+        self::assertSame(
             123456,
             $this->subject->getChargeableIncome()
         );
@@ -120,7 +116,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setChargeableIncome('123Test');
 
-        $this->assertSame(
+        self::assertSame(
             123,
             $this->subject->getChargeableIncome()
         );
@@ -133,7 +129,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setChargeableIncome(true);
 
-        $this->assertSame(
+        self::assertSame(
             1,
             $this->subject->getChargeableIncome()
         );
@@ -144,7 +140,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getStepInitiallyReturnsZero()
     {
-        $this->assertSame(
+        self::assertSame(
             0,
             $this->subject->getStep()
         );
@@ -157,7 +153,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setStep(123456);
 
-        $this->assertSame(
+        self::assertSame(
             123456,
             $this->subject->getStep()
         );
@@ -170,7 +166,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setStep('123Test');
 
-        $this->assertSame(
+        self::assertSame(
             123,
             $this->subject->getStep()
         );
@@ -183,7 +179,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setStep(true);
 
-        $this->assertSame(
+        self::assertSame(
             1,
             $this->subject->getStep()
         );
@@ -194,7 +190,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
      */
     public function getHoursOfChildcareInitiallyReturnsZero()
     {
-        $this->assertSame(
+        self::assertSame(
             0.0,
             $this->subject->getHoursOfChildcare()
         );
@@ -207,7 +203,7 @@ class SearchTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     {
         $this->subject->setHoursOfChildcare(1234.56);
 
-        $this->assertSame(
+        self::assertSame(
             1234.56,
             $this->subject->getHoursOfChildcare()
         );

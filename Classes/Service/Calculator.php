@@ -1,18 +1,15 @@
 <?php
-namespace JWeiland\ContributoryCalculator\Service;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/contributory_calculator.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\ContributoryCalculator\Service;
 
 use JWeiland\ContributoryCalculator\Domain\Model\ChargeableIncome;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
@@ -22,8 +19,6 @@ use JWeiland\ContributoryCalculator\Domain\Repository\StepRepository;
 
 /**
  * Class Calculator
- *
- * @package JWeiland\ContributoryCalculator\Service
  */
 class Calculator
 {
@@ -80,35 +75,19 @@ class Calculator
     protected $chargeableIncomeRepository;
 
     /**
-     * Injects the stepRepository
-     *
-     * @param StepRepository $stepRepository
-     * @return void
-     */
-    public function injectStepRepository(StepRepository $stepRepository)
-    {
-        $this->stepRepository = $stepRepository;
-    }
-
-    /**
-     * Injects the chargeable income repository
-     *
-     * @param ChargeableIncomeRepository $chargeableIncomeRepository
-     * @return void
-     */
-    public function injectChargeableIncomeRepository(ChargeableIncomeRepository $chargeableIncomeRepository)
-    {
-        $this->chargeableIncomeRepository = $chargeableIncomeRepository;
-    }
-
-    /**
-     * Calculator constructor.
-     *
      * @param Search $search
      * @param array $settings
+     * @param StepRepository $stepRepository
+     * @param ChargeableIncomeRepository $chargeableIncomeRepository
      */
-    public function __construct($search, $settings)
-    {
+    public function __construct(
+        Search $search,
+        array $settings,
+        StepRepository $stepRepository,
+        ChargeableIncomeRepository $chargeableIncomeRepository
+    ) {
+        $this->stepRepository = $stepRepository;
+        $this->chargeableIncomeRepository = $chargeableIncomeRepository;
         $this->search = $search;
         if ($search->getChildAge() === Search::CHILD_UNDER_3_YEARS) {
             $this->hourlyRate = $settings['hourlyRateUnder3Years'];
@@ -128,10 +107,8 @@ class Calculator
 
     /**
      * Initializes the objects step and chargeable income
-     *
-     * @return void
      */
-    public function initializeObject()
+    public function initializeObject(): void
     {
         $this->step = $this->stepRepository->findByUid($this->search->getStep());
         $this->chargeableIncome = $this->chargeableIncomeRepository->findByUid($this->search->getChargeableIncome());
@@ -142,10 +119,10 @@ class Calculator
      *
      * @return float
      */
-    public function getTotalAmount()
+    public function getTotalAmount(): float
     {
         // calculate total amount
-        return $this->getChargeableIncomeDiscount()  * $this->getPercentFromHundred($this->step->getDiscountInPercent());
+        return $this->getChargeableIncomeDiscount() * $this->getPercentFromHundred($this->step->getDiscountInPercent());
     }
 
     /**
@@ -153,7 +130,7 @@ class Calculator
      *
      * @return float
      */
-    protected function getChargeableIncomeDiscount()
+    protected function getChargeableIncomeDiscount(): float
     {
         return $this->getRegularFee() * $this->getPercentFromHundred($this->chargeableIncome->getDiscountInPercent());
     }
@@ -163,11 +140,11 @@ class Calculator
      *
      * @return float
      */
-    protected function getRegularFee()
+    protected function getRegularFee(): float
     {
         $result = $this->hourlyRate * $this->search->getHoursOfChildcare() * $this->openingTimeInWeeksPerYear;
         $result /= $this->subscriptionsPerYear;
-        return $result;
+        return (float)$result;
     }
 
     /**
@@ -177,8 +154,8 @@ class Calculator
      * @param float $discountInPercent
      * @return float
      */
-    protected function getPercentFromHundred($discountInPercent)
+    protected function getPercentFromHundred($discountInPercent): float
     {
-        return (100 - $discountInPercent) / 100;
+        return (float)((100 - $discountInPercent) / 100);
     }
 }

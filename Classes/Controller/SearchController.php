@@ -1,72 +1,52 @@
 <?php
-namespace JWeiland\ContributoryCalculator\Controller;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/contributory_calculator.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\ContributoryCalculator\Controller;
 
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Domain\Repository\ChargeableIncomeRepository;
 use JWeiland\ContributoryCalculator\Domain\Repository\StepRepository;
 use JWeiland\ContributoryCalculator\Service\Calculator;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * SearchController
  */
-class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class SearchController extends ActionController
 {
     /**
-     * ChargeableIncomeRepository
-     *
      * @var ChargeableIncomeRepository
      */
     protected $chargeableIncomeRepository;
 
     /**
-     * StepRepository
-     *
      * @var StepRepository
      */
     protected $stepRepository;
 
     /**
-     * inject chargeableIncomeRepository
-     *
      * @param ChargeableIncomeRepository $chargeableIncomeRepository
-     * @return void
+     * @param StepRepository $stepRepository
      */
-    public function injectChargeableIncomeRepository(ChargeableIncomeRepository $chargeableIncomeRepository)
+    public function __construct(ChargeableIncomeRepository $chargeableIncomeRepository, StepRepository $stepRepository)
     {
         $this->chargeableIncomeRepository = $chargeableIncomeRepository;
-    }
-
-    /**
-     * inject stepRepository
-     *
-     * @param StepRepository $stepRepository
-     * @return void
-     */
-    public function injectStepRepository(StepRepository $stepRepository)
-    {
         $this->stepRepository = $stepRepository;
     }
 
     /**
      * action search
-     *
-     * @return void
      */
-    public function searchAction()
+    public function searchAction(): void
     {
         /** @var Search $search */
         $search = GeneralUtility::makeInstance(Search::class);
@@ -74,12 +54,9 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     }
 
     /**
-     * action result
-     *
      * @param Search $search
-     * @return void
      */
-    public function resultAction(Search $search)
+    public function resultAction(Search $search): void
     {
         $this->addBaseKeysToView($search);
         /** @var Calculator $calculator */
@@ -96,7 +73,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      *
      * @param Search $search
      */
-    protected function addBaseKeysToView(Search $search)
+    protected function addBaseKeysToView(Search $search): void
     {
         $this->view->assign('search', $search);
         $this->view->assign('maximalHoursOfChildCare', $this->settings['maximalHoursOfChildcare']);

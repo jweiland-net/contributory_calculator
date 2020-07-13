@@ -1,25 +1,20 @@
 <?php
-namespace JWeiland\ContributoryCalculator\Hook;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/contributory_calculator.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\ContributoryCalculator\Hook;
 
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 
 /**
  * Class ProcessDatamap
- *
- * @package JWeiland\ContributoryCalculator\Hook
  */
 class ProcessDatamap
 {
@@ -30,18 +25,17 @@ class ProcessDatamap
      * @param string $table
      * @param string|int $id
      * @param DataHandler $dataHandler
-     * @return void
      */
-    public function processDatamap_preProcessFieldArray(&$incomingFieldArray, $table, $id, $dataHandler)
+    public function processDatamap_preProcessFieldArray(array &$incomingFieldArray, string $table, $id, DataHandler $dataHandler): void
     {
-        if ($incomingFieldArray['list_type'] == 'contributorycalculator_contributorycalculator') {
+        if ($incomingFieldArray['list_type'] === 'contributorycalculator_contributorycalculator') {
             if (isset($incomingFieldArray['pi_flexform']['data']['sDEFAULT']['lDEF']['settings.hourlyRateUnder3Years']['vDEF'])) {
                 $value = &$incomingFieldArray['pi_flexform']['data']['sDEFAULT']['lDEF']['settings.hourlyRateUnder3Years']['vDEF'];
-                $value = number_format($value, 3, '.', '');
+                $value = number_format((float)$value, 3, '.', '');
             }
             if (isset($incomingFieldArray['pi_flexform']['data']['sDEFAULT']['lDEF']['settings.hourlyRateAbove3Years']['vDEF'])) {
                 $value = &$incomingFieldArray['pi_flexform']['data']['sDEFAULT']['lDEF']['settings.hourlyRateAbove3Years']['vDEF'];
-                $value = number_format($value, 3, '.', '');
+                $value = number_format((float)$value, 3, '.', '');
             }
         }
     }

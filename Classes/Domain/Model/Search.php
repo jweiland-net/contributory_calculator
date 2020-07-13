@@ -1,18 +1,15 @@
 <?php
-namespace JWeiland\ContributoryCalculator\Domain\Model;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/contributory_calculator.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\ContributoryCalculator\Domain\Model;
 
 /**
  * Search
@@ -62,7 +59,7 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return int $chargeableIncome
      */
-    public function getChargeableIncome()
+    public function getChargeableIncome(): int
     {
         return $this->chargeableIncome;
     }
@@ -71,11 +68,10 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the chargeableIncome
      *
      * @param int $chargeableIncome
-     * @return void
      */
-    public function setChargeableIncome($chargeableIncome)
+    public function setChargeableIncome(int $chargeableIncome): void
     {
-        $this->chargeableIncome = (int)$chargeableIncome;
+        $this->chargeableIncome = $chargeableIncome;
     }
 
     /**
@@ -83,7 +79,7 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return int $step
      */
-    public function getStep()
+    public function getStep(): int
     {
         return $this->step;
     }
@@ -92,11 +88,10 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the step
      *
      * @param int $step
-     * @return void
      */
-    public function setStep($step)
+    public function setStep(int $step): void
     {
-        $this->step = (int)$step;
+        $this->step = $step;
     }
 
     /**
@@ -104,7 +99,7 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return int $childAge
      */
-    public function getChildAge()
+    public function getChildAge(): int
     {
         return $this->childAge;
     }
@@ -113,11 +108,10 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the childAge
      *
      * @param int $childAge
-     * @return void
      */
-    public function setChildAge($childAge)
+    public function setChildAge(int $childAge): void
     {
-        $this->childAge = (int)$childAge;
+        $this->childAge = $childAge;
     }
 
     /**
@@ -125,7 +119,7 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return float $hoursOfChildcare
      */
-    public function getHoursOfChildcare()
+    public function getHoursOfChildcare(): float
     {
         return $this->hoursOfChildcare;
     }
@@ -134,11 +128,9 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Sets the hoursOfChildcare
      *
      * @param float $hoursOfChildcare
-     * @return void
      */
-    public function setHoursOfChildcare($hoursOfChildcare)
+    public function setHoursOfChildcare(float $hoursOfChildcare): void
     {
-        $this->hoursOfChildcare = (float)$hoursOfChildcare;
+        $this->hoursOfChildcare = $hoursOfChildcare;
     }
-
 }
