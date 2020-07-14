@@ -1,46 +1,28 @@
-﻿.. ==================================================
-.. FOR YOUR INFORMATION
-.. --------------------------------------------------
-.. -*- coding: utf-8 -*- with BOM.
-
 .. include:: ../Includes.txt
-
 
 .. _introduction:
 
+============
 Introduction
 ============
-
 
 .. _what-it-does:
 
 What does it do?
-----------------
+================
 
-This chapter should give a brief overview of the extension. What does it do? What problems does it solve?
-Who is interested in this? Basically, this section includes everything people need to know to decide whether they
-should go on with this extension or not.
-
-.. important::
-
-   Please don't forget to repeat your extension's version number in the
-   :file:`Settings.yml` file, in the :code:`release` property. It will be
-   automatically picked up on the cover page by the :code:`|release|`
-   substitution.
-
+This is an extension to calculate contributories in the frontend.
 
 .. _screenshots:
 
 Screenshots
------------
+===========
 
-This chapter should help people figure how the extension works. Remove it
-if not relevant.
+.. figure:: ../Images/Frontend.png
+   :class: with-shadow
+   :alt: Calculator (Frontend)
+   :width: 300px
 
-.. figure:: ../Images/IntroductionPackage.png
-   :width: 500px
-   :alt: Introduction Package
+   Calculator (Frontend)
 
-   Introduction Package just after installation (caption of the image)
-
-   How the Frontend of the Introduction Package looks like just after installation (legend of the image)
+How the calculator looks like using contributory_calculator and the template from typo3muster.de
