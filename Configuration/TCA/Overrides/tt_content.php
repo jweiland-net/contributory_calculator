@@ -7,3 +7,9 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignat
     $pluginSignature,
     'FILE:EXT:contributory_calculator/Configuration/FlexForms/ContributoryCalculator.xml'
 );
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'JWeiland.ContributoryCalculator',
+    'Contributorycalculator',
+    'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang.xlf:tx_contributorycalculator'
+);
