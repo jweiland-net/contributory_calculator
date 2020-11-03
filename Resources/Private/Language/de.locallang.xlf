@@ -4,41 +4,17 @@
 				product-name="contributory_calculator">
 		<header/>
 		<body>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
-				<target>Anrechenbares Einkommen</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.minimal_income">
-				<target>Minimales Einkommen</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.maximal_income">
-				<target>Maximales Einkommen</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.discount_in_percent">
-				<target>Ermäßigung in Prozent</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step">
-				<target>Anzahl Kinder im Haushalt (bis 18 Jahre)</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step.name">
-				<target>Name</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step.discount_in_percent">
-				<target>Ermäßigung in Prozent</target>
-			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
 				<target>Suche</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
 				<target>Alter des Kindes</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
-				<target>Betreuungsstunden / Woche</target>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.care">
+				<target>Betreuungsform</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
 				<target>Anrechenbares Einkommen</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.step">
-				<target>Anzahl Kinder im Haushalt (bis 18 Jahre)</target>
 			</trans-unit>
 			<trans-unit id="childAge.1">
 				<target>Unter 3 Jahren</target>

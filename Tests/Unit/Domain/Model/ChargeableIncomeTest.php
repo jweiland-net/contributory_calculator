@@ -9,7 +9,7 @@
 
 namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
-use JWeiland\ContributoryCalculator\Domain\Model\ChargeableIncome;
+use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
@@ -22,13 +22,13 @@ use Nimut\TestingFramework\TestCase\UnitTestCase;
 class ChargeableIncomeTest extends UnitTestCase
 {
     /**
-     * @var \JWeiland\ContributoryCalculator\Domain\Model\ChargeableIncome
+     * @var \JWeiland\ContributoryCalculator\Domain\Model\Care
      */
     protected $subject;
 
     public function setUp()
     {
-        $this->subject = new \JWeiland\ContributoryCalculator\Domain\Model\ChargeableIncome();
+        $this->subject = new \JWeiland\ContributoryCalculator\Domain\Model\Care();
     }
 
     public function tearDown()
@@ -191,8 +191,8 @@ class ChargeableIncomeTest extends UnitTestCase
      */
     public function getLabelInitiallyReturnsString()
     {
-        /** @var ChargeableIncome|\PHPUnit_Framework_MockObject_MockObject $subject */
-        $subject = $this->createPartialMock(ChargeableIncome::class, ['translate']);
+        /** @var Care|\PHPUnit_Framework_MockObject_MockObject $subject */
+        $subject = $this->createPartialMock(Care::class, ['translate']);
         $subject
             ->expects(self::at(0))
             ->method('translate')
@@ -231,8 +231,8 @@ class ChargeableIncomeTest extends UnitTestCase
      */
     public function getLabelWithDifferentMaximalIncomes($maximalIncome, $expectedReturn)
     {
-        /** @var ChargeableIncome|\PHPUnit_Framework_MockObject_MockObject $subject */
-        $subject = $this->createPartialMock(ChargeableIncome::class, ['translate']);
+        /** @var Care|\PHPUnit_Framework_MockObject_MockObject $subject */
+        $subject = $this->createPartialMock(Care::class, ['translate']);
         $subject->setMinimalIncome(1);
         $subject->setMaximalIncome($maximalIncome);
         $subject
@@ -251,8 +251,8 @@ class ChargeableIncomeTest extends UnitTestCase
      */
     public function getLabelWithZero()
     {
-        /** @var ChargeableIncome|\PHPUnit_Framework_MockObject_MockObject $subject */
-        $subject = $this->createPartialMock(ChargeableIncome::class, ['translate']);
+        /** @var Care|\PHPUnit_Framework_MockObject_MockObject $subject */
+        $subject = $this->createPartialMock(Care::class, ['translate']);
         $subject->setMinimalIncome(100);
         $subject->setMaximalIncome(0);
         $subject
@@ -277,8 +277,8 @@ class ChargeableIncomeTest extends UnitTestCase
      */
     public function getLabelWithZeroMinimalIncome()
     {
-        /** @var ChargeableIncome|\PHPUnit_Framework_MockObject_MockObject $subject */
-        $subject = $this->createPartialMock(ChargeableIncome::class, ['translate']);
+        /** @var Care|\PHPUnit_Framework_MockObject_MockObject $subject */
+        $subject = $this->createPartialMock(Care::class, ['translate']);
         $subject->setMaximalIncome(100);
         $subject
             ->expects(self::at(0))

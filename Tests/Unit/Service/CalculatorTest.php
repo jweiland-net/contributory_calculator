@@ -9,11 +9,9 @@
 
 namespace JWeiland\ContributoryCalculator\Tests;
 
-use JWeiland\ContributoryCalculator\Domain\Model\ChargeableIncome;
+use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
-use JWeiland\ContributoryCalculator\Domain\Model\Step;
-use JWeiland\ContributoryCalculator\Domain\Repository\ChargeableIncomeRepository;
-use JWeiland\ContributoryCalculator\Domain\Repository\StepRepository;
+use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 use JWeiland\ContributoryCalculator\Service\Calculator;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 use TYPO3\TestingFramework\Core\AccessibleObjectInterface;
@@ -51,7 +49,7 @@ class CalculatorTest extends UnitTestCase
         $step = new Step();
         $step->setDiscountInPercent(10); // equals 2 child
         // initialize chargeable income
-        $chargeableIncome = new ChargeableIncome();
+        $chargeableIncome = new Care();
         $chargeableIncome->setDiscountInPercent(10); // equals 2101€ - 2500€ ; step a
         // initialize search
         $search = new Search();
@@ -66,8 +64,7 @@ class CalculatorTest extends UnitTestCase
         $this->subject->__construct(
             $search,
             $settings,
-            $this->createMock(StepRepository::class),
-            $this->createMock(ChargeableIncomeRepository::class)
+            $this->createMock(CareRepository::class)
         );
         $this->subject->_set('step', $step);
         $this->subject->_set('chargeableIncome', $chargeableIncome);
@@ -82,7 +79,7 @@ class CalculatorTest extends UnitTestCase
         $step = new Step();
         $step->setDiscountInPercent(10); // equals 2 child
         // initialize chargeable income
-        $chargeableIncome = new ChargeableIncome();
+        $chargeableIncome = new Care();
         $chargeableIncome->setDiscountInPercent(10); // equals 2101€ - 2500€ ; step a
         // initialize search
         $search = new Search();
@@ -97,8 +94,7 @@ class CalculatorTest extends UnitTestCase
         $this->subject->__construct(
             $search,
             $settings,
-            $this->createMock(StepRepository::class),
-            $this->createMock(ChargeableIncomeRepository::class)
+            $this->createMock(CareRepository::class)
         );
         $this->subject->_set('step', $step);
         $this->subject->_set('chargeableIncome', $chargeableIncome);
