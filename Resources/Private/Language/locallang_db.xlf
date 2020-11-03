@@ -3,41 +3,33 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator">
 		<header/>
 		<body>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
-				<source>Chargeable Income</source>
+			<trans-unit id="tx_contributorycalculator_domain_model_care">
+				<source>Care form</source>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.minimal_income">
-				<source>Minimal Income</source>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.title">
+				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.maximal_income">
-				<source>Maximal Income</source>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
+				<source>Factor in % for children above 3 years</source>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.discount_in_percent">
-				<source>Discount In Percent</source>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.value_below_3">
+				<source>Factor in % for children below 3 years</source>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step">
-				<source>Step</source>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step.name">
-				<source>Name</source>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step.discount_in_percent">
-				<source>Discount In Percent</source>
-			</trans-unit>
+
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
-				<source>Search</source>
+				<target>Suche</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
-				<source>Child Age</source>
+				<target>Alter des Kindes</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
-				<source>Hours Of Childcare</source>
+				<target>Anzahl der gewünschten Betreuungsstunden pro Woche</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
-				<source>Chargeable Income</source>
+				<target>Anrechenbares Einkommen</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.step">
-				<source>Step</source>
+				<target>Anzahl zu betreuende Kinder</target>
 			</trans-unit>
 		</body>
 	</file>
