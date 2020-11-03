@@ -1,11 +1,10 @@
 # Adapted from https://github.com/TYPO3GmbH/blog/blob/master/.github/workflows/ci.yml
 name: CI
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -13,7 +12,6 @@ jobs:
         php: ['7.2', '7.3', '7.4']
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v2
 
