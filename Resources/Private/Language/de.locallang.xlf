@@ -4,9 +4,6 @@
 				product-name="contributory_calculator">
 		<header/>
 		<body>
-			<trans-unit id="tx_contributorycalculator">
-				<target>Beitragsrechner</target>
-			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
 				<target>Anrechenbares Einkommen</target>
 			</trans-unit>

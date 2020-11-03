@@ -1,15 +1,14 @@
-
 plugin.tx_contributorycalculator_contributorycalculator {
-	view {
-		# cat=plugin.tx_contributorycalculator_contributorycalculator/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:contributory_calculator/Resources/Private/Templates/
-		# cat=plugin.tx_contributorycalculator_contributorycalculator/file; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:contributory_calculator/Resources/Private/Partials/
-		# cat=plugin.tx_contributorycalculator_contributorycalculator/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:contributory_calculator/Resources/Private/Layouts/
-	}
-	persistence {
-		# cat=plugin.tx_contributorycalculator_contributorycalculator//a; type=string; label=Default storage PID
-		storagePid =
-	}
+  view {
+    # cat=plugin.tx_contributorycalculator_contributorycalculator/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:contributory_calculator/Resources/Private/Templates/
+    # cat=plugin.tx_contributorycalculator_contributorycalculator/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:contributory_calculator/Resources/Private/Partials/
+    # cat=plugin.tx_contributorycalculator_contributorycalculator/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:contributory_calculator/Resources/Private/Layouts/
+  }
+  persistence {
+    # cat=plugin.tx_contributorycalculator_contributorycalculator//a; type=string; label=Default storage PID
+    storagePid =
+  }
 }
