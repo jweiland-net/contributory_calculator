@@ -4,16 +4,6 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
-    'tx_contributorycalculator_domain_model_chargeableincome',
-    'EXT:contributory_calculator/Resources/Private/Language/locallang_csh_tx_contributorycalculator_domain_model_chargeableincome.xlf'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
-    'tx_contributorycalculator_domain_model_chargeableincome'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
-    'tx_contributorycalculator_domain_model_step',
-    'EXT:contributory_calculator/Resources/Private/Language/locallang_csh_tx_contributorycalculator_domain_model_step.xlf'
-);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages(
-    'tx_contributorycalculator_domain_model_step'
+    'tx_contributorycalculator_domain_model_care',
+    'EXT:contributory_calculator/Resources/Private/Language/locallang_csh_tx_contributorycalculator_domain_model_care.xlf'
 );
