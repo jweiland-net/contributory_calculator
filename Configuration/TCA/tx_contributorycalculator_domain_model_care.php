@@ -29,7 +29,7 @@ return [
         '1' => [
             'showitem' => '--palette--;;languageHidden,
             title,
-            --palette--;;languageHidden,
+            --palette--;;valuesPercent,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ],
@@ -165,7 +165,7 @@ return [
                 'eval' => 'trim'
             ],
         ],
-        'value_below_3title' => [
+        'value_below_3' => [
             'exclude' => true,
             'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_care.value_below_3',
             'config' => [
