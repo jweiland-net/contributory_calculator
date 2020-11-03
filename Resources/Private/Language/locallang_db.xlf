@@ -6,6 +6,9 @@
 			<trans-unit id="plugin.contributorycalculator.title">
 				<source>Contributory Calculator</source>
 			</trans-unit>
+			<trans-unit id="plugin.contributorycalculator.description">
+				<source>This plugin will insert a calculator for contributories to show website visitors how much they have to pay for their children</source>
+			</trans-unit>
 
 			<trans-unit id="tx_contributorycalculator_domain_model_care">
 				<source>Care form</source>

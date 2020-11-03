@@ -7,6 +7,10 @@
 				<source>Contributory Calculator</source>
 				<target>Beitragsrechner</target>
 			</trans-unit>
+			<trans-unit id="plugin.contributorycalculator.description">
+				<source>This plugin will insert a calculator for contributories to show website visitors how much they have to pay for their children</source>
+				<target>Dieses Plugin bindet einen Betreuungsrechner auf der Webseite ein über den den Besucher ausrechnen können, welche Kosten für Ihre Kinder auf sie zukommen</target>
+			</trans-unit>
 
 			<trans-unit id="tx_contributorycalculator_domain_model_care">
 				<source>Care form</source>
