@@ -3,6 +3,10 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator">
 		<header/>
 		<body>
+			<trans-unit id="plugin.contributorycalculator.title">
+				<source>Contributory Calculator</source>
+			</trans-unit>
+
 			<trans-unit id="tx_contributorycalculator_domain_model_care">
 				<source>Care form</source>
 			</trans-unit>

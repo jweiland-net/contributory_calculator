@@ -6,5 +6,5 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     'contributory_calculator',
     'Configuration/TypoScript',
-    'ContributoryCalculator'
+    'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:plugin.contributorycalculator.title'
 );
