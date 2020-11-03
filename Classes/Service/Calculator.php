@@ -11,11 +11,9 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Service;
 
-use JWeiland\ContributoryCalculator\Domain\Model\ChargeableIncome;
+use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
-use JWeiland\ContributoryCalculator\Domain\Model\Step;
-use JWeiland\ContributoryCalculator\Domain\Repository\ChargeableIncomeRepository;
-use JWeiland\ContributoryCalculator\Domain\Repository\StepRepository;
+use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 
 /**
  * Class Calculator
@@ -51,43 +49,26 @@ class Calculator
     protected $subscriptionsPerYear = 0;
 
     /**
-     * @var Step
-     */
-    protected $step;
-
-    /**
-     * @var ChargeableIncome
+     * @var Care
      */
     protected $chargeableIncome;
 
     /**
-     * Step repository
-     *
-     * @var StepRepository
+     * @var CareRepository
      */
-    protected $stepRepository;
-
-    /**
-     * Chargeable income repository
-     *
-     * @var ChargeableIncomeRepository
-     */
-    protected $chargeableIncomeRepository;
+    protected $careRepository;
 
     /**
      * @param Search $search
      * @param array $settings
-     * @param StepRepository $stepRepository
-     * @param ChargeableIncomeRepository $chargeableIncomeRepository
+     * @param CareRepository $careRepository
      */
     public function __construct(
         Search $search,
         array $settings,
-        StepRepository $stepRepository,
-        ChargeableIncomeRepository $chargeableIncomeRepository
+        CareRepository $careRepository
     ) {
-        $this->stepRepository = $stepRepository;
-        $this->chargeableIncomeRepository = $chargeableIncomeRepository;
+        $this->careRepository = $careRepository;
         $this->search = $search;
         if ($search->getChildAge() === Search::CHILD_UNDER_3_YEARS) {
             $this->hourlyRate = $settings['hourlyRateUnder3Years'];
@@ -110,7 +91,6 @@ class Calculator
      */
     public function initializeObject(): void
     {
-        $this->step = $this->stepRepository->findByUid($this->search->getStep());
         $this->chargeableIncome = $this->chargeableIncomeRepository->findByUid($this->search->getChargeableIncome());
     }
 

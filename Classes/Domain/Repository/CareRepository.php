@@ -11,11 +11,18 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
- * Class StepRepository
+ * Repository to retrieve records of each kind of Care Form
  */
-class StepRepository extends Repository
+class CareRepository extends Repository
 {
+    /**
+     * @var array
+     */
+    protected $defaultOrderings = [
+        'title' => QueryInterface::ORDER_ASCENDING
+    ];
 }
