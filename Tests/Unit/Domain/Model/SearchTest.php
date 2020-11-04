@@ -9,89 +9,39 @@
 
 namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
+use JWeiland\ContributoryCalculator\Domain\Model\Care;
+use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
- * Test case for class \JWeiland\ContributoryCalculator\Domain\Model\Search.
- *
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- * @author Pascal Rinker <projects@jweiland.net>
+ * Test case
  */
 class SearchTest extends UnitTestCase
 {
     /**
-     * @var \JWeiland\ContributoryCalculator\Domain\Model\Search
+     * @var Search
      */
     protected $subject;
 
     public function setUp()
     {
-        $this->subject = new \JWeiland\ContributoryCalculator\Domain\Model\Search();
+        $this->subject = new Search();
     }
 
     public function tearDown()
     {
-        unset($this->subject);
-    }
-
-    /**
-     * @test
-     */
-    public function getChildAgeInitiallyReturnsOne()
-    {
-        self::assertSame(
-            1,
-            $this->subject->getChildAge()
+        unset(
+            $this->subject
         );
     }
 
     /**
      * @test
      */
-    public function setChildAgeSetsChildAge()
-    {
-        $this->subject->setChildAge(123456);
-
-        self::assertSame(
-            123456,
-            $this->subject->getChildAge()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function setChildAgeWithStringResultsInInteger()
-    {
-        $this->subject->setChildAge('123Test');
-
-        self::assertSame(
-            123,
-            $this->subject->getChildAge()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function setChildAgeWithBooleanResultsInInteger()
-    {
-        $this->subject->setChildAge(true);
-
-        self::assertSame(
-            1,
-            $this->subject->getChildAge()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function getChargeableIncomeInitiallyReturnsZero()
+    public function getChargeableIncomeInitiallyReturns25000()
     {
         self::assertSame(
-            0,
+            25000,
             $this->subject->getChargeableIncome()
         );
     }
@@ -101,10 +51,36 @@ class SearchTest extends UnitTestCase
      */
     public function setChargeableIncomeSetsChargeableIncome()
     {
+        $this->subject->setChargeableIncome(36000);
+
+        self::assertSame(
+            36000,
+            $this->subject->getChargeableIncome()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setChargeableIncomeWithTooLowValueSetsMinimumChargeableIncome()
+    {
+        $this->subject->setChargeableIncome(12345);
+
+        self::assertSame(
+            25000,
+            $this->subject->getChargeableIncome()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setChargeableIncomeWithTooHighValueSetsMaximumChargeableIncome()
+    {
         $this->subject->setChargeableIncome(123456);
 
         self::assertSame(
-            123456,
+            70000,
             $this->subject->getChargeableIncome()
         );
     }
@@ -112,100 +88,72 @@ class SearchTest extends UnitTestCase
     /**
      * @test
      */
-    public function setChargeableIncomeWithStringResultsInInteger()
+    public function getAgeOfChildInitiallyReturnsOne()
     {
-        $this->subject->setChargeableIncome('123Test');
-
-        self::assertSame(
-            123,
-            $this->subject->getChargeableIncome()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function setChargeableIncomeWithBooleanResultsInInteger()
-    {
-        $this->subject->setChargeableIncome(true);
-
         self::assertSame(
             1,
-            $this->subject->getChargeableIncome()
+            $this->subject->getAgeOfChild()
         );
     }
 
     /**
      * @test
      */
-    public function getStepInitiallyReturnsZero()
+    public function setAgeOfChildSetsAgeOfChild()
     {
-        self::assertSame(
-            0,
-            $this->subject->getStep()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function setStepSetsStep()
-    {
-        $this->subject->setStep(123456);
+        $this->subject->setAgeOfChild(123456);
 
         self::assertSame(
             123456,
-            $this->subject->getStep()
+            $this->subject->getAgeOfChild()
         );
     }
 
     /**
      * @test
      */
-    public function setStepWithStringResultsInInteger()
+    public function setAgeOfChildWithStringResultsInInteger()
     {
-        $this->subject->setStep('123Test');
+        $this->subject->setAgeOfChild('123Test');
 
         self::assertSame(
             123,
-            $this->subject->getStep()
+            $this->subject->getAgeOfChild()
         );
     }
 
     /**
      * @test
      */
-    public function setStepWithBooleanResultsInInteger()
+    public function setAgeOfChildWithBooleanResultsInInteger()
     {
-        $this->subject->setStep(true);
+        $this->subject->setAgeOfChild(true);
 
         self::assertSame(
             1,
-            $this->subject->getStep()
+            $this->subject->getAgeOfChild()
         );
     }
 
     /**
      * @test
      */
-    public function getHoursOfChildcareInitiallyReturnsZero()
+    public function getCareInitiallyReturnsNull()
     {
-        self::assertSame(
-            0.0,
-            $this->subject->getHoursOfChildcare()
-        );
+        self::assertNull($this->subject->getCare());
     }
 
     /**
      * @test
      */
-    public function setHoursOfChildcareSetsHoursOfChildcare()
+    public function setCareSetsCare()
     {
-        $this->subject->setHoursOfChildcare(1234.56);
+        $instance = new Care();
+        $this->subject->setCare($instance);
 
         self::assertSame(
-            1234.56,
-            $this->subject->getHoursOfChildcare()
+            $instance,
+            $this->subject->getCare()
         );
     }
 }
