@@ -6,3 +6,6 @@ services:
 
   JWeiland\ContributoryCalculator\:
     resource: '../Classes/*'
+
+  JWeiland\ContributoryCalculator\Service\Calculator:
+    public: true

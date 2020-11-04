@@ -12,7 +12,7 @@ call_user_func(function () {
         ],
         // non-cacheable actions
         [
-            'Search' => 'search, result',
+            'Search' => 'result',
         ]
     );
 

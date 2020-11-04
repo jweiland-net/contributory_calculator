@@ -26,9 +26,12 @@ class Care extends AbstractEntity
     /**
      * @var string
      */
-    protected $valueAbove3 = '0,00';
+    protected $valueBelow3 = '0';
 
-    protected $valueBelow3 = '0,00';
+    /**
+     * @var string
+     */
+    protected $valueAbove3 = '0';
 
     public function getTitle(): string
     {
@@ -38,6 +41,16 @@ class Care extends AbstractEntity
     public function setTitle(string $title): void
     {
         $this->title = $title;
+    }
+
+    public function getValueBelow3(): string
+    {
+        return $this->valueBelow3;
+    }
+
+    public function setValueBelow3(string $valueBelow3): void
+    {
+        $this->valueBelow3 = $valueBelow3;
     }
 
     public function getValueAbove3(): string
@@ -50,13 +63,14 @@ class Care extends AbstractEntity
         $this->valueAbove3 = $valueAbove3;
     }
 
-    public function getValueBelow3(): string
+    public function getValueForSearch(Search $search): string
     {
-        return $this->valueBelow3;
-    }
-
-    public function setValueBelow3(string $valueBelow3): void
-    {
-        $this->valueBelow3 = $valueBelow3;
+        if ($search->getAgeOfChild() === 1) {
+            return $this->getValueBelow3();
+        } elseif ($search->getAgeOfChild() === 2) {
+            return $this->getValueAbove3();
+        } else {
+            throw new \Exception('Value for ageOfChild is out of range', 1604480845);
+        }
     }
 }

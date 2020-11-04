@@ -11,10 +11,12 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Domain\Model;
 
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
  * Domain model which represents the values of user request from FE context
  */
-class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Search extends AbstractEntity
 {
     /**
      * @var int
@@ -22,8 +24,8 @@ class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $chargeableIncome = 0;
 
     /**
-     * Above 3 years: 1
-     * Below 3 years: 2
+     * Below 3 years: 1
+     * Above 3 years: 2
      *
      * @var int
      */

@@ -14,8 +14,10 @@ namespace JWeiland\ContributoryCalculator\Controller;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 use JWeiland\ContributoryCalculator\Service\Calculator;
+use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
  * Controller to show search form and search results.
@@ -43,9 +45,17 @@ class SearchController extends ActionController
      */
     public function resultAction(Search $search): void
     {
-        $calculator = $this->objectManager->get(Calculator::class, $search, $this->settings);
+        $calculator = $this->objectManager->get(Calculator::class);
         $this->view->assign('careForms', $this->careRepository->findAll());
         $this->view->assign('search', $search);
-        $this->view->assign('result', $calculator->getTotalAmount());
+        try {
+            $this->view->assign('result', $calculator->getTotalPerMonth($search));
+        } catch (EmptyFactorException $e) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate('error.childTooYoung.description', 'contributoryCalculator'),
+                LocalizationUtility::translate('error.childTooYoung.title', 'contributoryCalculator')
+            );
+            $this->view->assign('result', 0.0);
+        }
     }
 }

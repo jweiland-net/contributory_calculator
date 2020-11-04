@@ -16,11 +16,11 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_care.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
-				<source>Factor in % for children above 3 years</source>
-			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_care.value_below_3">
 				<source>Factor in % for children below 3 years</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
+				<source>Factor in % for children above 3 years</source>
 			</trans-unit>
 
 			<trans-unit id="tx_contributorycalculator_domain_model_search">

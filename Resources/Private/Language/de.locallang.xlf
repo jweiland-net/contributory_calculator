@@ -7,7 +7,7 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
 				<target>Suche</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+			<trans-unit id="tx_contributorycalculator_domain_model_search.age_of_child">
 				<target>Alter des Kindes</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.care">
@@ -16,10 +16,10 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
 				<target>Anrechenbares Einkommen</target>
 			</trans-unit>
-			<trans-unit id="childAge.1">
+			<trans-unit id="ageOfChild.1">
 				<target>Unter 3 Jahren</target>
 			</trans-unit>
-			<trans-unit id="childAge.2">
+			<trans-unit id="ageOfChild.2">
 				<target>Ab 3 Jahren</target>
 			</trans-unit>
 			<trans-unit id="calculate">
@@ -31,11 +31,12 @@
 			<trans-unit id="month">
 				<target>Monat</target>
 			</trans-unit>
-			<trans-unit id="chargeableIncome.about">
-				<target>über</target>
+
+			<trans-unit id="error.childTooYoung.title">
+				<target>Child too young</target>
 			</trans-unit>
-			<trans-unit id="chargeableIncome.until">
-				<target>bis</target>
+			<trans-unit id="error.childTooYoung.description">
+				<target>Children within the chosen age are too young for your chosen care form.</target>
 			</trans-unit>
 		</body>
 	</file>

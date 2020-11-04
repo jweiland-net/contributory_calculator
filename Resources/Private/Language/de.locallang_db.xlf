@@ -16,11 +16,11 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_care.title">
 				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
-				<target>Faktor für Kinder über 3 Jahre in %</target>
-			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_care.value_below_3">
 				<target>Faktor für Kinder unter 3 Jahre in %</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
+				<target>Faktor für Kinder über 3 Jahre in %</target>
 			</trans-unit>
 
 			<trans-unit id="tx_contributorycalculator_domain_model_search">

@@ -6,7 +6,7 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
 				<source>Search</source>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+			<trans-unit id="tx_contributorycalculator_domain_model_search.age_of_child">
 				<source>Child Age</source>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.care">
@@ -15,10 +15,10 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
 				<source>Chargeable Income</source>
 			</trans-unit>
-			<trans-unit id="childAge.1">
+			<trans-unit id="ageOfChild.1">
 				<source>Under 3 years</source>
 			</trans-unit>
-			<trans-unit id="childAge.2">
+			<trans-unit id="ageOfChild.2">
 				<source>Above 3 years</source>
 			</trans-unit>
 			<trans-unit id="calculate">
@@ -30,14 +30,15 @@
 			<trans-unit id="month">
 				<source>Month</source>
 			</trans-unit>
-			<trans-unit id="chargeableIncome.about">
-				<source>about</source>
-			</trans-unit>
-			<trans-unit id="chargeableIncome.until">
-				<source>until</source>
-			</trans-unit>
 			<trans-unit id="currency">
 				<source>€</source>
+			</trans-unit>
+
+			<trans-unit id="error.childTooYoung.title">
+				<source>Kind ist zu alt</source>
+			</trans-unit>
+			<trans-unit id="error.childTooYoung.description">
+				<source>Kinder in dem gewählten Alter sind für diese Betreuungsform nicht vorgesehen.</source>
 			</trans-unit>
 		</body>
 	</file>
