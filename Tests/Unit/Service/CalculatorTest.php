@@ -89,7 +89,7 @@ class CalculatorTest extends UnitTestCase
     {
         return [
             'negative income' => [-32000, '4.0', 116.0],
-            'too low income' => [3600, '4.0', 90.0],
+            'too low income' => [3600, '4.0', 0.0],
             'low income' => [25000, '4.0', 90.0],
             'middle income' => [32000, '4.0', 116.0],
             'high income' => [70000, '4.0', 254.0],
@@ -130,7 +130,7 @@ class CalculatorTest extends UnitTestCase
     {
         return [
             'negative income' => [-32000, '2.5', 72.0],
-            'too low income' => [3600, '2.5', 56.0],
+            'too low income' => [3600, '2.5', 0.0],
             'low income' => [25000, '2.5', 56.0],
             'middle income' => [32000, '2.5', 72.0],
             'high income' => [70000, '2.5', 159.0],
