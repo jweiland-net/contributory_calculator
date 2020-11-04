@@ -45,11 +45,7 @@ class Search extends AbstractEntity
 
     public function setChargeableIncome(int $chargeableIncome): void
     {
-        $this->chargeableIncome = MathUtility::forceIntegerInRange(
-            abs($chargeableIncome),
-            25000,
-            70000
-        );
+        $this->chargeableIncome = abs($chargeableIncome);
     }
 
     public function getAgeOfChild(): int
