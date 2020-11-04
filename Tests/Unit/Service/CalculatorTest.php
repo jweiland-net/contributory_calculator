@@ -39,7 +39,8 @@ class CalculatorTest extends UnitTestCase
     /**
      * @test
      */
-    public function getTotalPerMonthWithoutCareFormResultsInException() {
+    public function getTotalPerMonthWithoutCareFormResultsInException()
+    {
         $this->expectExceptionMessage('Given care form was not found in our database');
         $this->expectExceptionCode(1604480281);
 
@@ -51,7 +52,8 @@ class CalculatorTest extends UnitTestCase
     /**
      * @test
      */
-    public function getTotalPerMonthWithoutAgeOfChildResultsInException() {
+    public function getTotalPerMonthWithoutAgeOfChildResultsInException()
+    {
         $this->expectExceptionMessage('You have chosen an invalid age range for your child');
         $this->expectExceptionCode(1604480406);
 
@@ -67,7 +69,8 @@ class CalculatorTest extends UnitTestCase
     /**
      * @test
      */
-    public function getTotalPerMonthWithTooYoundChildAndWithoutFactorWillResultInException() {
+    public function getTotalPerMonthWithTooYoundChildAndWithoutFactorWillResultInException()
+    {
         $this->expectExceptionMessage('Child is too old for this kind of care form.');
         $this->expectExceptionCode(1604482527);
 
@@ -106,8 +109,8 @@ class CalculatorTest extends UnitTestCase
     public function getTotalPerMonthWithChildrenYoungerThanThreeYears(
         int $income,
         string $factor,
-        float $expectedResult)
-    {
+        float $expectedResult
+    ) {
         $care = new Care();
         $care->setValueBelow3($factor);
         $care->setValueAbove3('24');
@@ -147,8 +150,8 @@ class CalculatorTest extends UnitTestCase
     public function getTotalPerMonthWithChildrenOlderThanThreeYears(
         int $income,
         string $factor,
-        float $expectedResult)
-    {
+        float $expectedResult
+    ) {
         $care = new Care();
         $care->setValueBelow3('24');
         $care->setValueAbove3($factor);

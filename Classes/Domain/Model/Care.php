@@ -67,10 +67,10 @@ class Care extends AbstractEntity
     {
         if ($search->getAgeOfChild() === 1) {
             return $this->getValueBelow3();
-        } elseif ($search->getAgeOfChild() === 2) {
-            return $this->getValueAbove3();
-        } else {
-            throw new \Exception('Value for ageOfChild is out of range', 1604480845);
         }
+        if ($search->getAgeOfChild() === 2) {
+            return $this->getValueAbove3();
+        }
+        throw new \Exception('Value for ageOfChild is out of range', 1604480845);
     }
 }
