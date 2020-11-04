@@ -15,6 +15,7 @@ use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 use JWeiland\ContributoryCalculator\Service\Calculator;
 use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
+use TYPO3\CMS\Core\Messaging\FlashMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -54,7 +55,8 @@ class SearchController extends ActionController
         } catch (EmptyFactorException $e) {
             $this->addFlashMessage(
                 LocalizationUtility::translate('error.childTooYoung.description', 'contributoryCalculator'),
-                LocalizationUtility::translate('error.childTooYoung.title', 'contributoryCalculator')
+                LocalizationUtility::translate('error.childTooYoung.title', 'contributoryCalculator'),
+                FlashMessage::WARNING
             );
             $this->view->assign('result', 0.0);
         }
