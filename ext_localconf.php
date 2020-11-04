@@ -21,9 +21,6 @@ call_user_func(function () {
         '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:contributory_calculator/Configuration/TSconfig/ContentElementWizard.txt">'
     );
 
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass']['contributory_calculator']
-        = JWeiland\ContributoryCalculator\Hook\ProcessDatamap::class;
-
     // Register SVG Icon Identifier
     $svgIcons = [
         'ext-contributorycalculator-wizard-icon' => 'plugin_wizard.svg',
