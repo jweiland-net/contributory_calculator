@@ -1,60 +1,59 @@
-.. every .rst file should include Includes.txt
-.. use correct path!
-
 .. include:: Includes.txt
+
 
 .. Every manual should have a start label for cross-referencing to
 .. start page. Do not remove this!
 
 .. _start:
 
-=============================================================
-contributory_calculator
-=============================================================
+=======================
+Contributory Calculator
+=======================
 
-:Version:
-   |release|
+.. only:: html
 
-:Language:
-   en
+   :Classification:
+      contributory_calculator
 
-:Authors:
-   Pascal Rinker
+   :Version:
+      |release|
 
-:Email:
-   projects@jweiland.net
+   :Language:
+      en
 
-:License:
-   This extension documentation is published under the
-   `CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>`__ (Creative Commons)
-   license
+   :Description:
+      Manual covering TYPO3 extension contributory_calculator
 
-**TYPO3**
+   :Keywords:
+      contributory, calculator
 
-The content of this document is related to TYPO3 CMS,
-a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_ .
+   :Copyright:
+      2013-2020
 
-**Community Documentation**
+   :Author:
+      Pascal Rinker
 
-This documentation is community documentation for the TYPO3 extension contributory_calculator
+   :Email:
+      projects@jweiland.net
 
-It is maintained as part of this third party extension.
+   :License:
+      This document is published under the Open Publication License
+      available from http://www.opencontent.org/openpub/
 
-If you find an error or something is missing, please:
-`Report a Problem <https://github.com/jweiland-net/contributory_calculator/issues/new>`__
+   :Rendered:
+      |today|
 
-**Extension Manual**
+   The content of this document is related to TYPO3,
+   a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
 
-This documentation is for the TYPO3 extension contributory_calculator.
 
-**For Contributors**
-
-You are welcome to help improve this guide.
-Just click on "Edit me on GitHub" on the top right to submit your change request.
+   **Table of Contents**
 
 .. toctree::
    :maxdepth: 3
 
+
    Introduction/Index
+   Installation/Index
    Configuration/Index
-   Sitemap
+   ChangeLog/Index

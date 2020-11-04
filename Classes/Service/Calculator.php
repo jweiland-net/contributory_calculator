@@ -11,151 +11,51 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Service;
 
-use JWeiland\ContributoryCalculator\Domain\Model\ChargeableIncome;
+use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
-use JWeiland\ContributoryCalculator\Domain\Model\Step;
-use JWeiland\ContributoryCalculator\Domain\Repository\ChargeableIncomeRepository;
-use JWeiland\ContributoryCalculator\Domain\Repository\StepRepository;
+use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
 
 /**
  * Class Calculator
  */
 class Calculator
 {
-    /**
-     * Search object
-     *
-     * @var Search
-     */
-    protected $search;
+    public function getTotalPerMonth(Search $search): float
+    {
+        $this->validateSearch($search);
+        $result = $search->getChargeableIncome() * ($this->getFactor($search) / 100) / 11;
+        return floor($result);
+    }
 
-    /**
-     * Hourly rate
-     *
-     * @var float
-     */
-    protected $hourlyRate = 0.0;
-
-    /**
-     * Opening time in weeks
-     *
-     * @var int
-     */
-    protected $openingTimeInWeeksPerYear = 0;
-
-    /**
-     * Subscriptions per year
-     *
-     * @var int
-     */
-    protected $subscriptionsPerYear = 0;
-
-    /**
-     * @var Step
-     */
-    protected $step;
-
-    /**
-     * @var ChargeableIncome
-     */
-    protected $chargeableIncome;
-
-    /**
-     * Step repository
-     *
-     * @var StepRepository
-     */
-    protected $stepRepository;
-
-    /**
-     * Chargeable income repository
-     *
-     * @var ChargeableIncomeRepository
-     */
-    protected $chargeableIncomeRepository;
-
-    /**
-     * @param Search $search
-     * @param array $settings
-     * @param StepRepository $stepRepository
-     * @param ChargeableIncomeRepository $chargeableIncomeRepository
-     */
-    public function __construct(
-        Search $search,
-        array $settings,
-        StepRepository $stepRepository,
-        ChargeableIncomeRepository $chargeableIncomeRepository
-    ) {
-        $this->stepRepository = $stepRepository;
-        $this->chargeableIncomeRepository = $chargeableIncomeRepository;
-        $this->search = $search;
-        if ($search->getChildAge() === Search::CHILD_UNDER_3_YEARS) {
-            $this->hourlyRate = $settings['hourlyRateUnder3Years'];
-        } else {
-            $this->hourlyRate = $settings['hourlyRateAbove3Years'];
+    protected function validateSearch(Search $search): void
+    {
+        if (!$search->getCare() instanceof Care) {
+            throw new \Exception('Given care form was not found in our database', 1604480281);
         }
-        $this->openingTimeInWeeksPerYear = $settings['openingTimeInWeeksPerYear'];
-        $this->subscriptionsPerYear = $settings['subscriptionsPerYear'];
-        $maxHoursOfChildcare = $settings['maximalHoursOfChildcare'];
-        if (!$maxHoursOfChildcare) {
-            $maxHoursOfChildcare = 50;
-        }
-        if ($this->search->getHoursOfChildcare() > $maxHoursOfChildcare) {
-            $this->search->setHoursOfChildcare($maxHoursOfChildcare);
+        if (!in_array($search->getAgeOfChild(), [1, 2], true)) {
+            throw new \Exception('You have chosen an invalid age range for your child', 1604480406);
         }
     }
 
-    /**
-     * Initializes the objects step and chargeable income
-     */
-    public function initializeObject(): void
+    protected function getFactor(Search $search): float
     {
-        $this->step = $this->stepRepository->findByUid($this->search->getStep());
-        $this->chargeableIncome = $this->chargeableIncomeRepository->findByUid($this->search->getChargeableIncome());
+        $value = $search->getCare()->getValueForSearch($search);
+        if (empty($value)) {
+            throw new EmptyFactorException('Child is too old for this kind of care form.', 1604482527);
+        }
+        return $this->convertStringToFloat($value);
     }
 
-    /**
-     * Returns the total amount
-     *
-     * @return float
-     */
-    public function getTotalAmount(): float
+    protected function convertStringToFloat(string $value): float
     {
-        // calculate total amount
-        return $this->getChargeableIncomeDiscount() * $this->getPercentFromHundred($this->step->getDiscountInPercent());
-    }
-
-    /**
-     * Returns the regular fee multiplied with chargeable income discount
-     *
-     * @return float
-     */
-    protected function getChargeableIncomeDiscount(): float
-    {
-        return $this->getRegularFee() * $this->getPercentFromHundred($this->chargeableIncome->getDiscountInPercent());
-    }
-
-    /**
-     * Returns the regular fee
-     *
-     * @return float
-     */
-    protected function getRegularFee(): float
-    {
-        $result = $this->hourlyRate * $this->search->getHoursOfChildcare() * $this->openingTimeInWeeksPerYear;
-        $result /= $this->subscriptionsPerYear;
-        return (float)$result;
-    }
-
-    /**
-     * Returns percent from hundred like 0.8 if
-     * discount in percent equals 20(%)
-     *
-     * @param float $discountInPercent
-     * @return float
-     */
-    protected function getPercentFromHundred($discountInPercent): float
-    {
-        return (float)((100 - $discountInPercent) / 100);
+        if (strpos($value, ',') !== false && strpos($value, '.') !== false) {
+            // $value = 1.234,56 ==> 1234.56
+            $value = str_replace('.', '', $value);
+            $value = str_replace(',', '.', $value);
+        } elseif (strpos($value, ',') !== false) {
+            // $value = 8,5 ==> 8.5
+            $value = str_replace(',', '.', $value);
+        }
+        return (float)$value;
     }
 }

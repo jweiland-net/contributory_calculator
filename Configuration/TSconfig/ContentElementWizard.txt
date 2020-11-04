@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+  elements {
+    contributorycalculator {
+      iconIdentifier = ext-contributorycalculator-wizard-icon
+      title = LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:plugin.contributorycalculator.title
+      description = LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:plugin.contributorycalculator.description
+      tt_content_defValues {
+        CType = list
+        list_type = contributorycalculator_contributorycalculator
+      }
+    }
+  }
+}

@@ -9,13 +9,12 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\ContributoryCalculator\Domain\Repository;
-
-use TYPO3\CMS\Extbase\Persistence\Repository;
+namespace JWeiland\ContributoryCalculator\Service\Exception;
 
 /**
- * Class StepRepository
+ * This Exception will be thrown, if factor in percent is empty.
+ * This will mostly happen on care forms for children older than 3 years.
  */
-class StepRepository extends Repository
+class EmptyFactorException extends \Exception
 {
 }

@@ -3,27 +3,26 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator">
 		<header/>
 		<body>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
-				<target>Anrechenbares Einkommen</target>
+			<trans-unit id="plugin.contributorycalculator.title">
+				<target>Beitragsrechner</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.minimal_income">
-				<target>Minimales Einkommen</target>
+			<trans-unit id="plugin.contributorycalculator.description">
+				<target>Dieses Plugin bindet einen Betreuungsrechner auf der Webseite ein über den den Besucher ausrechnen können, welche Kosten für Ihre Kinder auf sie zukommen</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.maximal_income">
-				<target>Maximales Einkommen</target>
+
+			<trans-unit id="tx_contributorycalculator_domain_model_care">
+				<target>Betreuungsform</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.discount_in_percent">
-				<target>Ermäßigung in Prozent</target>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.title">
+				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step">
-				<target>Anzahl zu betreuende Kinder</target>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.value_below_3">
+				<target>Faktor für Kinder unter 3 Jahre in %</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step.name">
-				<target>Name</target>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
+				<target>Faktor für Kinder über 3 Jahre in %</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step.discount_in_percent">
-				<target>Ermäßigung in Prozent</target>
-			</trans-unit>
+
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
 				<target>Suche</target>
 			</trans-unit>
