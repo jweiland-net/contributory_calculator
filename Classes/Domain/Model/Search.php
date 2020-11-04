@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Domain\Model;
 
-use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
