@@ -12,45 +12,33 @@ declare(strict_types=1);
 namespace JWeiland\ContributoryCalculator\Controller;
 
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
-use JWeiland\ContributoryCalculator\Domain\Repository\ChargeableIncomeRepository;
-use JWeiland\ContributoryCalculator\Domain\Repository\StepRepository;
+use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 use JWeiland\ContributoryCalculator\Service\Calculator;
+use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
 /**
- * SearchController
+ * Controller to show search form and search results.
  */
 class SearchController extends ActionController
 {
     /**
-     * @var ChargeableIncomeRepository
+     * @var CareRepository
      */
-    protected $chargeableIncomeRepository;
+    protected $careRepository;
 
-    /**
-     * @var StepRepository
-     */
-    protected $stepRepository;
-
-    /**
-     * @param ChargeableIncomeRepository $chargeableIncomeRepository
-     * @param StepRepository $stepRepository
-     */
-    public function __construct(ChargeableIncomeRepository $chargeableIncomeRepository, StepRepository $stepRepository)
+    public function __construct(CareRepository $chargeableIncomeRepository)
     {
-        $this->chargeableIncomeRepository = $chargeableIncomeRepository;
-        $this->stepRepository = $stepRepository;
+        parent::__construct();
+        $this->careRepository = $chargeableIncomeRepository;
     }
 
-    /**
-     * action search
-     */
     public function searchAction(): void
     {
-        /** @var Search $search */
-        $search = GeneralUtility::makeInstance(Search::class);
-        $this->addBaseKeysToView($search);
+        $this->view->assign('careForms', $this->careRepository->findAll());
+        $this->view->assign('search', GeneralUtility::makeInstance(Search::class));
     }
 
     /**
@@ -58,26 +46,17 @@ class SearchController extends ActionController
      */
     public function resultAction(Search $search): void
     {
-        $this->addBaseKeysToView($search);
-        /** @var Calculator $calculator */
-        $calculator = $this->objectManager->get(
-            Calculator::class,
-            $search,
-            $this->settings
-        );
-        $this->view->assign('result', $calculator->getTotalAmount());
-    }
-
-    /**
-     * Adds the base keys to current view
-     *
-     * @param Search $search
-     */
-    protected function addBaseKeysToView(Search $search): void
-    {
+        $calculator = $this->objectManager->get(Calculator::class);
+        $this->view->assign('careForms', $this->careRepository->findAll());
         $this->view->assign('search', $search);
-        $this->view->assign('maximalHoursOfChildCare', $this->settings['maximalHoursOfChildcare']);
-        $this->view->assign('chargeableIncomeTypes', $this->chargeableIncomeRepository->findAllSortedByMaximalIncome());
-        $this->view->assign('steps', $this->stepRepository->findAll());
+        try {
+            $this->view->assign('result', $calculator->getTotalPerMonth($search));
+        } catch (EmptyFactorException $e) {
+            $this->addFlashMessage(
+                LocalizationUtility::translate('error.childTooYoung.description', 'contributoryCalculator'),
+                LocalizationUtility::translate('error.childTooYoung.title', 'contributoryCalculator')
+            );
+            $this->view->assign('result', 0.0);
+        }
     }
 }

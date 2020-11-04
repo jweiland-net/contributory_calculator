@@ -11,126 +11,64 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Domain\Model;
 
+use TYPO3\CMS\Core\Utility\MathUtility;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
 /**
- * Search
+ * Domain model which represents the values of user request from FE context
  */
-class Search extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Search extends AbstractEntity
 {
     /**
-     * Integer for child under 3 years
+     * @var int
      */
-    const CHILD_UNDER_3_YEARS = 1;
+    protected $chargeableIncome = 25000;
 
     /**
-     * Integer for child above 3 years
-     */
-    const CHILD_ABOVE_3_YEARS = 2;
-
-    /**
-     * childAge
+     * Below 3 years: 1
+     * Above 3 years: 2
      *
      * @var int
      */
-    protected $childAge = 1;
+    protected $ageOfChild = 1;
 
     /**
-     * chargeableIncome
-     *
-     * @var int
+     * @var \JWeiland\ContributoryCalculator\Domain\Model\Care
+     * @validate NotEmpty
      */
-    protected $chargeableIncome = 0;
+    protected $care;
 
-    /**
-     * step
-     *
-     * @var int
-     */
-    protected $step = 0;
-
-    /**
-     * hoursOfChildcare
-     *
-     * @var float
-     */
-    protected $hoursOfChildcare = 0.0;
-
-    /**
-     * Returns the chargeableIncome
-     *
-     * @return int $chargeableIncome
-     */
     public function getChargeableIncome(): int
     {
         return $this->chargeableIncome;
     }
 
-    /**
-     * Sets the chargeableIncome
-     *
-     * @param int $chargeableIncome
-     */
     public function setChargeableIncome(int $chargeableIncome): void
     {
-        $this->chargeableIncome = $chargeableIncome;
+        $this->chargeableIncome = MathUtility::forceIntegerInRange(
+            abs($chargeableIncome),
+            25000,
+            70000
+        );
     }
 
-    /**
-     * Returns the step
-     *
-     * @return int $step
-     */
-    public function getStep(): int
+    public function getAgeOfChild(): int
     {
-        return $this->step;
+        return $this->ageOfChild;
     }
 
-    /**
-     * Sets the step
-     *
-     * @param int $step
-     */
-    public function setStep(int $step): void
+    public function setAgeOfChild(int $ageOfChild): void
     {
-        $this->step = $step;
+        $this->ageOfChild = $ageOfChild;
     }
 
-    /**
-     * Returns the childAge
-     *
-     * @return int $childAge
-     */
-    public function getChildAge(): int
+    public function getCare(): ?Care
     {
-        return $this->childAge;
+        return $this->care;
     }
 
-    /**
-     * Sets the childAge
-     *
-     * @param int $childAge
-     */
-    public function setChildAge(int $childAge): void
+    public function setCare(?Care $care): void
     {
-        $this->childAge = $childAge;
-    }
-
-    /**
-     * Returns the hoursOfChildcare
-     *
-     * @return float $hoursOfChildcare
-     */
-    public function getHoursOfChildcare(): float
-    {
-        return $this->hoursOfChildcare;
-    }
-
-    /**
-     * Sets the hoursOfChildcare
-     *
-     * @param float $hoursOfChildcare
-     */
-    public function setHoursOfChildcare(float $hoursOfChildcare): void
-    {
-        $this->hoursOfChildcare = $hoursOfChildcare;
+        $this->care = $care;
     }
 }

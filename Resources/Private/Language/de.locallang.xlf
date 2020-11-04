@@ -4,49 +4,22 @@
 				product-name="contributory_calculator">
 		<header/>
 		<body>
-			<trans-unit id="tx_contributorycalculator">
-				<target>Beitragsrechner</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome">
-				<target>Anrechenbares Einkommen</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.minimal_income">
-				<target>Minimales Einkommen</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.maximal_income">
-				<target>Maximales Einkommen</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_chargeableincome.discount_in_percent">
-				<target>Ermäßigung in Prozent</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step">
-				<target>Anzahl Kinder im Haushalt (bis 18 Jahre)</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step.name">
-				<target>Name</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_step.discount_in_percent">
-				<target>Ermäßigung in Prozent</target>
-			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
 				<target>Suche</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+			<trans-unit id="tx_contributorycalculator_domain_model_search.age_of_child">
 				<target>Alter des Kindes</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
-				<target>Betreuungsstunden / Woche</target>
+			<trans-unit id="tx_contributorycalculator_domain_model_search.care">
+				<target>Betreuungsform</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
 				<target>Anrechenbares Einkommen</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.step">
-				<target>Anzahl Kinder im Haushalt (bis 18 Jahre)</target>
-			</trans-unit>
-			<trans-unit id="childAge.1">
+			<trans-unit id="ageOfChild.1">
 				<target>Unter 3 Jahren</target>
 			</trans-unit>
-			<trans-unit id="childAge.2">
+			<trans-unit id="ageOfChild.2">
 				<target>Ab 3 Jahren</target>
 			</trans-unit>
 			<trans-unit id="calculate">
@@ -58,11 +31,12 @@
 			<trans-unit id="month">
 				<target>Monat</target>
 			</trans-unit>
-			<trans-unit id="chargeableIncome.about">
-				<target>über</target>
+
+			<trans-unit id="error.childTooYoung.title">
+				<target>Child too young</target>
 			</trans-unit>
-			<trans-unit id="chargeableIncome.until">
-				<target>bis</target>
+			<trans-unit id="error.childTooYoung.description">
+				<target>Children within the chosen age are too young for your chosen care form.</target>
 			</trans-unit>
 		</body>
 	</file>
