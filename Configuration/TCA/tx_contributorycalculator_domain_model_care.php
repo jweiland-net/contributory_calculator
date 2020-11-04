@@ -23,7 +23,7 @@ return [
         'iconfile' => 'EXT:contributory_calculator/Resources/Public/Icons/tx_contributorycalculator_domain_model_care.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, hidden, title, value_above_3, value_below_3',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, hidden, title, value_below_3, value_above_3',
     ],
     'types' => [
         '1' => [
@@ -36,7 +36,7 @@ return [
     ],
     'palettes' => [
         'languageHidden' => ['showitem' => 'sys_language_uid, l10n_parent, hidden'],
-        'valuesPercent' => ['showitem' => 'value_above_3, value_below_3'],
+        'valuesPercent' => ['showitem' => 'value_below_3, value_above_3'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
         ]
@@ -156,18 +156,18 @@ return [
                 'eval' => 'trim'
             ],
         ],
-        'value_above_3' => [
+        'value_below_3' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_care.value_above_3',
+            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_care.value_below_3',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
             ],
         ],
-        'value_below_3' => [
+        'value_above_3' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_care.value_below_3',
+            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_care.value_above_3',
             'config' => [
                 'type' => 'input',
                 'size' => 30,

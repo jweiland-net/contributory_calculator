@@ -7,13 +7,13 @@
 				<source>A title for this care form</source>
 				<target>Vergeben Sie einen Titel für diese Betreuungsform</target>
 			</trans-unit>
-			<trans-unit id="value_above_3.description">
-				<source>A value in percent like 3,84 for children above 3 years</source>
-				<target>Geben Sie einen prozentualen Wert wie 3,84 für Kinder über 3 Jahre ein</target>
-			</trans-unit>
 			<trans-unit id="value_below_3.description">
 				<source>A value in percent like 3,84 for children below 3 years</source>
 				<target>Geben Sie einen prozentualen Wert wie 3,84 für Kinder unter 3 Jahre ein</target>
+			</trans-unit>
+			<trans-unit id="value_above_3.description">
+				<source>A value in percent like 3,84 for children above 3 years</source>
+				<target>Geben Sie einen prozentualen Wert wie 3,84 für Kinder über 3 Jahre ein</target>
 			</trans-unit>
 		</body>
 	</file>
