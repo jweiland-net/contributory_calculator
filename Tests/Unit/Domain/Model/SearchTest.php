@@ -62,32 +62,6 @@ class SearchTest extends UnitTestCase
     /**
      * @test
      */
-    public function setChargeableIncomeWithTooLowValueSetsMinimumChargeableIncome()
-    {
-        $this->subject->setChargeableIncome(12345);
-
-        self::assertSame(
-            25000,
-            $this->subject->getChargeableIncome()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function setChargeableIncomeWithTooHighValueSetsMaximumChargeableIncome()
-    {
-        $this->subject->setChargeableIncome(123456);
-
-        self::assertSame(
-            70000,
-            $this->subject->getChargeableIncome()
-        );
-    }
-
-    /**
-     * @test
-     */
     public function getAgeOfChildInitiallyReturnsOne()
     {
         self::assertSame(
