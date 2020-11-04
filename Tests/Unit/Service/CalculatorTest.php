@@ -11,168 +11,156 @@ namespace JWeiland\ContributoryCalculator\Tests;
 
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
-use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 use JWeiland\ContributoryCalculator\Service\Calculator;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
-use TYPO3\TestingFramework\Core\AccessibleObjectInterface;
 
 /**
- * Test case for class \JWeiland\ContributoryCalculator\Service\Calculator.
- *
- * @copyright Copyright belongs to the respective authors
- * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- * @author Pascal Rinker <projects@jweiland.net>
+ * Test case
  */
 class CalculatorTest extends UnitTestCase
 {
     /**
-     * @var Calculator|\PHPUnit_Framework_MockObject_MockObject|AccessibleObjectInterface
+     * @var Calculator
      */
     protected $subject;
 
     public function setUp()
     {
-        $this->subject = $this->getAccessibleMock(Calculator::class, null, [], '', false);
+        $this->subject = new Calculator();
     }
 
     public function tearDown()
     {
-        unset($this->subject);
+        unset(
+            $this->subject
+        );
     }
 
     /**
-     * sets the dummy data for $this->subject for testing with data for child under 3 years
+     * @test
      */
-    public function setDummyDataForChildUnder3Years()
-    {
-        // initialize step
-        $step = new Step();
-        $step->setDiscountInPercent(10); // equals 2 child
-        // initialize chargeable income
-        $chargeableIncome = new Care();
-        $chargeableIncome->setDiscountInPercent(10); // equals 2101€ - 2500€ ; step a
-        // initialize search
+    public function getTotalPerMonthWithoutCareFormResultsInException() {
+        $this->expectExceptionMessage('Given care form was not found in our database');
+        $this->expectExceptionCode(1604480281);
+
         $search = new Search();
-        $search->setHoursOfChildcare(30);
-        $search->setChildAge(1); // under 3 years
-        // set settings
-        $settings = [
-            'hourlyRateUnder3Years' => 1.79,
-            'openingTimeInWeeksPerYear' => 46,
-            'subscriptionsPerYear' => 11
-        ];
-        $this->subject->__construct(
-            $search,
-            $settings,
-            $this->createMock(CareRepository::class)
-        );
-        $this->subject->_set('step', $step);
-        $this->subject->_set('chargeableIncome', $chargeableIncome);
+
+        $this->subject->getTotalPerMonth($search);
     }
 
     /**
-     * sets the dummy data for $this->subject for testing with data for child above 3 years
+     * @test
      */
-    public function setDummyDataForChildAbove3Years()
-    {
-        // initialize step
-        $step = new Step();
-        $step->setDiscountInPercent(10); // equals 2 child
-        // initialize chargeable income
-        $chargeableIncome = new Care();
-        $chargeableIncome->setDiscountInPercent(10); // equals 2101€ - 2500€ ; step a
-        // initialize search
+    public function getTotalPerMonthWithoutAgeOfChildResultsInException() {
+        $this->expectExceptionMessage('You have chosen an invalid age range for your child');
+        $this->expectExceptionCode(1604480406);
+
+        $care = new Care();
+
         $search = new Search();
-        $search->setHoursOfChildcare(30);
-        $search->setChildAge(2); // above 3 years
-        // set settings
-        $settings = [
-            'hourlyRateAbove3Years' => 1.09,
-            'openingTimeInWeeksPerYear' => 46,
-            'subscriptionsPerYear' => 11
+        $search->setAgeOfChild(24);
+        $search->setCare($care);
+
+        $this->subject->getTotalPerMonth($search);
+    }
+
+    /**
+     * @test
+     */
+    public function getTotalPerMonthWithTooYoundChildAndWithoutFactorWillResultInException() {
+        $this->expectExceptionMessage('Child is too old for this kind of care form.');
+        $this->expectExceptionCode(1604482527);
+
+        $care = new Care();
+        $care->setValueBelow3('');
+        $care->setValueAbove3('');
+
+        $search = new Search();
+        $search->setAgeOfChild(1);
+        $search->setCare($care);
+
+        $this->subject->getTotalPerMonth($search);
+    }
+
+    public function dataProviderForChildrenBelowThreeYears()
+    {
+        return [
+            'negative income' => [-32000, '4.0', 116.0],
+            'too low income' => [3600, '4.0', 90.0],
+            'low income' => [25000, '4.0', 90.0],
+            'middle income' => [32000, '4.0', 116.0],
+            'high income' => [70000, '4.0', 254.0],
+            'too high income' => [123456789, '4.0', 254.0],
+            'middle income with german factor' => [32000, '4.0', 116.0],
+            'middle income with thousands separator factor' => [32000, '1.4,5', 421.0],
         ];
-        $this->subject->__construct(
-            $search,
-            $settings,
-            $this->createMock(CareRepository::class)
-        );
-        $this->subject->_set('step', $step);
-        $this->subject->_set('chargeableIncome', $chargeableIncome);
     }
 
     /**
      * @test
+     * @dataProvider dataProviderForChildrenBelowThreeYears
+     * @param int $income
+     * @param string $factor
+     * @param float $expectedResult
      */
-    public function getTotalAmountForChildUnder3Years()
+    public function getTotalPerMonthWithChildrenYoungerThanThreeYears(
+        int $income,
+        string $factor,
+        float $expectedResult)
     {
-        $this->setDummyDataForChildUnder3Years();
-        self::assertRegExp(
-            '/^(181.8965){1}(\d)+/',
-            trim($this->subject->getTotalAmount()),
-            'result of total amount child under 3 years'
+        $care = new Care();
+        $care->setValueBelow3($factor);
+        $care->setValueAbove3('24');
+
+        $search = new Search();
+        $search->setChargeableIncome($income);
+        $search->setAgeOfChild(1);
+        $search->setCare($care);
+
+        self::assertSame(
+            $expectedResult,
+            $this->subject->getTotalPerMonth($search)
         );
+    }
+
+    public function dataProviderForChildrenAboveThreeYears()
+    {
+        return [
+            'negative income' => [-32000, '2.5', 72.0],
+            'too low income' => [3600, '2.5', 56.0],
+            'low income' => [25000, '2.5', 56.0],
+            'middle income' => [32000, '2.5', 72.0],
+            'high income' => [70000, '2.5', 159.0],
+            'too high income' => [123456789, '2.5', 159.0],
+            'middle income with german factor' => [32000, '2,5', 72.0],
+            'middle income with thousands separator factor' => [32000, '2.5,8', 750.0],
+        ];
     }
 
     /**
      * @test
+     * @dataProvider dataProviderForChildrenAboveThreeYears
+     * @param int $income
+     * @param string $factor
+     * @param float $expectedResult
      */
-    public function getTotalAmountForChildAbove3Years()
+    public function getTotalPerMonthWithChildrenOlderThanThreeYears(
+        int $income,
+        string $factor,
+        float $expectedResult)
     {
-        $this->setDummyDataForChildAbove3Years();
-        self::assertRegExp(
-            '/^(110.7638){1}(\d)+/',
-            trim($this->subject->getTotalAmount()),
-            'result of total amount child above 3 years'
-        );
-    }
+        $care = new Care();
+        $care->setValueBelow3('24');
+        $care->setValueAbove3($factor);
 
-    /**
-     * @test
-     */
-    public function getRegularFeeForChildUnder3Years()
-    {
-        $this->setDummyDataForChildUnder3Years();
-        self::assertRegExp(
-            '/^(224.5636){1}(\d)+/',
-            trim($this->subject->_call('getRegularFee')),
-            'result of regular fee child under 3 years'
-        );
-    }
+        $search = new Search();
+        $search->setChargeableIncome($income);
+        $search->setAgeOfChild(2);
+        $search->setCare($care);
 
-    /**
-     * @test
-     */
-    public function getRegularFeeForChildAbove3Years()
-    {
-        $this->setDummyDataForChildAbove3Years();
-        self::assertRegExp(
-            '/^(136.7454){1}(\d)+/',
-            trim($this->subject->_call('getRegularFee')),
-            'result of regular fee child above 3 years'
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function getChargeableIncomeDiscountForChildUnder3Years()
-    {
-        $this->setDummyDataForChildUnder3Years();
-        self::assertRegExp(
-            '/^202.1072{1}(\d)+/',
-            trim($this->subject->_call('getChargeableIncomeDiscount'))
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function getChargeableIncomeDiscountForChildAbove3Years()
-    {
-        $this->setDummyDataForChildAbove3Years();
-        self::assertRegExp(
-            '/^123.0709{1}(\d)+/',
-            trim($this->subject->_call('getChargeableIncomeDiscount'))
+        self::assertSame(
+            $expectedResult,
+            $this->subject->getTotalPerMonth($search)
         );
     }
 }

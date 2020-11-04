@@ -21,29 +21,11 @@ use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
  */
 class Calculator
 {
-    /**
-     * @var Search
-     */
-    protected $search;
-
-    /**
-     * @var CareRepository
-     */
-    protected $careRepository;
-
-    public function __construct(
-        Search $search,
-        CareRepository $careRepository
-    ) {
-        $this->careRepository = $careRepository;
-        $this->search = $search;
-    }
-
     public function getTotalPerMonth(Search $search): float
     {
         $this->validateSearch($search);
-        $result = $search->getChargeableIncome() * $this->getFactor($search) / 100 / 11;
-        return round($result, 2);
+        $result = $search->getChargeableIncome() * ($this->getFactor($search) / 100) / 11;
+        return floor($result);
     }
 
     protected function validateSearch(Search $search): void
