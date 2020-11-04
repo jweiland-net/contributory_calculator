@@ -13,7 +13,6 @@ namespace JWeiland\ContributoryCalculator\Service;
 
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
-use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
 
 /**
