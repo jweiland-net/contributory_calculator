@@ -22,8 +22,17 @@ class Calculator
 {
     public function getTotalPerMonth(Search $search): float
     {
+        $chargeableIncome = $search->getChargeableIncome();
+        if ($chargeableIncome < 25000) {
+            return 0.0;
+        }
+
+        if ($chargeableIncome > 70000) {
+            $chargeableIncome = 70000;
+        }
+
         $this->validateSearch($search);
-        $result = $search->getChargeableIncome() * ($this->getFactor($search) / 100) / 11;
+        $result = $chargeableIncome * ($this->getFactor($search) / 100) / 11;
         return floor($result);
     }
 
