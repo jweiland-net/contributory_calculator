@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Domain\Model;
 
-use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -45,11 +44,7 @@ class Search extends AbstractEntity
 
     public function setChargeableIncome(int $chargeableIncome): void
     {
-        $this->chargeableIncome = MathUtility::forceIntegerInRange(
-            abs($chargeableIncome),
-            25000,
-            70000
-        );
+        $this->chargeableIncome = abs($chargeableIncome);
     }
 
     public function getAgeOfChild(): int

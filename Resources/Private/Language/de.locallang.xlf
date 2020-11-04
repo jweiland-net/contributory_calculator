@@ -33,10 +33,10 @@
 			</trans-unit>
 
 			<trans-unit id="error.childTooYoung.title">
-				<target>Child too young</target>
+				<target>Kind zu jung</target>
 			</trans-unit>
 			<trans-unit id="error.childTooYoung.description">
-				<target>Children within the chosen age are too young for your chosen care form.</target>
+				<target>Kinder dieser Altergruppe sind für die gewählte Betreungsform noch zu jung.</target>
 			</trans-unit>
 		</body>
 	</file>
