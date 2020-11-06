@@ -35,10 +35,10 @@
 			</trans-unit>
 
 			<trans-unit id="error.childTooYoung.title">
-				<source>Kind ist zu alt</source>
+				<source>Note</source>
 			</trans-unit>
 			<trans-unit id="error.childTooYoung.description">
-				<source>Kinder in dem gewählten Alter sind für diese Betreuungsform nicht vorgesehen.</source>
+				<source>Your child is too young for your chosen care form.</source>
 			</trans-unit>
 		</body>
 	</file>
