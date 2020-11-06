@@ -19,9 +19,25 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Search extends AbstractEntity
 {
     /**
+     * This values will be filled by the customer from the website
+     *
      * @var int
      */
-    protected $chargeableIncome = 25000;
+    protected $chargeableIncome = 0;
+
+    /**
+     * This values will be filled by FlexForm settings of plugin
+     *
+     * @var int
+     */
+    protected $minChargeableIncome = 0;
+
+    /**
+     * This values will be filled by FlexForm settings of plugin
+     *
+     * @var int
+     */
+    protected $maxChargeableIncome = 0;
 
     /**
      * Below 3 years: 1
@@ -45,6 +61,26 @@ class Search extends AbstractEntity
     public function setChargeableIncome(int $chargeableIncome): void
     {
         $this->chargeableIncome = abs($chargeableIncome);
+    }
+
+    public function getMinChargeableIncome(): int
+    {
+        return $this->minChargeableIncome;
+    }
+
+    public function setMinChargeableIncome(int $minChargeableIncome): void
+    {
+        $this->minChargeableIncome = $minChargeableIncome;
+    }
+
+    public function getMaxChargeableIncome(): int
+    {
+        return $this->maxChargeableIncome;
+    }
+
+    public function setMaxChargeableIncome(int $maxChargeableIncome): void
+    {
+        $this->maxChargeableIncome = $maxChargeableIncome;
     }
 
     public function getAgeOfChild(): int
