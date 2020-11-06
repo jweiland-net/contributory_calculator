@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator" target-language="ro">
+    <header/>
+    <body>
+      <trans-unit id="plugin.contributorycalculator.title">
+        <target>Beitragsrechner</target>
+      </trans-unit>
+      <trans-unit id="plugin.contributorycalculator.description">
+        <target>Dieses Plugin bindet einen Betreuungsrechner auf der Webseite ein über den den Besucher ausrechnen können, welche Kosten für Ihre Kinder auf sie zukommen</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care">
+        <target>Betreuungsform</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.title">
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.value_below_3">
+        <target>Faktor für Kinder unter 3 Jahre in %</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
+        <target>Faktor für Kinder über 3 Jahre in %</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search">
+        <target>Suche</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+        <target>Alter des Kindes</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
+        <target>Anzahl der gewünschten Betreuungsstunden pro Woche</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+        <target>Anrechenbares Einkommen</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.step">
+        <target>Anzahl zu betreuende Kinder</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
