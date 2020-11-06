@@ -29,14 +29,8 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
 				<target>Alter des Kindes</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
-				<target>Anzahl der gewünschten Betreuungsstunden pro Woche</target>
-			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
 				<target>Anrechenbares Einkommen</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.step">
-				<target>Anzahl zu betreuende Kinder</target>
 			</trans-unit>
 		</body>
 	</file>

@@ -45,6 +45,9 @@ class CalculatorTest extends UnitTestCase
         $this->expectExceptionCode(1604480281);
 
         $search = new Search();
+        $search->setChargeableIncome(36000);
+        $search->setMinChargeableIncome(25000);
+        $search->setMaxChargeableIncome(70000);
 
         $this->subject->getTotalPerMonth($search);
     }
@@ -60,6 +63,9 @@ class CalculatorTest extends UnitTestCase
         $care = new Care();
 
         $search = new Search();
+        $search->setChargeableIncome(36000);
+        $search->setMinChargeableIncome(25000);
+        $search->setMaxChargeableIncome(70000);
         $search->setAgeOfChild(24);
         $search->setCare($care);
 
@@ -79,6 +85,9 @@ class CalculatorTest extends UnitTestCase
         $care->setValueAbove3('');
 
         $search = new Search();
+        $search->setChargeableIncome(36000);
+        $search->setMinChargeableIncome(25000);
+        $search->setMaxChargeableIncome(70000);
         $search->setAgeOfChild(1);
         $search->setCare($care);
 
@@ -117,6 +126,8 @@ class CalculatorTest extends UnitTestCase
 
         $search = new Search();
         $search->setChargeableIncome($income);
+        $search->setMinChargeableIncome(25000);
+        $search->setMaxChargeableIncome(70000);
         $search->setAgeOfChild(1);
         $search->setCare($care);
 
@@ -158,6 +169,8 @@ class CalculatorTest extends UnitTestCase
 
         $search = new Search();
         $search->setChargeableIncome($income);
+        $search->setMinChargeableIncome(25000);
+        $search->setMaxChargeableIncome(70000);
         $search->setAgeOfChild(2);
         $search->setCare($care);
 

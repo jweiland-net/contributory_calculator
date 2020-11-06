@@ -1,0 +1,36 @@
+<T3DataStructure>
+	<sheets>
+		<sDEFAULT>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:contributory_calculator/Resources/Private/Language/FlexForm.xlf:sheetGeneral</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.minChargeableIncome>
+						<TCEforms>
+							<label>LLL:EXT:contributory_calculator/Resources/Private/Language/FlexForm.xlf:minChargeableIncome</label>
+							<description>LLL:EXT:contributory_calculator/Resources/Private/Language/FlexForm.xlf:minChargeableIncome.description</description>
+							<config>
+								<type>input</type>
+								<size>10</size>
+								<default>25000</default>
+							</config>
+						</TCEforms>
+					</settings.minChargeableIncome>
+					<settings.maxChargeableIncome>
+						<TCEforms>
+							<label>LLL:EXT:contributory_calculator/Resources/Private/Language/FlexForm.xlf:maxChargeableIncome</label>
+							<description>LLL:EXT:contributory_calculator/Resources/Private/Language/FlexForm.xlf:maxChargeableIncome.description</description>
+							<config>
+								<type>input</type>
+								<size>10</size>
+								<default>70000</default>
+							</config>
+						</TCEforms>
+					</settings.maxChargeableIncome>
+				</el>
+			</ROOT>
+		</sDEFAULT>
+	</sheets>
+</T3DataStructure>
