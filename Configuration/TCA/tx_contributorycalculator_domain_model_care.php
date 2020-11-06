@@ -7,6 +7,7 @@ return [
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => true,
+        'sortby' => 'sorting',
         'versioningWS' => true,
         'origUid' => 't3_origuid',
         'versioning_followPages' => true,
@@ -20,7 +21,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title',
-        'iconfile' => 'EXT:contributory_calculator/Resources/Public/Icons/tx_contributorycalculator_domain_model_care.gif'
+        'iconfile' => 'EXT:contributory_calculator/Resources/Public/Icons/tx_contributorycalculator_domain_model_care.svg'
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, hidden, title, value_below_3, value_above_3',
