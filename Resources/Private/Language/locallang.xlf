@@ -22,10 +22,10 @@
 				<source>Above 3 years</source>
 			</trans-unit>
 			<trans-unit id="calculate">
-				<source>Calculate</source>
+				<source>calculate</source>
 			</trans-unit>
 			<trans-unit id="result">
-				<source>Result</source>
+				<source>Calculated care costs</source>
 			</trans-unit>
 			<trans-unit id="month">
 				<source>Month</source>
