@@ -9,6 +9,11 @@ plugin.tx_contributorycalculator {
     storagePid = {$plugin.tx_contributorycalculator.persistence.storagePid}
   }
 
+  settings {
+    minChargeableIncome = {$plugin.tx_contributorycalculator.settings.minChargeableIncome}
+    maxChargeableIncome = {$plugin.tx_contributorycalculator.settings.maxChargeableIncome}
+  }
+
   _CSS_DEFAULT_STYLE (
     .f3-form-error {
       background-color:#FF9F9F;
