@@ -23,12 +23,12 @@ class Calculator
     public function getTotalPerMonth(Search $search): float
     {
         $chargeableIncome = $search->getChargeableIncome();
-        if ($chargeableIncome < 25000) {
+        if ($chargeableIncome < $search->getMinChargeableIncome()) {
             return 0.0;
         }
 
-        if ($chargeableIncome > 70000) {
-            $chargeableIncome = 70000;
+        if ($chargeableIncome > $search->getMaxChargeableIncome()) {
+            $chargeableIncome = $search->getMaxChargeableIncome();
         }
 
         $this->validateSearch($search);

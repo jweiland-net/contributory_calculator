@@ -7,8 +7,14 @@ plugin.tx_contributorycalculator {
     # cat=plugin.tx_contributorycalculator/file; type=string; label=Path to template layouts (FE)
     layoutRootPath = EXT:contributory_calculator/Resources/Private/Layouts/
   }
+
   persistence {
     # cat=plugin.tx_contributorycalculator//a; type=string; label=Default storage PID
     storagePid =
+  }
+
+  settings {
+    minChargeableIncome = 25000
+    maxChargeableIncome = 70000
   }
 }
