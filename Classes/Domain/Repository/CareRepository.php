@@ -23,6 +23,6 @@ class CareRepository extends Repository
      * @var array
      */
     protected $defaultOrderings = [
-        'title' => QueryInterface::ORDER_ASCENDING
+        'sorting' => QueryInterface::ORDER_ASCENDING
     ];
 }
