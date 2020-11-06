@@ -24,19 +24,13 @@
 			</trans-unit>
 
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
-				<source>Suche</source>
+				<source>Search</source>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
-				<source>Alter des Kindes</source>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
-				<source>Anzahl der gewünschten Betreuungsstunden pro Woche</source>
+				<source>Age of Child</source>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
-				<source>Anrechenbares Einkommen</source>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_search.step">
-				<source>Anzahl zu betreuende Kinder</source>
+				<source>Chargeable Income</source>
 			</trans-unit>
 		</body>
 	</file>
