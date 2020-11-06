@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Controller;
 
+use JWeiland\ContributoryCalculator\Domain\Factory\SearchFactory;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 use JWeiland\ContributoryCalculator\Service\Calculator;
@@ -30,15 +31,21 @@ class SearchController extends ActionController
      */
     protected $careRepository;
 
-    public function __construct(CareRepository $chargeableIncomeRepository)
+    /**
+     * @var SearchFactory
+     */
+    protected $searchFactory;
+
+    public function __construct(CareRepository $chargeableIncomeRepository, SearchFactory $searchFactory)
     {
         $this->careRepository = $chargeableIncomeRepository;
+        $this->searchFactory = $searchFactory;
     }
 
     public function searchAction(): void
     {
         $this->view->assign('careForms', $this->careRepository->findAll());
-        $this->view->assign('search', GeneralUtility::makeInstance(Search::class));
+        $this->view->assign('search', $this->searchFactory->getSearch());
     }
 
     /**
@@ -46,9 +53,12 @@ class SearchController extends ActionController
      */
     public function resultAction(Search $search): void
     {
+        $search = $this->searchFactory->getSearch($search);
         $calculator = $this->objectManager->get(Calculator::class);
+
         $this->view->assign('careForms', $this->careRepository->findAll());
         $this->view->assign('search', $search);
+
         try {
             $this->view->assign('result', $calculator->getTotalPerMonth($search));
         } catch (EmptyFactorException $e) {
