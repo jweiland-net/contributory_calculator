@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator" target-language="ru">
+    <header/>
+    <body>
+      <trans-unit id="plugin.contributorycalculator.title">
+        <source>Contributory Calculator</source>
+        <target state="needs-translation">Contributory Calculator</target>
+      </trans-unit>
+      <trans-unit id="plugin.contributorycalculator.description">
+        <source>This plugin will insert a calculator for contributories to show website visitors how much they have to pay for their children</source>
+        <target state="needs-translation">This plugin will insert a calculator for contributories to show website visitors how much they have to pay for their children</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care">
+        <source>Care form</source>
+        <target state="needs-translation">Care form</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.title">
+        <source>Title</source>
+        <target state="needs-translation">Title</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.value_below_3">
+        <source>Factor in % for children below 3 years</source>
+        <target state="needs-translation">Factor in % for children below 3 years</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
+        <source>Factor in % for children above 3 years</source>
+        <target state="needs-translation">Factor in % for children above 3 years</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search">
+        <source>Suche</source>
+        <target state="needs-translation">Suche</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+        <source>Alter des Kindes</source>
+        <target state="needs-translation">Alter des Kindes</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.hours_of_childcare">
+        <source>Anzahl der gewünschten Betreuungsstunden pro Woche</source>
+        <target state="needs-translation">Anzahl der gewünschten Betreuungsstunden pro Woche</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+        <source>Anrechenbares Einkommen</source>
+        <target state="needs-translation">Anrechenbares Einkommen</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.step">
+        <source>Anzahl zu betreuende Kinder</source>
+        <target state="needs-translation">Anzahl zu betreuende Kinder</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
