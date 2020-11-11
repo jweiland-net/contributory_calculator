@@ -14,7 +14,7 @@
 				<target>Betreuungsform</target>
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
-				<target>Anrechenbares Einkommen</target>
+				<target>Anrechenbares Jahreseinkommen</target>
 			</trans-unit>
 			<trans-unit id="ageOfChild.1">
 				<target>Unter 3 Jahren</target>
