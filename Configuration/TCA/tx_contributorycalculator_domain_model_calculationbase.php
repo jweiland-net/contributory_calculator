@@ -1,16 +1,13 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_care',
-        'label' => 'title',
+        'title' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase',
+        'label' => 'year_of_validity',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'dividers2tabs' => true,
         'sortby' => 'sorting',
-        'versioningWS' => true,
         'origUid' => 't3_origuid',
-        'versioning_followPages' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
@@ -20,22 +17,24 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title',
-        'iconfile' => 'EXT:contributory_calculator/Resources/Public/Icons/tx_contributorycalculator_domain_model_care.svg'
+        'searchFields' => 'year_of_validity',
+        'iconfile' => 'EXT:contributory_calculator/Resources/Public/Icons/tx_contributorycalculator_domain_model_calculationbase.svg'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, hidden, title, calculation_bases',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, hidden, title, value_below_3, value_above_3',
     ],
     'types' => [
         '1' => [
             'showitem' => '--palette--;;languageHidden,
-            title,calculation_bases,
+            care_form,year_of_validity,
+            --palette--;;valuesPercent,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ],
     ],
     'palettes' => [
         'languageHidden' => ['showitem' => 'sys_language_uid, l10n_parent, hidden'],
+        'valuesPercent' => ['showitem' => 'value_below_3, value_above_3'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
         ]
@@ -146,22 +145,67 @@ return [
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly'
         ],
-        'title' => [
+        'care_form' => [
+            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.care_form',
+            'config' => [
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_contributorycalculator_domain_model_care',
+                'maxitems' => 1,
+                'minitems' => 1,
+                'size' => 1
+            ]
+        ],
+        'year_of_validity' => [
+            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.year_of_validity',
+            'config' => [
+                'type' => 'input',
+                'size' => 5,
+                'eval' => 'trim,int',
+                'range' => [
+                    'lower' => 1970,
+                    'upper' => 2100
+                ],
+                'default' => (static function() { return (new DateTime())->format('Y'); })(),
+                'slider' => [
+                    'step' => 1,
+                    'width' => 200
+                ]
+            ],
+        ],
+        'value_below_3' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_care.title',
+            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.value_below_3',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'range' => [
+                    'lower' => 0,
+                    'upper' => 100
+                ],
+                'slider' => [
+                    'step' => 0.1,
+                    'width' => 200
+                ]
             ],
         ],
-        'calculation_bases' => [
-            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_care.calculation_bases',
+        'value_above_3' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.value_above_3',
             'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_contributorycalculator_domain_model_calculationbase',
-                'foreign_field' => 'care_form'
-            ]
-        ]
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'range' => [
+                    'lower' => 0,
+                    'upper' => 100
+                ],
+                'slider' => [
+                    'step' => 0.1,
+                    'width' => 200
+                ]
+            ],
+        ],
     ]
 ];

@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\ContributoryCalculator\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Domain model which represents the different kinds of care forms
@@ -24,14 +25,14 @@ class Care extends AbstractEntity
     protected $title = '';
 
     /**
-     * @var string
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\ContributoryCalculator\Domain\Model\CalculationBase>
      */
-    protected $valueBelow3 = '0';
+    protected $calculationBases;
 
-    /**
-     * @var string
-     */
-    protected $valueAbove3 = '0';
+    public function __construct()
+    {
+        $this->calculationBases = new ObjectStorage();
+    }
 
     public function getTitle(): string
     {
@@ -43,34 +44,19 @@ class Care extends AbstractEntity
         $this->title = $title;
     }
 
-    public function getValueBelow3(): string
+    /**
+     * @return ObjectStorage|CalculationBase[]
+     */
+    public function getCalculationBases(): ObjectStorage
     {
-        return $this->valueBelow3;
+        return $this->calculationBases;
     }
 
-    public function setValueBelow3(string $valueBelow3): void
+    /**
+     * @param ObjectStorage $calculationBases
+     */
+    public function setCalculationBases(ObjectStorage $calculationBases)
     {
-        $this->valueBelow3 = $valueBelow3;
-    }
-
-    public function getValueAbove3(): string
-    {
-        return $this->valueAbove3;
-    }
-
-    public function setValueAbove3(string $valueAbove3): void
-    {
-        $this->valueAbove3 = $valueAbove3;
-    }
-
-    public function getValueForSearch(Search $search): string
-    {
-        if ($search->getAgeOfChild() === 1) {
-            return $this->getValueBelow3();
-        }
-        if ($search->getAgeOfChild() === 2) {
-            return $this->getValueAbove3();
-        }
-        throw new \Exception('Value for ageOfChild is out of range', 1604480845);
+        $this->calculationBases = $calculationBases;
     }
 }

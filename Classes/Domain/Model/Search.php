@@ -48,6 +48,11 @@ class Search extends AbstractEntity
     protected $ageOfChild = 1;
 
     /**
+     * @var int
+     */
+    protected $yearOfValidity = 0;
+
+    /**
      * @var \JWeiland\ContributoryCalculator\Domain\Model\Care
      * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
@@ -101,5 +106,21 @@ class Search extends AbstractEntity
     public function setCare(?Care $care): void
     {
         $this->care = $care;
+    }
+
+    /**
+     * @return int
+     */
+    public function getYearOfValidity(): int
+    {
+        return $this->yearOfValidity;
+    }
+
+    /**
+     * @param int $yearOfValidity
+     */
+    public function setYearOfValidity(int $yearOfValidity): void
+    {
+        $this->yearOfValidity = $yearOfValidity;
     }
 }

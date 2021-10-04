@@ -32,6 +32,9 @@ Add care form records
 Create a folder to store those records at one place and try not to store them directly on your "page".
 Then add as much records as you need of type "Care".
 
+The "Care" record contains a relation to calculation base records. You can add one calculation base
+per year for your different care forms.
+
 Custom storage page for records
 ================================
 

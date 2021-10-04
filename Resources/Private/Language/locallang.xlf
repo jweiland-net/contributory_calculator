@@ -33,12 +33,21 @@
 			<trans-unit id="currency">
 				<source>€</source>
 			</trans-unit>
+			<trans-unit id="yearOfValidity">
+				<source>Year of validity</source>
+			</trans-unit>
 
 			<trans-unit id="error.childTooYoung.title">
 				<source>Note</source>
 			</trans-unit>
 			<trans-unit id="error.childTooYoung.description">
 				<source>Your child is too young for your chosen care form.</source>
+			</trans-unit>
+			<trans-unit id="error.noCalculationBase.title">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="error.noCalculationBase.description">
+				<source>The selected module can not be calculated for the year %d.</source>
 			</trans-unit>
 		</body>
 	</file>

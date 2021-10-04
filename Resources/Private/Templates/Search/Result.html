@@ -1,11 +1,12 @@
 <f:layout name="Default"/>
 
 <f:section name="main">
-	<f:render partial="Search/Form" section="renderValidationResults" />
-
-	<f:render partial="Search/Form" arguments="{_all}" />
-
-	<h3 class="margintop csc-frame-rulerBefore">
-		{f:translate(key: 'result')}: {result -> f:format.number(decimals: 0)} {f:translate(key: 'currency')} / {f:translate(key: 'month')}
-	</h3>
+	<div class="frame-indent">
+		<f:render partial="Search/Form" section="renderValidationResults"/>
+		<f:render partial="Search/Form" arguments="{_all}"/>
+		<h3>
+			{f:translate(key: 'result')}: {result -> f:format.number(decimals: 0)} {f:translate(key: 'currency')} /
+			{f:translate(key: 'month')}
+		</h3>
+	</div>
 </f:section>

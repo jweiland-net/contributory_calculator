@@ -16,11 +16,8 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_care.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_care.value_below_3">
-				<source>Factor in % for children below 3 years</source>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
-				<source>Factor in % for children above 3 years</source>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.calculation_bases">
+				<source>Calculation bases</source>
 			</trans-unit>
 
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
@@ -31,6 +28,22 @@
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
 				<source>Chargeable Income</source>
+			</trans-unit>
+
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase">
+				<source>Calculation base</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.value_below_3">
+				<source>Factor in % for children below 3 years</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.value_above_3">
+				<source>Factor in % for children above 3 years</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.year_of_validity">
+				<source>Year of validity</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.care_form">
+				<source>Care record</source>
 			</trans-unit>
 		</body>
 	</file>

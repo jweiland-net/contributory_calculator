@@ -33,4 +33,7 @@ call_user_func(function () {
             ['source' => 'EXT:contributory_calculator/Resources/Public/Icons/' . $fileName]
         );
     }
+
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['contributoryCalculator_calculationBaseWizard']
+        = \JWeiland\ContributoryCalculator\Updates\CalculationBaseWizard::class;
 });

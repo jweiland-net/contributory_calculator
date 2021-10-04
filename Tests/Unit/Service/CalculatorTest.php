@@ -9,6 +9,7 @@
 
 namespace JWeiland\ContributoryCalculator\Tests;
 
+use JWeiland\ContributoryCalculator\Domain\Model\CalculationBase;
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Service\Calculator;
@@ -80,9 +81,13 @@ class CalculatorTest extends UnitTestCase
         $this->expectExceptionMessage('Child is too old for this kind of care form.');
         $this->expectExceptionCode(1604482527);
 
+        $calculationBase = new CalculationBase();
+        $calculationBase->setValueBelow3(0.0);
+        $calculationBase->setValueAbove3(0.0);
+        $calculationBase->setYearOfValidity(2021);
+
         $care = new Care();
-        $care->setValueBelow3('');
-        $care->setValueAbove3('');
+        $care->getCalculationBases()->attach($calculationBase);
 
         $search = new Search();
         $search->setChargeableIncome(36000);
@@ -90,6 +95,7 @@ class CalculatorTest extends UnitTestCase
         $search->setMaxChargeableIncome(70000);
         $search->setAgeOfChild(1);
         $search->setCare($care);
+        $search->setYearOfValidity(2021);
 
         $this->subject->getTotalPerMonth($search);
     }
@@ -97,14 +103,12 @@ class CalculatorTest extends UnitTestCase
     public function dataProviderForChildrenBelowThreeYears()
     {
         return [
-            'negative income' => [-32000, '4.0', 116.0],
-            'too low income' => [3600, '4.0', 0.0],
-            'low income' => [25000, '4.0', 90.0],
-            'middle income' => [32000, '4.0', 116.0],
-            'high income' => [70000, '4.0', 254.0],
-            'too high income' => [123456789, '4.0', 254.0],
-            'middle income with german factor' => [32000, '4.0', 116.0],
-            'middle income with thousands separator factor' => [32000, '1.4,5', 421.0],
+            'negative income' => [-32000, 4.0, 116.0],
+            'too low income' => [3600, 4.0, 0.0],
+            'low income' => [25000, 4.0, 90.0],
+            'middle income' => [32000, 4.0, 116.0],
+            'high income' => [70000, 4.0, 254.0],
+            'too high income' => [123456789, 4.0, 254.0]
         ];
     }
 
@@ -112,17 +116,21 @@ class CalculatorTest extends UnitTestCase
      * @test
      * @dataProvider dataProviderForChildrenBelowThreeYears
      * @param int $income
-     * @param string $factor
+     * @param float $factor
      * @param float $expectedResult
      */
     public function getTotalPerMonthWithChildrenYoungerThanThreeYears(
         int $income,
-        string $factor,
+        float $factor,
         float $expectedResult
     ) {
+        $calculationBase = new CalculationBase();
+        $calculationBase->setValueBelow3($factor);
+        $calculationBase->setValueAbove3(24.0);
+        $calculationBase->setYearOfValidity(2021);
+
         $care = new Care();
-        $care->setValueBelow3($factor);
-        $care->setValueAbove3('24');
+        $care->getCalculationBases()->attach($calculationBase);
 
         $search = new Search();
         $search->setMinChargeableIncome(25000);
@@ -130,6 +138,7 @@ class CalculatorTest extends UnitTestCase
         $search->setChargeableIncome($income);
         $search->setAgeOfChild(1);
         $search->setCare($care);
+        $search->setYearOfValidity(2021);
 
         self::assertSame(
             $expectedResult,
@@ -140,14 +149,12 @@ class CalculatorTest extends UnitTestCase
     public function dataProviderForChildrenAboveThreeYears()
     {
         return [
-            'negative income' => [-32000, '2.5', 72.0],
-            'too low income' => [3600, '2.5', 0.0],
-            'low income' => [25000, '2.5', 56.0],
-            'middle income' => [32000, '2.5', 72.0],
-            'high income' => [70000, '2.5', 159.0],
-            'too high income' => [123456789, '2.5', 159.0],
-            'middle income with german factor' => [32000, '2,5', 72.0],
-            'middle income with thousands separator factor' => [32000, '2.5,8', 750.0],
+            'negative income' => [-32000, 2.5, 72.0],
+            'too low income' => [3600, 2.5, 0.0],
+            'low income' => [25000, 2.5, 56.0],
+            'middle income' => [32000, 2.5, 72.0],
+            'high income' => [70000, 2.5, 159.0],
+            'too high income' => [123456789, 2.5, 159.0]
         ];
     }
 
@@ -155,17 +162,21 @@ class CalculatorTest extends UnitTestCase
      * @test
      * @dataProvider dataProviderForChildrenAboveThreeYears
      * @param int $income
-     * @param string $factor
+     * @param float $factor
      * @param float $expectedResult
      */
     public function getTotalPerMonthWithChildrenOlderThanThreeYears(
         int $income,
-        string $factor,
+        float $factor,
         float $expectedResult
     ) {
+        $calculationBase = new CalculationBase();
+        $calculationBase->setValueBelow3(24.0);
+        $calculationBase->setValueAbove3($factor);
+        $calculationBase->setYearOfValidity(2021);
+
         $care = new Care();
-        $care->setValueBelow3('24');
-        $care->setValueAbove3($factor);
+        $care->getCalculationBases()->attach($calculationBase);
 
         $search = new Search();
         $search->setMinChargeableIncome(25000);
@@ -173,6 +184,7 @@ class CalculatorTest extends UnitTestCase
         $search->setChargeableIncome($income);
         $search->setAgeOfChild(2);
         $search->setCare($care);
+        $search->setYearOfValidity(2021);
 
         self::assertSame(
             $expectedResult,

@@ -31,12 +31,21 @@
 			<trans-unit id="month">
 				<target>Monat</target>
 			</trans-unit>
+			<trans-unit id="yearOfValidity">
+				<target>Berechnung für das Kalenderjahr</target>
+			</trans-unit>
 
 			<trans-unit id="error.childTooYoung.title">
 				<target>Hinweis</target>
 			</trans-unit>
 			<trans-unit id="error.childTooYoung.description">
 				<target>Ihr Kind ist für die ausgewählte Betreuungsform noch zu jung.</target>
+			</trans-unit>
+			<trans-unit id="error.noCalculationBase.title">
+				<target>Hinweis</target>
+			</trans-unit>
+			<trans-unit id="error.noCalculationBase.description">
+				<target>Das ausgewählte Modul kann nicht für die Berechnung der Betreuungskosten für das Jahr %d verwendet werden.</target>
 			</trans-unit>
 		</body>
 	</file>

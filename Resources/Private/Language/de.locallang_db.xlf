@@ -16,11 +16,8 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_care.title">
 				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_care.value_below_3">
-				<target>Faktor für Kinder unter 3 Jahre in %</target>
-			</trans-unit>
-			<trans-unit id="tx_contributorycalculator_domain_model_care.value_above_3">
-				<target>Faktor für Kinder über 3 Jahre in %</target>
+			<trans-unit id="tx_contributorycalculator_domain_model_care.calculation_bases">
+				<target>Berechnungsgrundlagen</target>
 			</trans-unit>
 
 			<trans-unit id="tx_contributorycalculator_domain_model_search">
@@ -31,6 +28,22 @@
 			</trans-unit>
 			<trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
 				<target>Anrechenbares Einkommen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase">
+				<target>Berechnungsgrundlage</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.value_below_3">
+				<target>Faktor für Kinder unter 3 Jahre in %</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.value_above_3">
+				<target>Faktor für Kinder über 3 Jahre in %</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.year_of_validity">
+				<target>Für welches Jahr ist der Preis gültig?</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.care_form">
+				<target>Betreuungsform Datensatz</target>
 			</trans-unit>
 		</body>
 	</file>

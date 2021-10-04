@@ -11,9 +11,11 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Service;
 
+use JWeiland\ContributoryCalculator\Domain\Model\CalculationBase;
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
+use JWeiland\ContributoryCalculator\Service\Exception\NoCalculationBaseException;
 
 /**
  * Class Calculator
@@ -32,7 +34,8 @@ class Calculator
         }
 
         $this->validateSearch($search);
-        $result = $chargeableIncome * ($this->getFactor($search) / 100) / 11;
+        $calculationBase = $this->getCalculationBaseForSearch($search);
+        $result = $chargeableIncome * ($this->getFactor($search, $calculationBase) / 100) / 11;
         return floor($result);
     }
 
@@ -46,25 +49,23 @@ class Calculator
         }
     }
 
-    protected function getFactor(Search $search): float
+    protected function getFactor(Search $search, CalculationBase $calculationBase): float
     {
-        $value = $search->getCare()->getValueForSearch($search);
+        $value = $calculationBase->getValueForSearch($search);
         if (empty($value)) {
             throw new EmptyFactorException('Child is too old for this kind of care form.', 1604482527);
         }
-        return $this->convertStringToFloat($value);
+        return $value;
     }
 
-    protected function convertStringToFloat(string $value): float
+    protected function getCalculationBaseForSearch(Search $search): CalculationBase
     {
-        if (strpos($value, ',') !== false && strpos($value, '.') !== false) {
-            // $value = 1.234,56 ==> 1234.56
-            $value = str_replace('.', '', $value);
-            $value = str_replace(',', '.', $value);
-        } elseif (strpos($value, ',') !== false) {
-            // $value = 8,5 ==> 8.5
-            $value = str_replace(',', '.', $value);
+        $yearOfValidity = $search->getYearOfValidity();
+        foreach ($search->getCare()->getCalculationBases() as $calculationBase) {
+            if ($calculationBase->getYearOfValidity() === $yearOfValidity) {
+                return $calculationBase;
+            }
         }
-        return (float)$value;
+        throw new NoCalculationBaseException('Could not find a calculation base for given search!', 1633102788189);
     }
 }
