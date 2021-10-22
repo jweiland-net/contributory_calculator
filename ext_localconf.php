@@ -36,4 +36,7 @@ call_user_func(function () {
 
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['contributoryCalculator_calculationBaseWizard']
         = \JWeiland\ContributoryCalculator\Updates\CalculationBaseWizard::class;
+
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['contributoryCalculator_flexFormIncomeWizard']
+        = \JWeiland\ContributoryCalculator\Updates\FlexFormIncomeWizard::class;
 });

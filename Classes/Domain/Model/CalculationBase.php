@@ -38,6 +38,16 @@ class CalculationBase extends AbstractEntity
      */
     protected $careForm;
 
+    /**
+     * @var int
+     */
+    protected $minimalIncome = 0;
+
+    /**
+     * @var int
+     */
+    protected $maximumIncome = 0;
+
     public function getValueForSearch(Search $search): float
     {
         if ($search->getAgeOfChild() === 1) {
@@ -111,5 +121,25 @@ class CalculationBase extends AbstractEntity
     public function setCareForm(Care $careForm): void
     {
         $this->careForm = $careForm;
+    }
+
+    public function getMinimalIncome(): int
+    {
+        return $this->minimalIncome;
+    }
+
+    public function setMinimalIncome(int $minimalIncome): void
+    {
+        $this->minimalIncome = $minimalIncome;
+    }
+
+    public function getMaximumIncome(): int
+    {
+        return $this->maximumIncome;
+    }
+
+    public function setMaximumIncome(int $maximumIncome): void
+    {
+        $this->maximumIncome = $maximumIncome;
     }
 }

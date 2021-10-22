@@ -40,9 +40,49 @@ DESCRIPTION;
 
     public function executeUpdate(): bool
     {
+        $this->migrateCareRecords();
+        return true;
+    }
+
+    private function stringToFloat(string $string): float
+    {
+        return (float)str_replace(',', '.', $string);
+    }
+
+    public function updateNecessary(): bool
+    {
+        return $this->getCareRecordsToMigrate() !== [];
+    }
+
+    private function getCareRecordsToMigrate(): array
+    {
+        /** @var QueryBuilder $connection */
+        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable(
+            'tx_contributorycalculator_domain_model_care'
+        );
+        try {
+            $result = $connection
+                ->select('*')
+                ->from('tx_contributorycalculator_domain_model_care')
+                ->where(
+                    $connection->expr()->orX(
+                        $connection->expr()->neq('value_below_3', '""'),
+                        $connection->expr()->neq('value_above_3', '""')
+                    )
+                )
+                ->execute()
+                ->fetchAll();
+        } catch (\Throwable $throwable) {
+            $result = [];
+        }
+        return (array)$result;
+    }
+
+    private function migrateCareRecords(): void
+    {
         $data = [];
         $modifiedUids = [];
-        foreach ($this->getRecordsToMigrate() as $recordToMigrate) {
+        foreach ($this->getCareRecordsToMigrate() as $recordToMigrate) {
             $unixTimestamp = time();
             $data[] = [
                 $recordToMigrate['pid'],
@@ -76,41 +116,6 @@ DESCRIPTION;
                 ->where($queryBuilder->expr()->in('uid', $modifiedUids))
                 ->execute();
         }
-        return true;
-    }
-
-    private function stringToFloat(string $string): float
-    {
-        return (float)str_replace(',', '.', $string);
-    }
-
-    public function updateNecessary(): bool
-    {
-        return $this->getRecordsToMigrate() !== [];
-    }
-
-    private function getRecordsToMigrate(): array
-    {
-        /** @var QueryBuilder $connection */
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable(
-            'tx_contributorycalculator_domain_model_care'
-        );
-        try {
-            $result = $connection
-                ->select('*')
-                ->from('tx_contributorycalculator_domain_model_care')
-                ->where(
-                    $connection->expr()->orX(
-                        $connection->expr()->neq('value_below_3', '""'),
-                        $connection->expr()->neq('value_above_3', '""')
-                    )
-                )
-                ->execute()
-                ->fetchAll();
-        } catch (\Throwable $throwable) {
-            $result = [];
-        }
-        return $result;
     }
 
     public function getPrerequisites(): array

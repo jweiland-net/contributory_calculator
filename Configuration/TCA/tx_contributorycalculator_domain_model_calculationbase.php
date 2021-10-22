@@ -21,12 +21,12 @@ return [
         'iconfile' => 'EXT:contributory_calculator/Resources/Public/Icons/tx_contributorycalculator_domain_model_calculationbase.svg'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, hidden, title, value_below_3, value_above_3',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, hidden, title, value_below_3, value_above_3, minimal_income, maximum_income',
     ],
     'types' => [
         '1' => [
             'showitem' => '--palette--;;languageHidden,
-            care_form,year_of_validity,
+            care_form,year_of_validity,minimal_income,maximum_income,
             --palette--;;valuesPercent,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
@@ -207,5 +207,25 @@ return [
                 ]
             ],
         ],
+        'minimal_income' => [
+            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.minimal_income',
+            'description' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.minimal_income.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim,int',
+                'default' => 25000
+            ]
+        ],
+        'maximum_income' => [
+            'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.maximum_income',
+            'description' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.maximum_income.description',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim,int',
+                'default' => 70000
+            ]
+        ]
     ]
 ];

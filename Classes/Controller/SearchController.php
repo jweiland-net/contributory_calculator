@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Controller;
 
-use JWeiland\ContributoryCalculator\Domain\Factory\SearchFactory;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Domain\Repository\CareRepository;
 use JWeiland\ContributoryCalculator\Helper\SearchFormHelper;
@@ -19,6 +18,7 @@ use JWeiland\ContributoryCalculator\Service\Calculator;
 use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
 use JWeiland\ContributoryCalculator\Service\Exception\NoCalculationBaseException;
 use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
@@ -33,22 +33,15 @@ class SearchController extends ActionController
     protected $careRepository;
 
     /**
-     * @var SearchFactory
-     */
-    protected $searchFactory;
-
-    /**
      * @var SearchFormHelper
      */
     protected $searchFormHelper;
 
     public function __construct(
         CareRepository $chargeableIncomeRepository,
-        SearchFactory $searchFactory,
         SearchFormHelper $searchFormHelper
     ) {
         $this->careRepository = $chargeableIncomeRepository;
-        $this->searchFactory = $searchFactory;
         $this->searchFormHelper = $searchFormHelper;
     }
 
@@ -57,7 +50,7 @@ class SearchController extends ActionController
         $careForms = $this->careRepository->findAll();
         $this->view->assign('careForms', $careForms);
         $this->view->assign('yearsOfValidity', $this->searchFormHelper->getYearsOfValidity($careForms->toArray()));
-        $this->view->assign('search', $this->searchFactory->getSearch());
+        $this->view->assign('search', GeneralUtility::makeInstance(Search::class));
     }
 
     /**
@@ -65,7 +58,6 @@ class SearchController extends ActionController
      */
     public function resultAction(Search $search): void
     {
-        $search = $this->searchFactory->getSearch($search);
         $calculator = $this->objectManager->get(Calculator::class);
 
         $careForms = $this->careRepository->findAll();

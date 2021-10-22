@@ -24,17 +24,18 @@ class Calculator
 {
     public function getTotalPerMonth(Search $search): float
     {
+        $this->validateSearch($search);
+        $calculationBase = $this->getCalculationBaseForSearch($search);
+
         $chargeableIncome = $search->getChargeableIncome();
-        if ($chargeableIncome < $search->getMinChargeableIncome()) {
+        if ($chargeableIncome < $calculationBase->getMinimalIncome()) {
             return 0.0;
         }
 
-        if ($chargeableIncome > $search->getMaxChargeableIncome()) {
-            $chargeableIncome = $search->getMaxChargeableIncome();
+        if ($chargeableIncome > $calculationBase->getMaximumIncome()) {
+            $chargeableIncome = $calculationBase->getMaximumIncome();
         }
 
-        $this->validateSearch($search);
-        $calculationBase = $this->getCalculationBaseForSearch($search);
         $result = $chargeableIncome * ($this->getFactor($search, $calculationBase) / 100) / 11;
         return floor($result);
     }

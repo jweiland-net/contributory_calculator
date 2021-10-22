@@ -45,6 +45,18 @@
 			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.care_form">
 				<target>Betreuungsform Datensatz</target>
 			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income">
+				<target>Minimales Einkommen</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income.description">
+				<source>Alle Personen mit einem geringeren Einkommen als das hier definierte sind von den Betreuungskosten befreit.</source>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income">
+				<target>Maximals Einkommen</target>
+			</trans-unit>
+			<trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income.description">
+				<source>Alle Personen mit einem höheren Einkommen als das hier definierte zahlen den Höchstsatz.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

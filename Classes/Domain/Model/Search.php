@@ -26,20 +26,6 @@ class Search extends AbstractEntity
     protected $chargeableIncome = 0;
 
     /**
-     * This values will be filled by FlexForm settings of plugin
-     *
-     * @var int
-     */
-    protected $minChargeableIncome = 0;
-
-    /**
-     * This values will be filled by FlexForm settings of plugin
-     *
-     * @var int
-     */
-    protected $maxChargeableIncome = 0;
-
-    /**
      * Below 3 years: 1
      * Above 3 years: 2
      *
@@ -68,26 +54,6 @@ class Search extends AbstractEntity
         $this->chargeableIncome = abs($chargeableIncome);
     }
 
-    public function getMinChargeableIncome(): int
-    {
-        return $this->minChargeableIncome;
-    }
-
-    public function setMinChargeableIncome(int $minChargeableIncome): void
-    {
-        $this->minChargeableIncome = $minChargeableIncome;
-    }
-
-    public function getMaxChargeableIncome(): int
-    {
-        return $this->maxChargeableIncome;
-    }
-
-    public function setMaxChargeableIncome(int $maxChargeableIncome): void
-    {
-        $this->maxChargeableIncome = $maxChargeableIncome;
-    }
-
     public function getAgeOfChild(): int
     {
         return $this->ageOfChild;
@@ -108,17 +74,11 @@ class Search extends AbstractEntity
         $this->care = $care;
     }
 
-    /**
-     * @return int
-     */
     public function getYearOfValidity(): int
     {
         return $this->yearOfValidity;
     }
 
-    /**
-     * @param int $yearOfValidity
-     */
     public function setYearOfValidity(int $yearOfValidity): void
     {
         $this->yearOfValidity = $yearOfValidity;

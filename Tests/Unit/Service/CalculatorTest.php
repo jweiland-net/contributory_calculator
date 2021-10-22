@@ -14,6 +14,7 @@ use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Service\Calculator;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Test case
@@ -47,8 +48,6 @@ class CalculatorTest extends UnitTestCase
 
         $search = new Search();
         $search->setChargeableIncome(36000);
-        $search->setMinChargeableIncome(25000);
-        $search->setMaxChargeableIncome(70000);
 
         $this->subject->getTotalPerMonth($search);
     }
@@ -64,11 +63,13 @@ class CalculatorTest extends UnitTestCase
         $care = new Care();
 
         $search = new Search();
-        $search->setChargeableIncome(36000);
-        $search->setMinChargeableIncome(25000);
-        $search->setMaxChargeableIncome(70000);
-        $search->setAgeOfChild(24);
         $search->setCare($care);
+        $search->setChargeableIncome(36000);
+        $search->getCare()->setCalculationBases(new ObjectStorage());
+        $search->getCare()->getCalculationBases()->attach(new CalculationBase());
+        $search->getCare()->getCalculationBases()[0]->setMinimalIncome(25000);
+        $search->getCare()->getCalculationBases()[0]->setMaximumIncome(70000);
+        $search->setAgeOfChild(24);
 
         $this->subject->getTotalPerMonth($search);
     }
@@ -90,11 +91,11 @@ class CalculatorTest extends UnitTestCase
         $care->getCalculationBases()->attach($calculationBase);
 
         $search = new Search();
-        $search->setChargeableIncome(36000);
-        $search->setMinChargeableIncome(25000);
-        $search->setMaxChargeableIncome(70000);
-        $search->setAgeOfChild(1);
         $search->setCare($care);
+        $search->setChargeableIncome(36000);
+        $search->getCare()->getCalculationBases()[0]->setMinimalIncome(25000);
+        $search->getCare()->getCalculationBases()[0]->setMaximumIncome(70000);
+        $search->setAgeOfChild(1);
         $search->setYearOfValidity(2021);
 
         $this->subject->getTotalPerMonth($search);
@@ -133,11 +134,11 @@ class CalculatorTest extends UnitTestCase
         $care->getCalculationBases()->attach($calculationBase);
 
         $search = new Search();
-        $search->setMinChargeableIncome(25000);
-        $search->setMaxChargeableIncome(70000);
+        $search->setCare($care);
+        $search->getCare()->getCalculationBases()[0]->setMinimalIncome(25000);
+        $search->getCare()->getCalculationBases()[0]->setMaximumIncome(70000);
         $search->setChargeableIncome($income);
         $search->setAgeOfChild(1);
-        $search->setCare($care);
         $search->setYearOfValidity(2021);
 
         self::assertSame(
@@ -179,11 +180,11 @@ class CalculatorTest extends UnitTestCase
         $care->getCalculationBases()->attach($calculationBase);
 
         $search = new Search();
-        $search->setMinChargeableIncome(25000);
-        $search->setMaxChargeableIncome(70000);
+        $search->setCare($care);
+        $search->getCare()->getCalculationBases()[0]->setMinimalIncome(25000);
+        $search->getCare()->getCalculationBases()[0]->setMaximumIncome(70000);
         $search->setChargeableIncome($income);
         $search->setAgeOfChild(2);
-        $search->setCare($care);
         $search->setYearOfValidity(2021);
 
         self::assertSame(
