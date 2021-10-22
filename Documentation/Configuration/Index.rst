@@ -18,13 +18,7 @@ Add and configure the plugin
 ============================
 
 Add a new content element of type (Insert plugin) list on a page where contributory calculator should be displayed.
-Then open the tab "Plugin" and select "Contributory Calculator". To finish your work just configure the plugin settings
-depending on your requirements.
-
-.. figure:: ../Images/PluginSettings.png
-   :class: with-shadow
-   :alt: Plugin settings
-   :width: 300px
+Then open the tab "Plugin" and select "Contributory Calculator".
 
 Add care form records
 =====================
@@ -45,3 +39,4 @@ the storage page id where your records are stored. This is the folder you create
    :class: with-shadow
    :alt: Storage page id constant editor
    :width: 300px
+

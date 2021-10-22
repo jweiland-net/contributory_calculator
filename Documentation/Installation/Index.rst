@@ -9,7 +9,15 @@ Installation
 
 Target group: **Administrators**
 
-The extension needs to be installed like any other extension of TYPO3 CMS:
+The extension can be installed like any other extension of TYPO3 CMS:
+
+Via composer
+------------
+
+Use `composer req jweiland/contributory-calculator` in your TYPO3 directory.
+
+Via Extension Manager
+---------------------
 
 #. Visit ExtensionManager
 
