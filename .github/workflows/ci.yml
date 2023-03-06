@@ -20,10 +20,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Set up PHP Version ${{ matrix.php }}
-      run: |
-        sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
-        php -v
+    - name: Setup PHP ${{ matrix.php }}, with composer and extensions
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        extensions: mbstring, dom, zip
 
     - name: Validate composer.json and composer.lock
       run: composer validate
