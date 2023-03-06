@@ -7,6 +7,11 @@
 ChangeLog
 =========
 
+Version 5.0.1
+
+*   Add plugin preview for page module
+*   Allow NULL for column `calculation_bases`
+
 Version 5.0.0
 
 *   Remove TYPO3 9 compatibility
