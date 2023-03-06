@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the package jweiland/contributory-calculator.
  *
@@ -26,12 +28,12 @@ class CalculatorTest extends UnitTestCase
      */
     protected $subject;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->subject = new Calculator();
     }
 
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset(
             $this->subject
@@ -41,7 +43,7 @@ class CalculatorTest extends UnitTestCase
     /**
      * @test
      */
-    public function getTotalPerMonthWithoutCareFormResultsInException()
+    public function getTotalPerMonthWithoutCareFormResultsInException(): void
     {
         $this->expectExceptionMessage('Given care form was not found in our database');
         $this->expectExceptionCode(1604480281);
@@ -55,7 +57,7 @@ class CalculatorTest extends UnitTestCase
     /**
      * @test
      */
-    public function getTotalPerMonthWithoutAgeOfChildResultsInException()
+    public function getTotalPerMonthWithoutAgeOfChildResultsInException(): void
     {
         $this->expectExceptionMessage('You have chosen an invalid age range for your child');
         $this->expectExceptionCode(1604480406);
@@ -77,7 +79,7 @@ class CalculatorTest extends UnitTestCase
     /**
      * @test
      */
-    public function getTotalPerMonthWithTooYoundChildAndWithoutFactorWillResultInException()
+    public function getTotalPerMonthWithTooYoundChildAndWithoutFactorWillResultInException(): void
     {
         $this->expectExceptionMessage('Child is too old for this kind of care form.');
         $this->expectExceptionCode(1604482527);
@@ -101,7 +103,7 @@ class CalculatorTest extends UnitTestCase
         $this->subject->getTotalPerMonth($search);
     }
 
-    public function dataProviderForChildrenBelowThreeYears()
+    public function dataProviderForChildrenBelowThreeYears(): array
     {
         return [
             'negative income' => [-32000, 4.0, 116.0],
@@ -109,22 +111,20 @@ class CalculatorTest extends UnitTestCase
             'low income' => [25000, 4.0, 90.0],
             'middle income' => [32000, 4.0, 116.0],
             'high income' => [70000, 4.0, 254.0],
-            'too high income' => [123456789, 4.0, 254.0]
+            'too high income' => [123456789, 4.0, 254.0],
         ];
     }
 
     /**
      * @test
+     *
      * @dataProvider dataProviderForChildrenBelowThreeYears
-     * @param int $income
-     * @param float $factor
-     * @param float $expectedResult
      */
     public function getTotalPerMonthWithChildrenYoungerThanThreeYears(
         int $income,
         float $factor,
         float $expectedResult
-    ) {
+    ): void {
         $calculationBase = new CalculationBase();
         $calculationBase->setValueBelow3($factor);
         $calculationBase->setValueAbove3(24.0);
@@ -147,7 +147,7 @@ class CalculatorTest extends UnitTestCase
         );
     }
 
-    public function dataProviderForChildrenAboveThreeYears()
+    public function dataProviderForChildrenAboveThreeYears(): array
     {
         return [
             'negative income' => [-32000, 2.5, 72.0],
@@ -155,22 +155,20 @@ class CalculatorTest extends UnitTestCase
             'low income' => [25000, 2.5, 56.0],
             'middle income' => [32000, 2.5, 72.0],
             'high income' => [70000, 2.5, 159.0],
-            'too high income' => [123456789, 2.5, 159.0]
+            'too high income' => [123456789, 2.5, 159.0],
         ];
     }
 
     /**
      * @test
+     *
      * @dataProvider dataProviderForChildrenAboveThreeYears
-     * @param int $income
-     * @param float $factor
-     * @param float $expectedResult
      */
     public function getTotalPerMonthWithChildrenOlderThanThreeYears(
         int $income,
         float $factor,
         float $expectedResult
-    ) {
+    ): void {
         $calculationBase = new CalculationBase();
         $calculationBase->setValueBelow3(24.0);
         $calculationBase->setValueAbove3($factor);
