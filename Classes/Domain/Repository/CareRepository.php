@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/contributory_calculator.
+ * This file is part of the package jweiland/contributory-calculator.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -23,6 +23,6 @@ class CareRepository extends Repository
      * @var array
      */
     protected $defaultOrderings = [
-        'sorting' => QueryInterface::ORDER_ASCENDING
+        'sorting' => QueryInterface::ORDER_ASCENDING,
     ];
 }

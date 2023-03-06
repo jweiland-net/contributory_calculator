@@ -1,7 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 /*
- * This file is part of the package jweiland/contributory_calculator.
+ * This file is part of the package jweiland/contributory-calculator.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -23,12 +25,12 @@ class SearchTest extends UnitTestCase
      */
     protected $subject;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->subject = new Search();
     }
 
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset(
             $this->subject
@@ -38,7 +40,7 @@ class SearchTest extends UnitTestCase
     /**
      * @test
      */
-    public function getChargeableIncomeInitiallyReturns0()
+    public function getChargeableIncomeInitiallyReturns0(): void
     {
         self::assertSame(
             0,
@@ -49,7 +51,7 @@ class SearchTest extends UnitTestCase
     /**
      * @test
      */
-    public function setChargeableIncomeSetsChargeableIncome()
+    public function setChargeableIncomeSetsChargeableIncome(): void
     {
         $this->subject->setChargeableIncome(36000);
 
@@ -62,7 +64,7 @@ class SearchTest extends UnitTestCase
     /**
      * @test
      */
-    public function getAgeOfChildInitiallyReturnsOne()
+    public function getAgeOfChildInitiallyReturnsOne(): void
     {
         self::assertSame(
             1,
@@ -73,7 +75,7 @@ class SearchTest extends UnitTestCase
     /**
      * @test
      */
-    public function setAgeOfChildSetsAgeOfChild()
+    public function setAgeOfChildSetsAgeOfChild(): void
     {
         $this->subject->setAgeOfChild(123456);
 
@@ -86,33 +88,7 @@ class SearchTest extends UnitTestCase
     /**
      * @test
      */
-    public function setAgeOfChildWithStringResultsInInteger()
-    {
-        $this->subject->setAgeOfChild('123Test');
-
-        self::assertSame(
-            123,
-            $this->subject->getAgeOfChild()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function setAgeOfChildWithBooleanResultsInInteger()
-    {
-        $this->subject->setAgeOfChild(true);
-
-        self::assertSame(
-            1,
-            $this->subject->getAgeOfChild()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function getCareInitiallyReturnsNull()
+    public function getCareInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getCare());
     }
@@ -120,7 +96,7 @@ class SearchTest extends UnitTestCase
     /**
      * @test
      */
-    public function setCareSetsCare()
+    public function setCareSetsCare(): void
     {
         $instance = new Care();
         $this->subject->setCare($instance);

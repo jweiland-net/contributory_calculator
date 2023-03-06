@@ -1,6 +1,7 @@
-.. include:: ../Includes.txt
+..  include:: /Includes.rst.txt
 
-.. _configuration:
+
+..  _configuration:
 
 =============
 Configuration
@@ -35,8 +36,7 @@ Custom storage page for records
 Use the constant editor (Template > Constant Editor > plugin.tx_contributorycalculator) to set
 the storage page id where your records are stored. This is the folder you created for your care form records!
 
-.. figure:: ../Images/PluginSettings.png
-   :class: with-shadow
-   :alt: Storage page id constant editor
-   :width: 300px
-
+..  figure:: ../Images/PluginSettings.png
+    :class: with-shadow
+    :alt: Storage page id constant editor
+    :width: 300px

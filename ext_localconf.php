@@ -3,22 +3,22 @@ if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
-call_user_func(function () {
+call_user_func(static function () {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'JWeiland.ContributoryCalculator',
+        'ContributoryCalculator',
         'Contributorycalculator',
         [
-            'Search' => 'search, result',
+            \JWeiland\ContributoryCalculator\Controller\SearchController::class => 'search, result',
         ],
         // non-cacheable actions
         [
-            'Search' => 'result',
+            \JWeiland\ContributoryCalculator\Controller\SearchController::class => 'result',
         ]
     );
 
-    // add calculator plugin to new element wizard
+    // Add calculator plugin to new element wizard
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:contributory_calculator/Configuration/TSconfig/ContentElementWizard.txt">'
+        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:contributory_calculator/Configuration/TSconfig/ContentElementWizard.tsconfig">'
     );
 
     // Register SVG Icon Identifier

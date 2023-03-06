@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/contributory_calculator.
+ * This file is part of the package jweiland/contributory-calculator.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -25,13 +25,21 @@ class Care extends AbstractEntity
     protected $title = '';
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\ContributoryCalculator\Domain\Model\CalculationBase>
+     * @var ObjectStorage<CalculationBase>
      */
     protected $calculationBases;
 
     public function __construct()
     {
         $this->calculationBases = new ObjectStorage();
+    }
+
+    /**
+     * Called again with initialize object, as fetching an entity from the DB does not use the constructor
+     */
+    public function initializeObject(): void
+    {
+        $this->calculationBases = $this->calculationBases ?? new ObjectStorage();
     }
 
     public function getTitle(): string
@@ -52,10 +60,7 @@ class Care extends AbstractEntity
         return $this->calculationBases;
     }
 
-    /**
-     * @param ObjectStorage $calculationBases
-     */
-    public function setCalculationBases(ObjectStorage $calculationBases)
+    public function setCalculationBases(ObjectStorage $calculationBases): void
     {
         $this->calculationBases = $calculationBases;
     }

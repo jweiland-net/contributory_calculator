@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/contributory_calculator.
+ * This file is part of the package jweiland/contributory-calculator.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -17,7 +17,7 @@ use JWeiland\ContributoryCalculator\Helper\SearchFormHelper;
 use JWeiland\ContributoryCalculator\Service\Calculator;
 use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
 use JWeiland\ContributoryCalculator\Service\Exception\NoCalculationBaseException;
-use TYPO3\CMS\Core\Messaging\FlashMessage;
+use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -53,12 +53,9 @@ class SearchController extends ActionController
         $this->view->assign('search', GeneralUtility::makeInstance(Search::class));
     }
 
-    /**
-     * @param Search $search
-     */
     public function resultAction(Search $search): void
     {
-        $calculator = $this->objectManager->get(Calculator::class);
+        $calculator = GeneralUtility::makeInstance(Calculator::class);
 
         $careForms = $this->careRepository->findAll();
         $this->view->assign('careForms', $careForms);
@@ -71,7 +68,7 @@ class SearchController extends ActionController
             $this->addFlashMessage(
                 LocalizationUtility::translate('error.childTooYoung.description', 'contributoryCalculator'),
                 LocalizationUtility::translate('error.childTooYoung.title', 'contributoryCalculator'),
-                FlashMessage::WARNING
+                AbstractMessage::WARNING
             );
             $this->view->assign('result', 0.0);
         } catch (NoCalculationBaseException $exception) {
@@ -82,7 +79,7 @@ class SearchController extends ActionController
                     [$search->getYearOfValidity()]
                 ),
                 LocalizationUtility::translate('error.noCalculationBase.title', 'contributoryCalculator'),
-                FlashMessage::WARNING
+                AbstractMessage::WARNING
             );
             $this->view->assign('result', 0.0);
         }

@@ -6,6 +6,7 @@ services:
 
   JWeiland\ContributoryCalculator\:
     resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
 
   JWeiland\ContributoryCalculator\Service\Calculator:
     public: true

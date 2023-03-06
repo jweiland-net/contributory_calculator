@@ -1,59 +1,56 @@
-.. include:: Includes.txt
+..  include:: /Includes.rst.txt
 
 
-.. Every manual should have a start label for cross-referencing to
-.. start page. Do not remove this!
-
-.. _start:
+..  _start:
 
 =======================
 Contributory Calculator
 =======================
 
-.. only:: html
+:Extension key:
+    contributory_calculator
 
-   :Classification:
-      contributory_calculator
+:Package name:
+    jweiland/contributory-calculator
 
-   :Version:
-      |release|
+:Version:
+    |release|
 
-   :Language:
-      en
+:Language:
+    en
 
-   :Description:
-      Manual covering TYPO3 extension contributory_calculator
+:Author:
+    Stefan Froemken
 
-   :Keywords:
-      contributory, calculator
+:License:
+    This document is published under the
+    `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
+    license.
 
-   :Copyright:
-      2013-2020
+:Rendered:
+    |today|
 
-   :Author:
-      Pascal Rinker
+----
 
-   :Email:
-      projects@jweiland.net
+Extension to calculate contributories in the frontend.
 
-   :License:
-      This document is published under the Open Publication License
-      available from http://www.opencontent.org/openpub/
+----
 
-   :Rendered:
-      |today|
+**Table of Contents:**
 
-   The content of this document is related to TYPO3,
-   a GNU/GPL CMS/Framework available from `www.typo3.org <https://typo3.org/>`__.
+..  toctree::
+    :maxdepth: 2
+    :titlesonly:
 
+    Introduction/Index
+    Installation/Index
+    Configuration/Index
+    ChangeLog/Index
 
-   **Table of Contents**
+..  Meta Menu
 
-.. toctree::
-   :maxdepth: 3
+..  toctree::
+    :hidden:
 
-
-   Introduction/Index
-   Installation/Index
-   Configuration/Index
-   ChangeLog/Index
+    Sitemap
+    genindex
