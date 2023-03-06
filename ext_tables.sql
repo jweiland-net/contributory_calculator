@@ -4,7 +4,7 @@
 CREATE TABLE tx_contributorycalculator_domain_model_care
 (
 	title             varchar(50) DEFAULT '' NOT NULL,
-	calculation_bases text        DEFAULT '' NOT NULL
+	calculation_bases text
 );
 
 #

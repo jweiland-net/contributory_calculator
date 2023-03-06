@@ -24,9 +24,6 @@ return [
         'searchFields' => 'title',
         'iconfile' => 'EXT:contributory_calculator/Resources/Public/Icons/tx_contributorycalculator_domain_model_care.svg',
     ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, hidden, title, calculation_bases',
-    ],
     'types' => [
         '1' => [
             'showitem' => '--palette--;;languageHidden,
@@ -154,6 +151,7 @@ return [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
+                'default' => '',
             ],
         ],
         'calculation_bases' => [
@@ -162,6 +160,7 @@ return [
                 'type' => 'inline',
                 'foreign_table' => 'tx_contributorycalculator_domain_model_calculationbase',
                 'foreign_field' => 'care_form',
+                'default' => 0,
             ],
         ],
     ],
