@@ -7,6 +7,11 @@
 ChangeLog
 =========
 
+Version 5.0.0
+
+*   Remove TYPO3 9 compatibility
+*   Add TYPO3 11 compatibility
+
 Version 4.0.0
 
 *   Add new calculation base records as inline for care forms
