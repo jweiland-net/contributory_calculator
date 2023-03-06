@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/contributory_calculator.
+ * This file is part of the package jweiland/contributory-calculator.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -11,9 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Updates;
 
-use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
@@ -56,10 +54,10 @@ DESCRIPTION;
 
     private function getCareRecordsToMigrate(): array
     {
-        /** @var QueryBuilder $connection */
-        $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable(
+        $connection = $this->getConnectionPool()->getQueryBuilderForTable(
             'tx_contributorycalculator_domain_model_care'
         );
+
         try {
             $result = $connection
                 ->select('*')
@@ -75,7 +73,8 @@ DESCRIPTION;
         } catch (\Throwable $throwable) {
             $result = [];
         }
-        return (array)$result;
+
+        return $result;
     }
 
     private function migrateCareRecords(): void
@@ -91,23 +90,20 @@ DESCRIPTION;
                 (new \DateTime())->format('Y'),
                 $this->stringToFloat($recordToMigrate['value_above_3']),
                 $this->stringToFloat($recordToMigrate['value_below_3']),
-                (int)$recordToMigrate['uid']
+                (int)$recordToMigrate['uid'],
             ];
             $modifiedUids[] = (int)$recordToMigrate['uid'];
         }
+
         if (!empty($data)) {
-            /** @var Connection $connection */
-            $connection = GeneralUtility::makeInstance(ConnectionPool::class)
-                ->getConnectionForTable('tx_contributorycalculator_domain_model_calculationbase');
+            $connection = $this->getConnectionPool()->getConnectionForTable('tx_contributorycalculator_domain_model_calculationbase');
             $connection->bulkInsert(
                 'tx_contributorycalculator_domain_model_calculationbase',
                 $data,
                 ['pid', 'crdate', 'tstamp', 'year_of_validity', 'value_above_3', 'value_below_3', 'care_form']
             );
 
-            /** @var QueryBuilder $queryBuilder */
-            $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
-                ->getQueryBuilderForTable('tx_contributorycalculator_domain_model_care');
+            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_contributorycalculator_domain_model_care');
             $queryBuilder
                 ->update('tx_contributorycalculator_domain_model_care', 'c')
                 ->set('c.value_above_3', '')
@@ -118,8 +114,16 @@ DESCRIPTION;
         }
     }
 
+    /**
+     * @return string[]
+     */
     public function getPrerequisites(): array
     {
         return [DatabaseUpdatedPrerequisite::class];
+    }
+
+    protected function getConnectionPool(): ConnectionPool
+    {
+        return GeneralUtility::makeInstance(ConnectionPool::class);
     }
 }

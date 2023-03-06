@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/contributory_calculator.
+ * This file is part of the package jweiland/contributory-calculator.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -37,6 +37,7 @@ class Calculator
         }
 
         $result = $chargeableIncome * ($this->getFactor($search, $calculationBase) / 100) / 11;
+
         return floor($result);
     }
 
@@ -56,6 +57,7 @@ class Calculator
         if (empty($value)) {
             throw new EmptyFactorException('Child is too old for this kind of care form.', 1604482527);
         }
+
         return $value;
     }
 
@@ -67,6 +69,7 @@ class Calculator
                 return $calculationBase;
             }
         }
+
         throw new NoCalculationBaseException('Could not find a calculation base for given search!', 1633102788189);
     }
 }

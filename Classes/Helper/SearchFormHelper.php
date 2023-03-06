@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/contributory_calculator.
+ * This file is part of the package jweiland/contributory-calculator.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -20,7 +20,6 @@ class SearchFormHelper
 {
     /**
      * @param Care[] $careForms
-     * @return array
      */
     public function getYearsOfValidity(array $careForms): array
     {
@@ -33,6 +32,7 @@ class SearchFormHelper
             }
         }
         asort($years);
+
         return $years;
     }
 }

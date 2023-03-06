@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the package jweiland/contributory_calculator.
+ * This file is part of the package jweiland/contributory-calculator.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -56,26 +56,25 @@ DESCRIPTION;
             return false;
         }
 
-        $calculationBaseConnection = GeneralUtility::makeInstance(ConnectionPool::class)
-            ->getConnectionForTable('tx_contributorycalculator_domain_model_calculationbase');
+        $calculationBaseConnection = $this->getConnectionPool()->getConnectionForTable('tx_contributorycalculator_domain_model_calculationbase');
         $calculationBaseConnection->update(
             'tx_contributorycalculator_domain_model_calculationbase',
             [
                 'minimal_income' => $minimalIncome,
-                'maximum_income' => $maximumIncome
+                'maximum_income' => $maximumIncome,
             ],
             [
-                'deleted' => 0
+                'deleted' => 0,
             ]
         );
 
-        $ttContentConnection = GeneralUtility::makeInstance(ConnectionPool::class)
-            ->getConnectionForTable('tt_content');
+        $ttContentConnection = $this->getConnectionPool()->getConnectionForTable('tt_content');
         $ttContentConnection->update(
             'tt_content',
             ['pi_flexform' => ''],
             ['list_type' => 'contributorycalculator_contributorycalculator']
         );
+
         return true;
     }
 
@@ -87,6 +86,7 @@ DESCRIPTION;
     private function getFlexFormSettingsToMigrate(): array
     {
         $ttContentQueryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
+
         try {
             $firstRecord = $ttContentQueryBuilder
                 ->select('t.pi_flexform')
@@ -111,6 +111,9 @@ DESCRIPTION;
         return $result;
     }
 
+    /**
+     * @return string[]
+     */
     public function getPrerequisites(): array
     {
         return [DatabaseUpdatedPrerequisite::class];
@@ -119,5 +122,10 @@ DESCRIPTION;
     public function setOutput(OutputInterface $output): void
     {
         $this->output = $output;
+    }
+
+    protected function getConnectionPool(): ConnectionPool
+    {
+        return GeneralUtility::makeInstance(ConnectionPool::class);
     }
 }
