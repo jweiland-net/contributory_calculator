@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator" target-language="fr">
+    <header/>
+    <body>
+      <trans-unit id="plugin.contributorycalculator.title">
+        <target>Beitragsrechner</target>
+      </trans-unit>
+      <trans-unit id="plugin.contributorycalculator.description">
+        <target>Dieses Plugin bindet einen Betreuungsrechner auf der Webseite ein über den den Besucher ausrechnen können, welche Kosten für Ihre Kinder auf sie zukommen</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care">
+        <target>Betreuungsform</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.title">
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.calculation_bases">
+        <target>Berechnungsgrundlagen</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search">
+        <target>Suche</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+        <target>Alter des Kindes</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+        <target>Anrechenbares Einkommen</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase">
+        <target>Berechnungsgrundlage</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.value_below_3">
+        <target>Faktor für Kinder unter 3 Jahre in %</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.value_above_3">
+        <target>Faktor für Kinder über 3 Jahre in %</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.year_of_validity">
+        <target>Für welches Jahr ist der Preis gültig?</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.care_form">
+        <target>Betreuungsform Datensatz</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income">
+        <target>Minimales Einkommen</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income.description">
+        <source>Alle Personen mit einem geringeren Einkommen als das hier definierte sind von den Betreuungskosten befreit.</source>
+        <target state="needs-translation">Alle Personen mit einem geringeren Einkommen als das hier definierte sind von den Betreuungskosten befreit.</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income">
+        <target>Maximals Einkommen</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income.description">
+        <source>Alle Personen mit einem höheren Einkommen als das hier definierte zahlen den Höchstsatz.</source>
+        <target state="needs-translation">Alle Personen mit einem höheren Einkommen als das hier definierte zahlen den Höchstsatz.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
