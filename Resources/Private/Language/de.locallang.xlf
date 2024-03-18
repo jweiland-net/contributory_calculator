@@ -3,65 +3,65 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:05:32Z" product-name="contributory_calculator" target-language="de">
     <header/>
     <body>
-      <trans-unit id="tx_contributorycalculator_domain_model_search">
+      <trans-unit id="tx_contributorycalculator_domain_model_search" approved="yes">
         <source>Search</source>
-        <target state="needs-translation">Search</target>
+        <target state="final">Suche</target>
       </trans-unit>
-      <trans-unit id="tx_contributorycalculator_domain_model_search.age_of_child">
+      <trans-unit id="tx_contributorycalculator_domain_model_search.age_of_child" approved="yes">
         <source>Child Age</source>
-        <target state="needs-translation">Child Age</target>
+        <target state="final">Alter des Kindes</target>
       </trans-unit>
-      <trans-unit id="tx_contributorycalculator_domain_model_search.care">
+      <trans-unit id="tx_contributorycalculator_domain_model_search.care" approved="yes">
         <source>Care form</source>
-        <target state="needs-translation">Care form</target>
+        <target state="final">Betreuungsform</target>
       </trans-unit>
-      <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+      <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income" approved="yes">
         <source>Chargeable Income</source>
-        <target state="needs-translation">Chargeable Income</target>
+        <target state="final">Anrechenbares Jahreseinkommen</target>
       </trans-unit>
-      <trans-unit id="ageOfChild.1">
+      <trans-unit id="ageOfChild.1" approved="yes">
         <source>Under 3 years</source>
-        <target state="needs-translation">Under 3 years</target>
+        <target state="final">Unter 3 Jahren</target>
       </trans-unit>
-      <trans-unit id="ageOfChild.2">
+      <trans-unit id="ageOfChild.2" approved="yes">
         <source>Above 3 years</source>
-        <target state="needs-translation">Above 3 years</target>
+        <target state="final">Ab 3 Jahre</target>
       </trans-unit>
-      <trans-unit id="calculate">
+      <trans-unit id="calculate" approved="yes">
         <source>calculate</source>
-        <target state="needs-translation">calculate</target>
+        <target state="final">berechnen</target>
       </trans-unit>
-      <trans-unit id="result">
+      <trans-unit id="result" approved="yes">
         <source>Calculated care costs</source>
-        <target state="needs-translation">Calculated care costs</target>
+        <target state="final">Berechnete Betreuungskosten</target>
       </trans-unit>
-      <trans-unit id="month">
+      <trans-unit id="month" approved="yes">
         <source>Month</source>
-        <target state="needs-translation">Month</target>
+        <target state="final">Monat</target>
       </trans-unit>
-      <trans-unit id="currency">
+      <trans-unit id="currency" approved="yes">
         <source>€</source>
-        <target state="needs-translation">€</target>
+        <target state="final">€</target>
       </trans-unit>
-      <trans-unit id="yearOfValidity">
+      <trans-unit id="yearOfValidity" approved="yes">
         <source>Year of validity</source>
-        <target state="needs-translation">Year of validity</target>
+        <target state="final">Gültigkeitsjahr</target>
       </trans-unit>
-      <trans-unit id="error.childTooYoung.title">
+      <trans-unit id="error.childTooYoung.title" approved="yes">
         <source>Note</source>
-        <target state="needs-translation">Note</target>
+        <target state="final">Hinweis</target>
       </trans-unit>
-      <trans-unit id="error.childTooYoung.description">
+      <trans-unit id="error.childTooYoung.description" approved="yes">
         <source>Your child is too young for your chosen care form.</source>
-        <target state="needs-translation">Your child is too young for your chosen care form.</target>
+        <target state="final">Ihr Kind ist für die ausgewählte Betreuungsform noch zu jung.</target>
       </trans-unit>
-      <trans-unit id="error.noCalculationBase.title">
+      <trans-unit id="error.noCalculationBase.title" approved="yes">
         <source>Note</source>
-        <target state="needs-translation">Note</target>
+        <target state="final">Hinweis</target>
       </trans-unit>
-      <trans-unit id="error.noCalculationBase.description">
+      <trans-unit id="error.noCalculationBase.description" approved="yes">
         <source>The selected module can not be calculated for the year %d.</source>
-        <target state="needs-translation">The selected module can not be calculated for the year %d.</target>
+        <target state="final">Das ausgewählte Modul kann nicht für das Jahr %d berechnet werden.</target>
       </trans-unit>
     </body>
   </file>
