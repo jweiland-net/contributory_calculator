@@ -45,16 +45,16 @@
       <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income">
         <target>Minimales Einkommen</target>
       </trans-unit>
-      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income.description">
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income.description" approved="yes">
         <source>Alle Personen mit einem geringeren Einkommen als das hier definierte sind von den Betreuungskosten befreit.</source>
-        <target state="needs-translation">Alle Personen mit einem geringeren Einkommen als das hier definierte sind von den Betreuungskosten befreit.</target>
+        <target state="final">Alle Personen mit einem geringeren Einkommen als das hier definierte sind von den Betreuungskosten befreit.</target>
       </trans-unit>
       <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income">
         <target>Maximals Einkommen</target>
       </trans-unit>
-      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income.description">
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income.description" approved="yes">
         <source>Alle Personen mit einem höheren Einkommen als das hier definierte zahlen den Höchstsatz.</source>
-        <target state="needs-translation">Alle Personen mit einem höheren Einkommen als das hier definierte zahlen den Höchstsatz.</target>
+        <target state="final">Alle Personen mit einem höheren Einkommen als das hier definierte zahlen den Höchstsatz.</target>
       </trans-unit>
     </body>
   </file>
