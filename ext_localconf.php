@@ -12,8 +12,6 @@ if (!defined('TYPO3')) {
 }
 
 use JWeiland\ContributoryCalculator\Controller\SearchController;
-use JWeiland\ContributoryCalculator\Updates\CalculationBaseWizard;
-use JWeiland\ContributoryCalculator\Updates\FlexFormIncomeWizard;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 call_user_func(static function () {
