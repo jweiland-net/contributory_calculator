@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
@@ -33,9 +34,7 @@ class CareTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTitleInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
@@ -44,9 +43,7 @@ class CareTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTitleSetsTitle(): void
     {
         $this->subject->setTitle('foo bar');

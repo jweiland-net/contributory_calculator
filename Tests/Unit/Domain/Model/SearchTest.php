@@ -13,6 +13,7 @@ namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
@@ -34,9 +35,7 @@ class SearchTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getChargeableIncomeInitiallyReturns0(): void
     {
         self::assertSame(
@@ -45,9 +44,7 @@ class SearchTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setChargeableIncomeSetsChargeableIncome(): void
     {
         $this->subject->setChargeableIncome(36000);
@@ -58,9 +55,7 @@ class SearchTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getAgeOfChildInitiallyReturnsOne(): void
     {
         self::assertSame(
@@ -69,9 +64,7 @@ class SearchTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setAgeOfChildSetsAgeOfChild(): void
     {
         $this->subject->setAgeOfChild(123456);
@@ -82,17 +75,13 @@ class SearchTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getCareInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getCare());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setCareSetsCare(): void
     {
         $instance = new Care();
