@@ -13,7 +13,12 @@
 		{
 			"name": "Stefan Froemken",
 			"email": "projects@jweiland.net",
-			"role": "Developer"
+			"role": "Lead Developer"
+		},
+		{
+			"name": "Hoja Mustaffa Abdul Latheef",
+			"email": "projects@jweiland.net",
+			"role": "Senior Developer"
 		}
 	],
 	"support": {
@@ -22,12 +27,14 @@
 		"source": "https://github.com/jweiland-net/contributory_calculator"
 	},
 	"require": {
-		"typo3/cms-core": "^10.4.36 || ^11.5.23"
+		"typo3/cms-core": "^12.4.8"
 	},
 	"require-dev": {
-		"roave/security-advisories": "dev-latest",
-		"friendsofphp/php-cs-fixer": "^3.10",
-		"nimut/testing-framework": "^6.0"
+		"ergebnis/composer-normalize": "~2.42.0",
+		"friendsofphp/php-cs-fixer": "^3.14",
+		"phpunit/phpunit": "^9.6",
+		"typo3/coding-standards": "^0.6",
+		"typo3/testing-framework": "^7.0.2"
 	},
 	"replace": {
 		"typo3-ter/contributory_calculator": "self.version"
@@ -38,23 +45,19 @@
 		}
 	},
 	"config": {
-		"vendor-dir": ".build/vendor",
 		"allow-plugins": {
+			"ergebnis/composer-normalize": true,
 			"typo3/class-alias-loader": true,
 			"typo3/cms-composer-installers": true
-		}
+		},
+		"bin-dir": ".Build/bin",
+		"vendor-dir": ".Build/vendor"
 	},
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "contributory_calculator",
-			"app-dir": ".build",
-			"web-dir": ".build/public"
+			"app-dir": ".Build",
+			"web-dir": ".Build/public"
 		}
-	},
-	"scripts": {
-		"php:fix": ".build/vendor/bin/php-cs-fixer --config=Build/php-cs-fixer/config.php fix Classes Tests",
-		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
-		"ci:php:fixer": ".build/vendor/bin/php-cs-fixer --config=Build/php-cs-fixer/config.php fix --dry-run -v --show-progress=dots --diff Classes Tests",
-		"ci:tests:unit": ".build/vendor/bin/phpunit -c .build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit"
 	}
 }
