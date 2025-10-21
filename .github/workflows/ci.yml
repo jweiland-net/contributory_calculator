@@ -7,7 +7,6 @@ on:
 jobs:
   testing:
     name: Testing
-r
     runs-on: ubuntu-latest
 
     strategy:
