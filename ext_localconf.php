@@ -1,4 +1,12 @@
 <?php
+
+/*
+ * This file is part of the package jweiland/contributory-calculator.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 if (!defined('TYPO3')) {
     die('Access denied.');
 }
@@ -6,8 +14,8 @@ if (!defined('TYPO3')) {
 use JWeiland\ContributoryCalculator\Controller\SearchController;
 use JWeiland\ContributoryCalculator\Updates\CalculationBaseWizard;
 use JWeiland\ContributoryCalculator\Updates\FlexFormIncomeWizard;
-use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 call_user_func(static function () {
     ExtensionUtility::configurePlugin(
@@ -19,12 +27,12 @@ call_user_func(static function () {
         // non-cacheable actions
         [
             SearchController::class => 'result',
-        ]
+        ],
     );
 
     // Add calculator plugin to new element wizard
     ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:contributory_calculator/Configuration/TSconfig/ContentElementWizard.tsconfig">'
+        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:contributory_calculator/Configuration/TSconfig/ContentElementWizard.tsconfig">',
     );
 
     // Register SVG Icon Identifier

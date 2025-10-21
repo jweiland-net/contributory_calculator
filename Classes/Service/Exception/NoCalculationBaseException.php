@@ -14,6 +14,4 @@ namespace JWeiland\ContributoryCalculator\Service\Exception;
 /**
  * Exception to throw if no calculation matches the current search.
  */
-class NoCalculationBaseException extends \Exception
-{
-}
+class NoCalculationBaseException extends \Exception {}

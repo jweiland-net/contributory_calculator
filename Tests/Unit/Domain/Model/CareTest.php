@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
-use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case
@@ -32,7 +32,7 @@ class CareTest extends UnitTestCase
     protected function tearDown(): void
     {
         unset(
-            $this->subject
+            $this->subject,
         );
     }
 
@@ -43,7 +43,7 @@ class CareTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
@@ -56,7 +56,7 @@ class CareTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 }

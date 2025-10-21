@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
-use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case
@@ -33,7 +33,7 @@ class SearchTest extends UnitTestCase
     protected function tearDown(): void
     {
         unset(
-            $this->subject
+            $this->subject,
         );
     }
 
@@ -44,7 +44,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             0,
-            $this->subject->getChargeableIncome()
+            $this->subject->getChargeableIncome(),
         );
     }
 
@@ -57,7 +57,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             36000,
-            $this->subject->getChargeableIncome()
+            $this->subject->getChargeableIncome(),
         );
     }
 
@@ -68,7 +68,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             1,
-            $this->subject->getAgeOfChild()
+            $this->subject->getAgeOfChild(),
         );
     }
 
@@ -81,7 +81,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             123456,
-            $this->subject->getAgeOfChild()
+            $this->subject->getAgeOfChild(),
         );
     }
 
@@ -103,7 +103,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             $instance,
-            $this->subject->getCare()
+            $this->subject->getCare(),
         );
     }
 }

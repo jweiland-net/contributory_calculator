@@ -62,14 +62,14 @@ DESCRIPTION;
             ],
             [
                 'deleted' => 0,
-            ]
+            ],
         );
 
         $ttContentConnection = $this->getConnectionPool()->getConnectionForTable('tt_content');
         $ttContentConnection->update(
             'tt_content',
             ['pi_flexform' => ''],
-            ['list_type' => 'contributorycalculator_contributorycalculator']
+            ['list_type' => 'contributorycalculator_contributorycalculator'],
         );
 
         return true;
@@ -88,9 +88,9 @@ DESCRIPTION;
             $firstRecord = $ttContentQueryBuilder
                 ->select('t.pi_flexform')
                 ->from('tt_content', 't')->where($ttContentQueryBuilder->expr()->neq('t.pi_flexform', '""'), $ttContentQueryBuilder->expr()->eq(
-                't.list_type',
-                $ttContentQueryBuilder->createNamedParameter('contributorycalculator_contributorycalculator')
-            ))->executeQuery()
+                    't.list_type',
+                    $ttContentQueryBuilder->createNamedParameter('contributorycalculator_contributorycalculator'),
+                ))->executeQuery()
                 ->fetch();
             $result = GeneralUtility::xml2array($firstRecord['pi_flexform']);
             if (!is_array($result)) {

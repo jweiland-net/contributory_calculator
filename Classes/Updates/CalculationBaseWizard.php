@@ -55,7 +55,7 @@ DESCRIPTION;
     private function getCareRecordsToMigrate(): array
     {
         $connection = $this->getConnectionPool()->getQueryBuilderForTable(
-            'tx_contributorycalculator_domain_model_care'
+            'tx_contributorycalculator_domain_model_care',
         );
 
         try {
@@ -93,7 +93,7 @@ DESCRIPTION;
             $connection->bulkInsert(
                 'tx_contributorycalculator_domain_model_calculationbase',
                 $data,
-                ['pid', 'crdate', 'tstamp', 'year_of_validity', 'value_above_3', 'value_below_3', 'care_form']
+                ['pid', 'crdate', 'tstamp', 'year_of_validity', 'value_above_3', 'value_below_3', 'care_form'],
             );
 
             $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_contributorycalculator_domain_model_care');

@@ -15,6 +15,4 @@ namespace JWeiland\ContributoryCalculator\Service\Exception;
  * This Exception will be thrown, if factor in percent is empty.
  * This will mostly happen on care forms for children older than 3 years.
  */
-class EmptyFactorException extends \Exception
-{
-}
+class EmptyFactorException extends \Exception {}
