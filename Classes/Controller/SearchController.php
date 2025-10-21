@@ -18,7 +18,7 @@ use JWeiland\ContributoryCalculator\Service\Calculator;
 use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
 use JWeiland\ContributoryCalculator\Service\Exception\NoCalculationBaseException;
 use Psr\Http\Message\ResponseInterface;
-use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -65,7 +65,7 @@ class SearchController extends ActionController
             $this->addFlashMessage(
                 LocalizationUtility::translate('error.childTooYoung.description', 'contributoryCalculator'),
                 LocalizationUtility::translate('error.childTooYoung.title', 'contributoryCalculator'),
-                AbstractMessage::WARNING,
+                ContextualFeedbackSeverity::WARNING,
             );
             $this->view->assign('result', 0.0);
         } catch (NoCalculationBaseException $exception) {
@@ -76,7 +76,7 @@ class SearchController extends ActionController
                     [$search->getYearOfValidity()],
                 ),
                 LocalizationUtility::translate('error.noCalculationBase.title', 'contributoryCalculator'),
-                AbstractMessage::WARNING,
+                ContextualFeedbackSeverity::WARNING,
             );
             $this->view->assign('result', 0.0);
         }
