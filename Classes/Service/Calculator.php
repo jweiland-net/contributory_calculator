@@ -46,6 +46,7 @@ class Calculator
         if (!$search->getCare() instanceof Care) {
             throw new \Exception('Given care form was not found in our database', 1604480281);
         }
+
         if (!in_array($search->getAgeOfChild(), [1, 2], true)) {
             throw new \Exception('You have chosen an invalid age range for your child', 1604480406);
         }

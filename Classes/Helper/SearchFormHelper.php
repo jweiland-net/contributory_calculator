@@ -31,6 +31,7 @@ class SearchFormHelper
                 }
             }
         }
+
         asort($years);
 
         return $years;

@@ -157,7 +157,7 @@ return [
                     'lower' => 1970,
                     'upper' => 2100,
                 ],
-                'default' => (static function () { return (new DateTime())->format('Y'); })(),
+                'default' => (static fn() => (new DateTime())->format('Y'))(),
                 'slider' => [
                     'step' => 1,
                     'width' => 200,

@@ -7,6 +7,15 @@
 ChangeLog
 =========
 
+Version 7.0.0
+
+*   [TASK] TYPO3 13 LTS Compatibility Fixes
+*   [TASK] Plugin list_type to CType migration
+*   [TASK] Some Configuration fixes
+*   [TASK] Fixed Unit Tests
+*   [TASK] Fixed README Badge in root
+*   [BUGFIX] Fixed Content Element Preview
+
 Version 6.0.0
 
 *   [TASK] TYPO3 12 LTS Compatibility Fixes

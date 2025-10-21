@@ -36,7 +36,7 @@ class Care extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->calculationBases = $this->calculationBases ?? new ObjectStorage();
+        $this->calculationBases ??= new ObjectStorage();
     }
 
     public function getTitle(): string
