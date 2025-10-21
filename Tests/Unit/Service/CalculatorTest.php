@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Tests;
 
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\ContributoryCalculator\Domain\Model\CalculationBase;
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Service\Calculator;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**

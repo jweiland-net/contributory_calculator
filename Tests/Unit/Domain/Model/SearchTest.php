@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
  * Test case
