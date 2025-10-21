@@ -18,36 +18,21 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class CalculationBase extends AbstractEntity
 {
-    /**
-     * @var int
-     */
-    protected $yearOfValidity = 0;
+    protected int $yearOfValidity = 0;
+
+    protected float $valueBelow3 = 0.0;
+
+    protected float $valueAbove3 = 0.0;
+
+    protected Care $careForm;
+
+    protected int $minimalIncome = 0;
+
+    protected int $maximumIncome = 0;
 
     /**
-     * @var float
+     * @throws \Exception
      */
-    protected $valueBelow3 = 0.0;
-
-    /**
-     * @var float
-     */
-    protected $valueAbove3 = 0.0;
-
-    /**
-     * @var Care
-     */
-    protected $careForm;
-
-    /**
-     * @var int
-     */
-    protected $minimalIncome = 0;
-
-    /**
-     * @var int
-     */
-    protected $maximumIncome = 0;
-
     public function getValueForSearch(Search $search): float
     {
         if ($search->getAgeOfChild() === 1) {
@@ -58,7 +43,7 @@ class CalculationBase extends AbstractEntity
             return $this->getValueAbove3();
         }
 
-        throw new \Exception('Value for ageOfChild is out of range', 1604480845);
+        throw new \RuntimeException('Value for ageOfChild is out of range', 1604480845);
     }
 
     public function getYearOfValidity(): int

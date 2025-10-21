@@ -17,7 +17,8 @@ use JWeiland\ContributoryCalculator\Helper\SearchFormHelper;
 use JWeiland\ContributoryCalculator\Service\Calculator;
 use JWeiland\ContributoryCalculator\Service\Exception\EmptyFactorException;
 use JWeiland\ContributoryCalculator\Service\Exception\NoCalculationBaseException;
-use TYPO3\CMS\Core\Messaging\AbstractMessage;
+use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -27,33 +28,29 @@ use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
  */
 class SearchController extends ActionController
 {
-    /**
-     * @var CareRepository
-     */
-    protected $careRepository;
+    protected CareRepository $careRepository;
 
-    /**
-     * @var SearchFormHelper
-     */
-    protected $searchFormHelper;
+    protected SearchFormHelper $searchFormHelper;
 
     public function __construct(
         CareRepository $chargeableIncomeRepository,
-        SearchFormHelper $searchFormHelper
+        SearchFormHelper $searchFormHelper,
     ) {
         $this->careRepository = $chargeableIncomeRepository;
         $this->searchFormHelper = $searchFormHelper;
     }
 
-    public function searchAction(): void
+    public function searchAction(): ResponseInterface
     {
         $careForms = $this->careRepository->findAll();
         $this->view->assign('careForms', $careForms);
         $this->view->assign('yearsOfValidity', $this->searchFormHelper->getYearsOfValidity($careForms->toArray()));
         $this->view->assign('search', GeneralUtility::makeInstance(Search::class));
+
+        return $this->htmlResponse();
     }
 
-    public function resultAction(Search $search): void
+    public function resultAction(Search $search): ResponseInterface
     {
         $calculator = GeneralUtility::makeInstance(Calculator::class);
 
@@ -68,7 +65,7 @@ class SearchController extends ActionController
             $this->addFlashMessage(
                 LocalizationUtility::translate('error.childTooYoung.description', 'contributoryCalculator'),
                 LocalizationUtility::translate('error.childTooYoung.title', 'contributoryCalculator'),
-                AbstractMessage::WARNING
+                ContextualFeedbackSeverity::WARNING,
             );
             $this->view->assign('result', 0.0);
         } catch (NoCalculationBaseException $exception) {
@@ -76,12 +73,14 @@ class SearchController extends ActionController
                 LocalizationUtility::translate(
                     'error.noCalculationBase.description',
                     'contributoryCalculator',
-                    [$search->getYearOfValidity()]
+                    [$search->getYearOfValidity()],
                 ),
                 LocalizationUtility::translate('error.noCalculationBase.title', 'contributoryCalculator'),
-                AbstractMessage::WARNING
+                ContextualFeedbackSeverity::WARNING,
             );
             $this->view->assign('result', 0.0);
         }
+
+        return $this->htmlResponse();
     }
 }

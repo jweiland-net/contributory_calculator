@@ -7,6 +7,16 @@
 ChangeLog
 =========
 
+Version 6.0.0
+
+*   [TASK] TYPO3 12 LTS Compatibility Fixes
+*   [TASK] CGL Issues and Small formatting issues in classes
+*   [TASK] Configuration fixes for TYPO3 12 LTS
+*   [TASK] Test Configuration changes
+*   [TASK] GitIgnore file update
+*   [TASK] Removed old version compatibility
+*   [TASK] Fixed README Badge in root
+
 Version 5.0.1
 
 *   Add plugin preview for page module

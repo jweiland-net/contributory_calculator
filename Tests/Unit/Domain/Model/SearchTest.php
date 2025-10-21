@@ -13,17 +13,14 @@ namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case
  */
 class SearchTest extends UnitTestCase
 {
-    /**
-     * @var Search
-     */
-    protected $subject;
+    protected Search $subject;
 
     protected function setUp(): void
     {
@@ -33,7 +30,7 @@ class SearchTest extends UnitTestCase
     protected function tearDown(): void
     {
         unset(
-            $this->subject
+            $this->subject,
         );
     }
 
@@ -44,7 +41,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             0,
-            $this->subject->getChargeableIncome()
+            $this->subject->getChargeableIncome(),
         );
     }
 
@@ -57,7 +54,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             36000,
-            $this->subject->getChargeableIncome()
+            $this->subject->getChargeableIncome(),
         );
     }
 
@@ -68,7 +65,7 @@ class SearchTest extends UnitTestCase
     {
         self::assertSame(
             1,
-            $this->subject->getAgeOfChild()
+            $this->subject->getAgeOfChild(),
         );
     }
 
@@ -81,7 +78,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             123456,
-            $this->subject->getAgeOfChild()
+            $this->subject->getAgeOfChild(),
         );
     }
 
@@ -103,7 +100,7 @@ class SearchTest extends UnitTestCase
 
         self::assertSame(
             $instance,
-            $this->subject->getCare()
+            $this->subject->getCare(),
         );
     }
 }

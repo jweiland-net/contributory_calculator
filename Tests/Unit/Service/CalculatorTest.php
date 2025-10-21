@@ -15,18 +15,15 @@ use JWeiland\ContributoryCalculator\Domain\Model\CalculationBase;
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
 use JWeiland\ContributoryCalculator\Domain\Model\Search;
 use JWeiland\ContributoryCalculator\Service\Calculator;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case
  */
 class CalculatorTest extends UnitTestCase
 {
-    /**
-     * @var Calculator
-     */
-    protected $subject;
+    protected Calculator $subject;
 
     protected function setUp(): void
     {
@@ -36,7 +33,7 @@ class CalculatorTest extends UnitTestCase
     protected function tearDown(): void
     {
         unset(
-            $this->subject
+            $this->subject,
         );
     }
 
@@ -123,7 +120,7 @@ class CalculatorTest extends UnitTestCase
     public function getTotalPerMonthWithChildrenYoungerThanThreeYears(
         int $income,
         float $factor,
-        float $expectedResult
+        float $expectedResult,
     ): void {
         $calculationBase = new CalculationBase();
         $calculationBase->setValueBelow3($factor);
@@ -143,7 +140,7 @@ class CalculatorTest extends UnitTestCase
 
         self::assertSame(
             $expectedResult,
-            $this->subject->getTotalPerMonth($search)
+            $this->subject->getTotalPerMonth($search),
         );
     }
 
@@ -167,7 +164,7 @@ class CalculatorTest extends UnitTestCase
     public function getTotalPerMonthWithChildrenOlderThanThreeYears(
         int $income,
         float $factor,
-        float $expectedResult
+        float $expectedResult,
     ): void {
         $calculationBase = new CalculationBase();
         $calculationBase->setValueBelow3(24.0);
@@ -187,7 +184,7 @@ class CalculatorTest extends UnitTestCase
 
         self::assertSame(
             $expectedResult,
-            $this->subject->getTotalPerMonth($search)
+            $this->subject->getTotalPerMonth($search),
         );
     }
 }

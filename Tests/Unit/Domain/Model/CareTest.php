@@ -12,17 +12,14 @@ declare(strict_types=1);
 namespace JWeiland\ContributoryCalculator\Tests\Unit\Domain\Model;
 
 use JWeiland\ContributoryCalculator\Domain\Model\Care;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case
  */
 class CareTest extends UnitTestCase
 {
-    /**
-     * @var Care
-     */
-    protected $subject;
+    protected Care $subject;
 
     protected function setUp(): void
     {
@@ -32,7 +29,7 @@ class CareTest extends UnitTestCase
     protected function tearDown(): void
     {
         unset(
-            $this->subject
+            $this->subject,
         );
     }
 
@@ -43,7 +40,7 @@ class CareTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
@@ -56,7 +53,7 @@ class CareTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 }
