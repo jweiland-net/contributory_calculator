@@ -4,13 +4,13 @@ $EM_CONF[$_EXTKEY] = [
     'title' => 'Contributory Calculator',
     'description' => 'Extension to calculate contributories in the frontend.',
     'category' => 'plugin',
-    'author' => 'Stefan Froemken',
+    'author' => 'Stefan Froemken, Hoja Mustaffa Abdul Latheef',
     'author_email' => 'projects@jweiland.net',
     'state' => 'stable',
-    'version' => '5.0.1',
+    'version' => '6.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.36-11.5.99',
+            'typo3' => '12.4.0-12.4.99',
         ],
         'conflicts' => [],
         'suggests' => [],
