@@ -36,7 +36,7 @@ class Search extends AbstractEntity
      * @var Care
      */
     #[Extbase\Validate(['validator' => 'NotEmpty'])]
-    protected Care $care;
+    protected ?Care $care = null;
 
     public function getChargeableIncome(): int
     {

@@ -23,10 +23,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 class CalculatorTest extends UnitTestCase
 {
-    /**
-     * @var Calculator
-     */
-    protected $subject;
+    protected Calculator $subject;
 
     protected function setUp(): void
     {

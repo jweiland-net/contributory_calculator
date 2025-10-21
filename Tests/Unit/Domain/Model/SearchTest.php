@@ -20,10 +20,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 class SearchTest extends UnitTestCase
 {
-    /**
-     * @var Search
-     */
-    protected $subject;
+    protected Search $subject;
 
     protected function setUp(): void
     {
