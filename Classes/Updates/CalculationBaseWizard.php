@@ -88,7 +88,7 @@ DESCRIPTION;
             $modifiedUids[] = (int)$recordToMigrate['uid'];
         }
 
-        if (!empty($data)) {
+        if ($data !== []) {
             $connection = $this->getConnectionPool()->getConnectionForTable('tx_contributorycalculator_domain_model_calculationbase');
             $connection->bulkInsert(
                 'tx_contributorycalculator_domain_model_calculationbase',
@@ -98,7 +98,7 @@ DESCRIPTION;
 
             $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_contributorycalculator_domain_model_care');
             $queryBuilder
-                ->update('tx_contributorycalculator_domain_model_care', 'c')
+                ->update('tx_contributorycalculator_domain_model_care')
                 ->set('c.value_above_3', '')
                 ->set('c.value_below_3', '')
                 ->set('c.calculation_bases', $queryBuilder->createNamedParameter(1))->where($queryBuilder->expr()->in('uid', $modifiedUids))->executeStatement();

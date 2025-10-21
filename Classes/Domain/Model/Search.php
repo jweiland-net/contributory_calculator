@@ -32,9 +32,6 @@ class Search extends AbstractEntity
 
     protected int $yearOfValidity = 0;
 
-    /**
-     * @var Care
-     */
     #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected ?Care $care = null;
 
