@@ -5,12 +5,11 @@ mod.wizards.newContentElement.wizardItems.plugins {
       title = LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:plugin.contributorycalculator.title
       description = LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:plugin.contributorycalculator.description
       tt_content_defValues {
-        CType = list
-        list_type = contributorycalculator_contributorycalculator
+        CType = contributorycalculator_contributorycalculator
       }
     }
   }
 }
 
 # Add CType Preview
-mod.web_layout.tt_content.preview.list.contributorycalculator_contributorycalculator = EXT:contributory_calculator/Resources/Private/Templates/PluginPreview/TableView.html
+mod.web_layout.tt_content.preview.contributorycalculator_contributorycalculator = EXT:contributory_calculator/Resources/Private/Templates/PluginPreview/TableView.html

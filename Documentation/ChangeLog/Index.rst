@@ -7,6 +7,12 @@
 ChangeLog
 =========
 
+Version 7.0.0
+
+*   [TASK] TYPO3 13 LTS Compatibility Fixes
+
+*   [TASK] Fixed README Badge in root
+
 Version 6.0.0
 
 *   [TASK] TYPO3 12 LTS Compatibility Fixes
