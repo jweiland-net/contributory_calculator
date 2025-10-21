@@ -21,29 +21,22 @@ class Search extends AbstractEntity
 {
     /**
      * This values will be filled by the customer from the website
-     *
-     * @var int
      */
-    protected $chargeableIncome = 0;
+    protected int $chargeableIncome = 0;
 
     /**
      * Below 3 years: 1
      * Above 3 years: 2
-     *
-     * @var int
      */
-    protected $ageOfChild = 1;
+    protected int $ageOfChild = 1;
 
-    /**
-     * @var int
-     */
-    protected $yearOfValidity = 0;
+    protected int $yearOfValidity = 0;
 
     /**
      * @var Care
-     * @Extbase\Validate("NotEmpty")
      */
-    protected $care;
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
+    protected Care $care;
 
     public function getChargeableIncome(): int
     {

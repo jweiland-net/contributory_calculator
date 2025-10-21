@@ -19,15 +19,12 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Care extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $title = '';
+    protected string $title = '';
 
     /**
      * @var ObjectStorage<CalculationBase>
      */
-    protected $calculationBases;
+    protected ObjectStorage $calculationBases;
 
     public function __construct()
     {

@@ -61,14 +61,7 @@ DESCRIPTION;
         try {
             $result = $connection
                 ->select('*')
-                ->from('tx_contributorycalculator_domain_model_care')
-                ->where(
-                    $connection->expr()->orX(
-                        $connection->expr()->neq('value_below_3', '""'),
-                        $connection->expr()->neq('value_above_3', '""')
-                    )
-                )
-                ->execute()
+                ->from('tx_contributorycalculator_domain_model_care')->where($connection->expr()->or($connection->expr()->neq('value_below_3', '""'), $connection->expr()->neq('value_above_3', '""')))->executeQuery()
                 ->fetchAll();
         } catch (\Throwable $throwable) {
             $result = [];
@@ -108,9 +101,7 @@ DESCRIPTION;
                 ->update('tx_contributorycalculator_domain_model_care', 'c')
                 ->set('c.value_above_3', '')
                 ->set('c.value_below_3', '')
-                ->set('c.calculation_bases', $queryBuilder->createNamedParameter(1))
-                ->where($queryBuilder->expr()->in('uid', $modifiedUids))
-                ->execute();
+                ->set('c.calculation_bases', $queryBuilder->createNamedParameter(1))->where($queryBuilder->expr()->in('uid', $modifiedUids))->executeStatement();
         }
     }
 
