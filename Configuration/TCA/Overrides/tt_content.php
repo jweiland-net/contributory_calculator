@@ -17,4 +17,7 @@ ExtensionUtility::registerPlugin(
     'ContributoryCalculator',
     'Contributorycalculator',
     'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:plugin.contributorycalculator.title',
+    'ext-contributorycalculator-wizard-icon',
+    'plugins',
+    'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:plugin.contributorycalculator.description',
 );

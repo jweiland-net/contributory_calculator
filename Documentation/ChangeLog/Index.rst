@@ -7,6 +7,10 @@
 ChangeLog
 =========
 
+Version 7.1.0
+
+*   [TASK] Implementation of SiteSets
+
 Version 7.0.0
 
 *   [TASK] TYPO3 13 LTS Compatibility Fixes
