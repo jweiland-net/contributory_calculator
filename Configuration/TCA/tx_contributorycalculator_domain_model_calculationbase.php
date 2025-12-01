@@ -32,7 +32,7 @@ return [
             'showitem' => '--palette--;;languageHidden,
             care_form,year_of_validity,minimal_income,maximum_income,
             --palette--;;valuesPercent,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access',
         ],
     ],
@@ -114,10 +114,8 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
-                'default' => 0,
+                'type' => 'datetime',
+                'format' => 'date',
             ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',
@@ -126,10 +124,8 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime,int',
-                'default' => 0,
+                'type' => 'datetime',
+                'format' => 'date',
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038),
                 ],
@@ -150,9 +146,9 @@ return [
         'year_of_validity' => [
             'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.year_of_validity',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 5,
-                'eval' => 'trim,int',
+                'eval' => 'trim',
                 'range' => [
                     'lower' => 1970,
                     'upper' => 2100,
@@ -202,9 +198,9 @@ return [
             'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.minimal_income',
             'description' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.minimal_income.description',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 30,
-                'eval' => 'trim,int',
+                'eval' => 'trim',
                 'default' => 25000,
             ],
         ],
@@ -212,9 +208,9 @@ return [
             'label' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.maximum_income',
             'description' => 'LLL:EXT:contributory_calculator/Resources/Private/Language/locallang_db.xlf:tx_contributorycalculator_domain_model_calculationbase.maximum_income.description',
             'config' => [
-                'type' => 'input',
+                'type' => 'number',
                 'size' => 30,
-                'eval' => 'trim,int',
+                'eval' => 'trim',
                 'default' => 70000,
             ],
         ],
