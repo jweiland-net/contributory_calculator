@@ -7,6 +7,10 @@
 ChangeLog
 =========
 
+Version 7.1.1
+
+*   [BUGFIX] TCA Migrations
+
 Version 7.1.0
 
 *   [TASK] Implementation of SiteSets
