@@ -1,7 +1,7 @@
 {
 	"name": "jweiland/contributory-calculator",
 	"type": "typo3-cms-extension",
-	"description": "Extension to calculate contributories in the frontend.",
+	"description": "Contributory Calculator - Extension to calculate contributories in the frontend.",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"typo3",
