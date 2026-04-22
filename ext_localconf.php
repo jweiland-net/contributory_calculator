@@ -14,17 +14,14 @@ if (!defined('TYPO3')) {
 use JWeiland\ContributoryCalculator\Controller\SearchController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
-call_user_func(static function () {
-    ExtensionUtility::configurePlugin(
-        'ContributoryCalculator',
-        'Contributorycalculator',
-        [
-            SearchController::class => 'search, result',
-        ],
-        // non-cacheable actions
-        [
-            SearchController::class => 'result',
-        ],
-        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
-    );
-});
+ExtensionUtility::configurePlugin(
+    'ContributoryCalculator',
+    'Contributorycalculator',
+    [
+        SearchController::class => 'search, result',
+    ],
+    [
+        SearchController::class => 'result',
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+);

@@ -7,15 +7,28 @@
 ChangeLog
 =========
 
+Version 7.1.2
+=============
+
+*   [TASK] Remove obsolete database tables
+*   [TASK] Simplify closure for plugin configuration
+*   [TASK] Update extension description in composer.json
+*   [TASK] Relax version constraint for typo3/cms-core
+*   [TASK] Remove unused TCA fields from configuration
+*   [TASK] Update and enhance .editorconfig settings
+
 Version 7.1.1
+=============
 
 *   [BUGFIX] TCA Migrations
 
 Version 7.1.0
+=============
 
 *   [TASK] Implementation of SiteSets
 
 Version 7.0.0
+=============
 
 *   [TASK] TYPO3 13 LTS Compatibility Fixes
 *   [TASK] Plugin list_type to CType migration
@@ -25,6 +38,7 @@ Version 7.0.0
 *   [BUGFIX] Fixed Content Element Preview
 
 Version 6.0.0
+=============
 
 *   [TASK] TYPO3 12 LTS Compatibility Fixes
 *   [TASK] CGL Issues and Small formatting issues in classes
@@ -35,16 +49,19 @@ Version 6.0.0
 *   [TASK] Fixed README Badge in root
 
 Version 5.0.1
+=============
 
 *   Add plugin preview for page module
 *   Allow NULL for column `calculation_bases`
 
 Version 5.0.0
+=============
 
 *   Remove TYPO3 9 compatibility
 *   Add TYPO3 11 compatibility
 
 Version 4.0.0
+=============
 
 *   Add new calculation base records as inline for care forms
 *   Add upgrade wizard to migrate old care form records
@@ -54,6 +71,7 @@ Version 4.0.0
 *   Remove flex form settings
 
 Version 3.0.0
+=============
 
 *   Remove TYPO3 8.7 compatibility
 *   Add TYPO3 10.4 compatibility
