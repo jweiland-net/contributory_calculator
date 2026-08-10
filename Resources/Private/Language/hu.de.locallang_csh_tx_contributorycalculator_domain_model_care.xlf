@@ -5,15 +5,15 @@
     <body>
       <trans-unit id="title.description">
         <source>A title for this care form</source>
-        <target state="needs-translation">A title for this care form</target>
+        <target state="translated">Cím ehhez a gondozási formához</target>
       </trans-unit>
       <trans-unit id="value_below_3.description">
         <source>A value in percent like 3,84 for children below 3 years</source>
-        <target state="needs-translation">A value in percent like 3,84 for children below 3 years</target>
+        <target state="translated">Százalékos érték, például 3,84 a 3 év alatti gyermekek esetén</target>
       </trans-unit>
       <trans-unit id="value_above_3.description">
         <source>A value in percent like 3,84 for children above 3 years</source>
-        <target state="needs-translation">A value in percent like 3,84 for children above 3 years</target>
+        <target state="translated">Százalékos érték, például 3,84 a 3 év feletti gyermekek esetén</target>
       </trans-unit>
     </body>
   </file>
