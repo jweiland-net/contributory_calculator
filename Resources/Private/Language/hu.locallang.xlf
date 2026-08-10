@@ -5,63 +5,63 @@
     <body>
       <trans-unit id="tx_contributorycalculator_domain_model_search">
         <source>Search</source>
-        <target state="needs-translation">Search</target>
+        <target state="translated">Keresés</target>
       </trans-unit>
       <trans-unit id="tx_contributorycalculator_domain_model_search.age_of_child">
         <source>Child Age</source>
-        <target state="needs-translation">Child Age</target>
+        <target state="translated">Gyermek életkora</target>
       </trans-unit>
       <trans-unit id="tx_contributorycalculator_domain_model_search.care">
         <source>Care form</source>
-        <target state="needs-translation">Care form</target>
+        <target state="translated">Gondozási forma</target>
       </trans-unit>
       <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
         <source>Chargeable Income</source>
-        <target state="needs-translation">Chargeable Income</target>
+        <target state="translated">Járulékköteles jövedelem</target>
       </trans-unit>
       <trans-unit id="ageOfChild.1">
         <source>Under 3 years</source>
-        <target state="needs-translation">Under 3 years</target>
+        <target state="translated">3 év alatt</target>
       </trans-unit>
       <trans-unit id="ageOfChild.2">
         <source>Above 3 years</source>
-        <target state="needs-translation">Above 3 years</target>
+        <target state="translated">3 év felett</target>
       </trans-unit>
       <trans-unit id="calculate">
         <source>calculate</source>
-        <target state="needs-translation">calculate</target>
+        <target state="translated">Kiszámítás</target>
       </trans-unit>
       <trans-unit id="result">
         <source>Calculated care costs</source>
-        <target state="needs-translation">Calculated care costs</target>
+        <target state="translated">Kiszámított gondozási költségek</target>
       </trans-unit>
       <trans-unit id="month">
         <source>Month</source>
-        <target state="needs-translation">Month</target>
+        <target state="translated">Hónap</target>
       </trans-unit>
       <trans-unit id="currency">
         <source>€</source>
-        <target state="needs-translation">€</target>
+        <target state="translated">€</target>
       </trans-unit>
       <trans-unit id="yearOfValidity">
         <source>Year of validity</source>
-        <target state="needs-translation">Year of validity</target>
+        <target state="translated">Érvényességi év</target>
       </trans-unit>
       <trans-unit id="error.childTooYoung.title">
         <source>Note</source>
-        <target state="needs-translation">Note</target>
+        <target state="translated">Megjegyzés</target>
       </trans-unit>
       <trans-unit id="error.childTooYoung.description">
         <source>Your child is too young for your chosen care form.</source>
-        <target state="needs-translation">Your child is too young for your chosen care form.</target>
+        <target state="translated">Gyermeke túl fiatal a választott gondozási formához.</target>
       </trans-unit>
       <trans-unit id="error.noCalculationBase.title">
         <source>Note</source>
-        <target state="needs-translation">Note</target>
+        <target state="translated">Megjegyzés</target>
       </trans-unit>
       <trans-unit id="error.noCalculationBase.description">
         <source>The selected module can not be calculated for the year %d.</source>
-        <target state="needs-translation">The selected module can not be calculated for the year %d.</target>
+        <target state="translated">A kiválasztott modul nem számolható ki a(z) %d évre.</target>
       </trans-unit>
     </body>
   </file>
