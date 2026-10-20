@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:05:32Z" product-name="contributory_calculator" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="tx_contributorycalculator_domain_model_search">
+        <source>Search</source>
+        <target>crwdns305880:0crwdne305880:0</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.age_of_child">
+        <source>Child Age</source>
+        <target>crwdns305882:0crwdne305882:0</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.care">
+        <source>Care form</source>
+        <target>crwdns305884:0crwdne305884:0</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+        <source>Chargeable Income</source>
+        <target>crwdns305886:0crwdne305886:0</target>
+      </trans-unit>
+      <trans-unit id="ageOfChild.1">
+        <source>Under 3 years</source>
+        <target>crwdns305888:0crwdne305888:0</target>
+      </trans-unit>
+      <trans-unit id="ageOfChild.2">
+        <source>Above 3 years</source>
+        <target>crwdns305890:0crwdne305890:0</target>
+      </trans-unit>
+      <trans-unit id="calculate">
+        <source>calculate</source>
+        <target>crwdns305892:0crwdne305892:0</target>
+      </trans-unit>
+      <trans-unit id="result">
+        <source>Calculated care costs</source>
+        <target>crwdns305894:0crwdne305894:0</target>
+      </trans-unit>
+      <trans-unit id="month">
+        <source>Month</source>
+        <target>crwdns305896:0crwdne305896:0</target>
+      </trans-unit>
+      <trans-unit id="currency">
+        <source>€</source>
+        <target>crwdns305898:0crwdne305898:0</target>
+      </trans-unit>
+      <trans-unit id="yearOfValidity">
+        <source>Year of validity</source>
+        <target>crwdns305900:0crwdne305900:0</target>
+      </trans-unit>
+      <trans-unit id="error.childTooYoung.title">
+        <source>Note</source>
+        <target>crwdns305902:0crwdne305902:0</target>
+      </trans-unit>
+      <trans-unit id="error.childTooYoung.description">
+        <source>Your child is too young for your chosen care form.</source>
+        <target>crwdns305904:0crwdne305904:0</target>
+      </trans-unit>
+      <trans-unit id="error.noCalculationBase.title">
+        <source>Note</source>
+        <target>crwdns305906:0crwdne305906:0</target>
+      </trans-unit>
+      <trans-unit id="error.noCalculationBase.description">
+        <source>The selected module can not be calculated for the year %d.</source>
+        <target>crwdns305908:0%dcrwdne305908:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
