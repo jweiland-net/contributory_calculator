@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="title.description" approved="yes">
+        <source>A title for this care form</source>
+        <target state="final">Ein Titel für diese Betreuungsform</target>
+      </trans-unit>
+      <trans-unit id="value_below_3.description" approved="yes">
+        <source>A value in percent like 3,84 for children below 3 years</source>
+        <target state="final">Ein Wert in Prozent wie 3.84 für Kinder unter 3 Jahren</target>
+      </trans-unit>
+      <trans-unit id="value_above_3.description" approved="yes">
+        <source>A value in percent like 3,84 for children above 3 years</source>
+        <target state="final">Ein Wert in Prozent wie 3.84 für Kinder ab 3 Jahre</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

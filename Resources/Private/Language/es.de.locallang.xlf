@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" target-language="es-ES" datatype="plaintext" original="messages" date="2016-12-08T11:05:32Z" product-name="contributory_calculator">
+    <header/>
+    <body>
+      <trans-unit id="tx_contributorycalculator_domain_model_search">
+        <target>Suche</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.age_of_child">
+        <target>Alter des Kindes</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.care">
+        <target>Betreuungsform</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+        <target>Anrechenbares Jahreseinkommen</target>
+      </trans-unit>
+      <trans-unit id="ageOfChild.1">
+        <target>Unter 3 Jahren</target>
+      </trans-unit>
+      <trans-unit id="ageOfChild.2">
+        <target>Ab 3 Jahren</target>
+      </trans-unit>
+      <trans-unit id="calculate">
+        <target>Berechnen</target>
+      </trans-unit>
+      <trans-unit id="result">
+        <target>Berechnete Betreuungskosten</target>
+      </trans-unit>
+      <trans-unit id="month">
+        <target>Monat</target>
+      </trans-unit>
+      <trans-unit id="yearOfValidity">
+        <target>Berechnung für das Kalenderjahr</target>
+      </trans-unit>
+      <trans-unit id="error.childTooYoung.title">
+        <target>Hinweis</target>
+      </trans-unit>
+      <trans-unit id="error.childTooYoung.description">
+        <target>Ihr Kind ist für die ausgewählte Betreuungsform noch zu jung.</target>
+      </trans-unit>
+      <trans-unit id="error.noCalculationBase.title">
+        <target>Hinweis</target>
+      </trans-unit>
+      <trans-unit id="error.noCalculationBase.description">
+        <target>Das ausgewählte Modul kann nicht für die Berechnung der Betreuungskosten für das Jahr %d verwendet werden.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

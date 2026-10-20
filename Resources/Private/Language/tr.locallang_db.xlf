@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-12-08T11:20:14Z" product-name="contributory_calculator" target-language="tr">
+    <header/>
+    <body>
+      <trans-unit id="plugin.contributorycalculator.title">
+        <source>Contributory Calculator</source>
+        <target state="needs-translation">Contributory Calculator</target>
+      </trans-unit>
+      <trans-unit id="plugin.contributorycalculator.description">
+        <source>This plugin will insert a calculator for contributories to show website visitors how much they have to pay for their children</source>
+        <target state="needs-translation">This plugin will insert a calculator for contributories to show website visitors how much they have to pay for their children</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care">
+        <source>Care form</source>
+        <target state="needs-translation">Care form</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.title">
+        <source>Title</source>
+        <target state="needs-translation">Title</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_care.calculation_bases">
+        <source>Calculation bases</source>
+        <target state="needs-translation">Calculation bases</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search">
+        <source>Search</source>
+        <target state="needs-translation">Search</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.child_age">
+        <source>Age of Child</source>
+        <target state="needs-translation">Age of Child</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_search.chargeable_income">
+        <source>Chargeable Income</source>
+        <target state="needs-translation">Chargeable Income</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase">
+        <source>Calculation base</source>
+        <target state="needs-translation">Calculation base</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.value_below_3">
+        <source>Factor in % for children below 3 years</source>
+        <target state="needs-translation">Factor in % for children below 3 years</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.value_above_3">
+        <source>Factor in % for children above 3 years</source>
+        <target state="needs-translation">Factor in % for children above 3 years</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.year_of_validity">
+        <source>Year of validity</source>
+        <target state="needs-translation">Year of validity</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.care_form">
+        <source>Care record</source>
+        <target state="needs-translation">Care record</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income">
+        <source>Minimal income</source>
+        <target state="needs-translation">Minimal income</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.minimal_income.description">
+        <source>Each person with a lower income than this has nothing to pay for chosen care form.</source>
+        <target state="needs-translation">Each person with a lower income than this has nothing to pay for chosen care form.</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income">
+        <source>Maximum income</source>
+        <target state="needs-translation">Maximum income</target>
+      </trans-unit>
+      <trans-unit id="tx_contributorycalculator_domain_model_calculationbase.maximum_income.description">
+        <source>Each person with a higher income than this has to pay the max. calculated value.</source>
+        <target state="needs-translation">Each person with a higher income than this has to pay the max. calculated value.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
